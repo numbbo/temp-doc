@@ -1,0 +1,18 @@
+---
+title: Postprocessed data
+---
+
+Below, we display the postprocessed (html) output of the <a href="https://github.com/numbbo/coco">COCO platform</a> when comparing the algorithms COMO-CMA-ES (COMO-100) (Touré et al., 2019; Dufossé and Touré, 2019), SMS-EMOA-DE (Beume et al., 2007; Auger et al., 2016b), and NSGA-II-Matlab (Deb et al., 2002; Auger et al., 2016a) on the bbob-biobj test suite.
+
+<a href="https://numbbo.github.io/bbob-biobj-plots/ppdata-comosmsnsga/COMO-_NSGA-_SMS-E/index.html">Click here</a> to view the output as separate web pages.
+
+<iframe src="https://numbbo.github.io/bbob-biobj-plots/ppdata-comosmsnsga/COMO-_NSGA-_SMS-E/index.html" width="100%" height="750">
+	This IFrame displays the performance of COMO-CMA-ES, SMS-EMOA-DE, and NSGA-II-Matlab.
+</iframe>
+
+## References
+
+ 
+---
+
+The plots are retrieved from the [bbob-biobj-plots](https://github.com/numbbo/bbob-biobj-plots) GitHub repository. 

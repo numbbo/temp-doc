@@ -1,0 +1,1997 @@
+
+\subsection[\texorpdfstring{\protect\(F_1\protect\): Sphere/Sphere}{F1: Sphere/Sphere}]{\texorpdfstring{\protect\(F_1\protect\): Sphere/Sphere}{}}
+\label{index:f1}\label{index:sphere-sphere}
+Combination of two sphere functions (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=5}{\(f_1\) in the \bbob suite}).
+
+\noindent Both objectives are unimodal, highly symmetric, rotational and scale
+invariant. The Pareto set is known to be a straight line and the Pareto
+front is convex. Furthermore, the normalized hypervolume value of the
+entire Pareto front with respect to the nadir point as reference point
+can be computed analytically as the integral
+\(1-\int_{0}^{1} (1-\sqrt{x})^2dx = -\frac{1}{2}+\frac{4}{3}=0.833333\ldots\).
+
+Considered as the simplest bi-objective problem in
+continuous domain.
+%
+Contained in the \emph{separable - separable} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{01}{05}{01}{1}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_2\protect\): Sphere/Ellipsoid separable}{F2: Sphere/Ellipsoid separable}]{\texorpdfstring{\protect\(F_2\protect\): Sphere/Ellipsoid separable}{}}
+\label{index:f2}\label{index:sphere-ellipsoid-separable}
+Combination of the sphere function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=5}{\(f_1\) in the \bbob suite})
+and the separable ellipsoid function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=10}{\(f_2\) in the \bbob suite}).
+
+Both objectives are unimodal and separable. While the first objective is
+truly convex-quadratic with a condition number of 1, the second
+objective is only globally quadratic with smooth local
+irregularities and highly ill-conditioned with a condition number of
+about \(10^6\).
+
+Contained in the \emph{separable - separable} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{02}{05}{01}{2}{5}
+
+\subsection[\texorpdfstring{\protect\(F_3\protect\): Sphere/Attractive sector}{F3: Sphere/Attractive sector}]{\texorpdfstring{\protect\(F_3\protect\): Sphere/Attractive sector}{}}
+\label{index:f3}\label{index:sphere-attractive-sector}
+Combination of the sphere function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=5}{\(f_1\) in the \bbob suite})
+and the attractive sector function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=30}{\(f_6\) in the \bbob suite}).
+
+Both objective functions are unimodal, but only the first objective is
+separable and truly convex quadratic. The attractive sector
+function is highly asymmetric, where only one \emph{hypercone} (with
+angular base area) with a volume of roughly \((1/2)^n\)
+yields low function values. The optimum of it is located at the tip
+of this cone.
+
+Contained in the \emph{separable - moderate} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{03}{05}{01}{3}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_4\protect\): Sphere/Rosenbrock original}{F4: Sphere/Rosenbrock original}]{\texorpdfstring{\protect\(F_4\protect\): Sphere/Rosenbrock original}{}}
+\label{index:sphere-rosenbrock-original}\label{index:f4}
+Combination of the sphere function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=5}{\(f_1\) in the \bbob suite})
+and the original, i.e., unrotated Rosenbrock function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=40}{\(f_8\) in the \bbob suite}).
+
+The first objective is separable and truly convex, the second
+objective is partially separable (tri-band structure). The first
+objective is unimodal while the second objective has a local
+optimum with an attraction volume of about 25\%.
+
+Contained in the \emph{separable - moderate} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{04}{05}{01}{4}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_5\protect\): Sphere/Sharp ridge}{F5: Sphere/Sharp ridge}]{\texorpdfstring{\protect\(F_5\protect\): Sphere/Sharp ridge}{}}
+\label{index:sphere-sharp-ridge}\label{index:f5}
+Combination of the sphere function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=5}{\(f_1\) in the \bbob suite})
+and the sharp ridge function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=65}{\(f_{13}\) in the \bbob suite}).
+
+Both objective functions are unimodal.
+In addition to the simple, separable, and differentiable first
+objective, a sharp, i.e., non-differentiable ridge has to be
+followed for optimizing the (non-separable) second objective. The
+gradient towards the ridge remains constant, when the ridge is
+approached from a given point.
+Approaching the ridge is initially effective, but becomes ineffective
+close to the ridge when the ridge needs to be followed in direction
+to its optimum.  The necessary change in \emph{search behavior} close to
+the ridge is difficult to diagnose, because the gradient
+towards the ridge does not flatten out.
+
+Contained in the \emph{separable - ill-conditioned} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{05}{05}{01}{5}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_6\protect\): Sphere/Sum of Different Powers}{F6: Sphere/Sum of Different Powers}]{\texorpdfstring{\protect\(F_6\protect\): Sphere/Sum of Different Powers}{}}
+\label{index:sphere-sum-of-different-powers}\label{index:f6}
+Combination of the sphere function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=5}{\(f_1\) in the \bbob suite})
+and the sum of different powers function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=70}{\(f_{14}\) in the \bbob suite}).
+
+Both objective functions are unimodal. The first objective is
+separable, the second non-separable.
+When approaching the second objective's optimum, the difference
+in sensitivity between different directions in search space
+increases unboundedly.
+
+Contained in the \emph{separable - ill-conditioned} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{06}{05}{01}{6}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_7\protect\): Sphere/Rastrigin}{F7: Sphere/Rastrigin}]{\texorpdfstring{\protect\(F_7\protect\): Sphere/Rastrigin}{}}
+\label{index:sphere-rastrigin}\label{index:f7}
+Combination of the sphere function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=5}{\(f_1\) in the \bbob suite})
+and the Rastrigin function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=75}{\(f_{15}\) in the \bbob suite}).
+
+In addition to the simple sphere function, the prototypical highly
+multimodal Rastrigin function needs to be solved which has originally
+a very regular and symmetric structure for the placement of the optima.
+Here, however, transformations are performed to alleviate
+the original symmetry and regularity in the second objective.
+
+The properties of the second objective contain non-separability,
+multimodality (roughly \(10^n\) local optima), a conditioning of
+about 10, and a large global amplitude compared to the local amplitudes.
+
+Contained in the \emph{separable - multimodal} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{07}{05}{01}{7}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_8\protect\): Sphere/Schaffer F7, condition 10}{F8: Sphere/Schaffer F7, condition 10}]{\texorpdfstring{\protect\(F_8\protect\): Sphere/Schaffer F7, condition 10}{}}
+\label{index:f8}\label{index:sphere-schaffer-f7-condition-10}
+Combination of the sphere function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=5}{\(f_1\) in the \bbob suite})
+and the Schaffer F7 function with condition number 10 (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=85}{\(f_{17}\) in the \bbob suite}).
+
+In addition to the simple sphere function, an asymmetric, non-separable,
+and highly multimodal function needs to be solved to approach the Pareto
+front/Pareto set where the frequency and amplitude of the modulation
+in the second objective vary. The conditioning of the second objective
+and thus the entire bi-objective function is low.
+
+Contained in the \emph{separable - multimodal} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{08}{05}{01}{8}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_9\protect\): Sphere/Schwefel x*sin(x)}{F9: Sphere/Schwefel x*sin(x)}]{\texorpdfstring{\protect\(F_9\protect\): Sphere/Schwefel x*sin(x)}{}}
+\label{index:f9}\label{index:sphere-schwefel-x-sin-x}
+Combination of the sphere function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=5}{\(f_1\) in the \bbob suite})
+and the Schwefel function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=100}{\(f_{20}\) in the \bbob suite}).
+
+While the first objective function is separable and unimodal,
+the second objective function is partially separable and highly
+multimodal---having the most prominent \(2^n\) minima located
+comparatively close to the corners of the unpenalized search area.
+
+Contained in the \emph{separable - weakly-structured} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{09}{05}{01}{9}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{10}\protect\): Sphere/Gallagher 101 peaks}{F10: Sphere/Gallagher 101 peaks}]{\texorpdfstring{\protect\(F_{10}\protect\): Sphere/Gallagher 101 peaks}{}}
+\label{index:f10}\label{index:sphere-gallagher-101-peaks}
+Combination of the sphere function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=5}{\(f_1\) in the \bbob suite})
+and the Gallagher function with 101 peaks (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=105}{\(f_{21}\) in the \bbob suite}).
+
+While the first objective function is separable and unimodal,
+the second objective function is non-separable and consists
+of 101 optima with position and height being unrelated and
+randomly chosen (different for each instantiation of the function).
+The conditioning around the global optimum of the second
+objective function is about 30.
+
+Contained in the \emph{separable - weakly-structured} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{10}{05}{01}{10}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{11}\protect\): Ellipsoid separable/Ellipsoid separable}{F11: Ellipsoid separable/Ellipsoid separable}]{\texorpdfstring{\protect\(F_{11}\protect\): Ellipsoid separable/Ellipsoid separable}{}}
+\label{index:ellipsoid-separable-ellipsoid-separable}\label{index:f11}
+Combination of two separable ellipsoid functions (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=10}{\(f_2\) in the \bbob suite}).
+
+Both objectives are unimodal, separable, only globally
+quadratic with smooth local irregularities, and highly
+ill-conditioned with a condition number of
+about \(10^6\).
+
+Contained in the \emph{separable - separable} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{11}{05}{01}{11}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{12}\protect\): Ellipsoid separable/Attractive sector}{F12: Ellipsoid separable/Attractive sector}]{\texorpdfstring{\protect\(F_{12}\protect\): Ellipsoid separable/Attractive sector}{}}
+\label{index:f12}\label{index:ellipsoid-separable-attractive-sector}
+Combination of the separable ellipsoid function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=10}{\(f_2\) in the \bbob suite})
+and the attractive sector function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=30}{\(f_6\) in the \bbob suite}).
+
+Both objective functions are unimodal but only the first
+one is separable. The first objective function, in addition,
+is globally quadratic with smooth local irregularities, and
+highly ill-conditioned with a condition number of about
+\(10^6\). The second objective function is highly
+asymmetric, where only one \emph{hypercone} (with
+angular base area) with a volume of roughly \((1/2)^n\)
+yields low function values. The optimum of it is located at
+the tip of this cone.
+
+Contained in the \emph{separable - moderate} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{12}{05}{01}{12}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{13}\protect\): Ellipsoid separable/Rosenbrock original}{F13: Ellipsoid separable/Rosenbrock original}]{\texorpdfstring{\protect\(F_{13}\protect\): Ellipsoid separable/Rosenbrock original}{}}
+\label{index:f13}\label{index:ellipsoid-separable-rosenbrock-original}
+Combination of the separable ellipsoid function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=10}{\(f_2\) in the \bbob suite}) and the original, i.e., unrotated Rosenbrock function
+(\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=40}{\(f_8\) in the \bbob suite}).
+
+Only the first objective is separable and unimodal. The second
+objective is partially separable (tri-band structure) and has a local
+optimum with an attraction volume of about 25\%.
+In addition, the first objective function shows smooth local
+irregularities from a globally convex quadratic function and is
+highly ill-conditioned with a condition number of about
+\(10^6\).
+
+Contained in the \emph{separable - moderate} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{13}{05}{01}{13}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{14}\protect\): Ellipsoid separable/Sharp ridge}{F14: Ellipsoid separable/Sharp ridge}]{\texorpdfstring{\protect\(F_{14}\protect\): Ellipsoid separable/Sharp ridge}{}}
+\label{index:f14}\label{index:ellipsoid-separable-sharp-ridge}
+Combination of the separable ellipsoid function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=10}{\(f_2\) in the \bbob suite}) and the sharp ridge function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=65}{\(f_{13}\) in the \bbob suite}).
+
+Both objective functions are unimodal but only the first one is
+separable.
+
+The first objective is globally quadratic but with smooth local
+irregularities and highly ill-conditioned with a condition number of
+about \(10^6\). For optimizing the second objective, a sharp,
+i.e., non-differentiable ridge has to be followed.
+
+Contained in the \emph{separable - ill-conditioned} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{14}{05}{01}{14}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{15}\protect\): Ellipsoid separable/Sum of Different Powers}{F15: Ellipsoid separable/Sum of Different Powers}]{\texorpdfstring{\protect\(F_{15}\protect\): Ellipsoid separable/Sum of Different Powers}{}}
+\label{index:ellipsoid-separable-sum-of-different-powers}\label{index:f15}
+Combination of the separable ellipsoid function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=10}{\(f_2\) in the \bbob suite}) and the sum of different powers function
+(\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=70}{\(f_{14}\) in the \bbob suite}).
+
+Both objective functions are unimodal but only the first one is
+separable.
+
+The first objective is globally quadratic but with smooth local
+irregularities and highly ill-conditioned with a condition number of
+about \(10^6\). When approaching the second objective's optimum,
+the sensitivities of the variables in the rotated search space become
+more and more different.
+
+Contained in the \emph{separable - ill-conditioned} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{15}{05}{01}{15}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{16}\protect\): Ellipsoid separable/Rastrigin}{F16: Ellipsoid separable/Rastrigin}]{\texorpdfstring{\protect\(F_{16}\protect\): Ellipsoid separable/Rastrigin}{}}
+\label{index:ellipsoid-separable-rastrigin}\label{index:f16}
+Combination of the separable ellipsoid function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=10}{\(f_2\) in the \bbob suite}) and the Rastrigin function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=75}{\(f_{15}\) in the \bbob suite}).
+
+The objective functions show rather opposite properties.
+The first one is separable, the second not. The first one
+is unimodal, the second highly multimodal (roughly \(10^n\) local
+optima). The first one is highly ill-conditioning (condition number of
+\(10^6\)), the second one has a conditioning of about 10. Local
+non-linear transformations are performed in both objective functions
+to alleviate the original symmetry and regularity of the two
+baseline functions.
+
+Contained in the \emph{separable - multimodal} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{16}{05}{01}{16}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{17}\protect\): Ellipsoid separable/Schaffer F7, condition 10}{F17: Ellipsoid separable/Schaffer F7, condition 10}]{\texorpdfstring{\protect\(F_{17}\protect\): Ellipsoid separable/Schaffer F7, condition 10}{}}
+\label{index:ellipsoid-separable-schaffer-f7-condition-10}\label{index:f17}
+Combination of the separable ellipsoid function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=10}{\(f_2\) in the \bbob suite}) and the Schaffer F7 function with condition number 10
+(\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=85}{\(f_{17}\) in the \bbob suite}).
+
+Also here, both single objectives possess opposing properties.
+The first objective is unimodal, besides small local non-linearities symmetric,
+separable and highly ill-conditioned while the second objective is highly
+multimodal, asymmetric, and non-separable, with only a low conditioning.
+
+Contained in the \emph{separable - multimodal} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{17}{05}{01}{17}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{18}\protect\): Ellipsoid separable/Schwefel x*sin(x)}{F18: Ellipsoid separable/Schwefel x*sin(x)}]{\texorpdfstring{\protect\(F_{18}\protect\): Ellipsoid separable/Schwefel x*sin(x)}{}}
+\label{index:ellipsoid-separable-schwefel-x-sin-x}\label{index:f18}
+Combination of the separable ellipsoid function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=10}{\(f_2\) in the \bbob suite}) and the Schwefel function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=100}{\(f_{20}\) in the \bbob suite}).
+
+The first objective is unimodal, separable and highly ill-conditioned.
+The second objective is partially separable and highly multimodal---having
+the most prominent \(2^n\) minima located comparatively close to the
+corners of the unpenalized search area.
+
+Contained in the \emph{separable - weakly-structured} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{18}{05}{01}{18}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{19}\protect\): Ellipsoid separable/Gallagher 101 peaks}{F19: Ellipsoid separable/Gallagher 101 peaks}]{\texorpdfstring{\protect\(F_{19}\protect\): Ellipsoid separable/Gallagher 101 peaks}{}}
+\label{index:ellipsoid-separable-gallagher-101-peaks}\label{index:f19}
+Combination of the separable ellipsoid function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=10}{\(f_2\) in the \bbob suite}) and the Gallagher function with 101 peaks (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=105}{\(f_{21}\) in the \bbob suite}).
+
+While the first objective function is separable, unimodal, and
+highly ill-conditioned (condition number of about \(10^6\)),
+the second objective function is non-separable and consists
+of 101 optima with position and height being unrelated and
+randomly chosen (different for each instantiation of the function).
+The conditioning around the global optimum of the second
+objective function is about 30.
+
+Contained in the \emph{separable - weakly-structured} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{19}{05}{01}{19}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{20}\protect\): Attractive sector/Attractive sector}{F20: Attractive sector/Attractive sector}]{\texorpdfstring{\protect\(F_{20}\protect\): Attractive sector/Attractive sector}{}}
+\label{index:f20}\label{index:attractive-sector-attractive-sector}
+Combination of two attractive sector functions (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=30}{\(f_6\) in the \bbob suite}).
+Both functions are unimodal and highly asymmetric, where only one
+\emph{hypercone} (with angular base area) per objective with a volume of
+roughly \((1/2)^n\) yields low function values. The objective
+functions' optima are located at the tips of those two cones.
+
+Contained in the \emph{moderate - moderate} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{20}{05}{01}{20}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{21}\protect\): Attractive sector/Rosenbrock original}{F21: Attractive sector/Rosenbrock original}]{\texorpdfstring{\protect\(F_{21}\protect\): Attractive sector/Rosenbrock original}{}}
+\label{index:f21}\label{index:attractive-sector-rosenbrock-original}
+Combination of the attractive sector function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=30}{\(f_6\) in the \bbob suite}) and the Rosenbrock function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=40}{\(f_8\) in the \bbob suite}).
+
+The first function is unimodal but highly asymmetric, where only one
+\emph{hypercone} (with angular base area) with a volume of
+roughly \((1/2)^n\) yields low function values (with the
+optimum at the tip of the cone). The second
+objective is partially separable (tri-band structure) and has a local
+optimum with an attraction volume of about 25\%.
+
+Contained in the \emph{moderate - moderate} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{21}{05}{01}{21}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{22}\protect\): Attractive sector/Sharp ridge}{F22: Attractive sector/Sharp ridge}]{\texorpdfstring{\protect\(F_{22}\protect\): Attractive sector/Sharp ridge}{}}
+\label{index:f22}\label{index:attractive-sector-sharp-ridge}
+Combination of the attractive sector function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=30}{\(f_6\) in the \bbob suite}) and the sharp ridge function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=65}{\(f_{13}\) in the \bbob suite}).
+
+Both objective functions are unimodal and non-separable. The
+first objective is highly asymmetric in the sense that only one
+\emph{hypercone} (with angular base area) with a volume of
+roughly \((1/2)^n\) yields low function values (with the
+optimum at the tip of the cone). For optimizing the second
+objective, a sharp, i.e., non-differentiable ridge has to be followed.
+
+Contained in the \emph{moderate - ill-conditioned} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{22}{05}{01}{22}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{23}\protect\): Attractive sector/Sum of Different Powers}{F23: Attractive sector/Sum of Different Powers}]{\texorpdfstring{\protect\(F_{23}\protect\): Attractive sector/Sum of Different Powers}{}}
+\label{index:f23}\label{index:attractive-sector-sum-of-different-powers}
+Combination of the attractive sector function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=30}{\(f_6\) in the \bbob suite}) and the sum of different powers function
+(\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=70}{\(f_{14}\) in the \bbob suite}).
+
+Both objective functions are unimodal and non-separable. The
+first objective is highly asymmetric in the sense that only one
+\emph{hypercone} (with angular base area) with a volume of
+roughly \((1/2)^n\) yields low function values (with the
+optimum at the tip of the cone). When approaching the second
+objective's optimum, the sensitivities of the variables in the
+rotated search space become more and more different.
+
+Contained in the \emph{moderate - ill-conditioned} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{23}{05}{01}{23}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{24}\protect\): Attractive sector/Rastrigin}{F24: Attractive sector/Rastrigin}]{\texorpdfstring{\protect\(F_{24}\protect\): Attractive sector/Rastrigin}{}}
+\label{index:attractive-sector-rastrigin}\label{index:f24}
+Combination of the attractive sector function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=30}{\(f_6\) in the \bbob suite}) and the Rastrigin function
+(\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=75}{\(f_{15}\) in the \bbob suite}).
+
+Both objectives are non-separable, and the second one
+is highly multimodal (roughly \(10^n\) local
+optima) while the first one is unimodal. Further
+properties are that the first objective is highly
+asymmetric and the second has a conditioning of about 10.
+
+Contained in the \emph{moderate - multimodal} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{24}{05}{01}{24}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{25}\protect\): Attractive sector/Schaffer F7, condition 10}{F25: Attractive sector/Schaffer F7, condition 10}]{\texorpdfstring{\protect\(F_{25}\protect\): Attractive sector/Schaffer F7, condition 10}{}}
+\label{index:attractive-sector-schaffer-f7-condition-10}\label{index:f25}
+Combination of the attractive sector function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=30}{\(f_6\) in the \bbob suite}) and the Schaffer F7 function with condition number 10
+(\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=85}{\(f_{17}\) in the \bbob suite}).
+
+Both objectives are non-separable and asymmetric.
+While the first objective is unimodal, the second one is
+a highly multimodal function with a low conditioning where
+frequency and amplitude of the modulation vary.
+
+Contained in the \emph{moderate - multimodal} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{25}{05}{01}{25}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{26}\protect\): Attractive sector/Schwefel x*sin(x)}{F26: Attractive sector/Schwefel x*sin(x)}]{\texorpdfstring{\protect\(F_{26}\protect\): Attractive sector/Schwefel x*sin(x)}{}}
+\label{index:f26}\label{index:attractive-sector-schwefel-x-sin-x}
+Combination of the attractive sector function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=30}{\(f_6\) in the \bbob suite}) and the Schwefel function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=100}{\(f_{20}\) in the \bbob suite}).
+
+The first objective is non-separable, unimodal, and asymmetric.
+The second objective is partially separable and highly multimodal---having
+the most prominent \(2^n\) minima located comparatively close to the
+corners of the unpenalized search area.
+
+Contained in the \emph{moderate - weakly-structured} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{26}{05}{01}{26}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{27}\protect\): Attractive sector/Gallagher 101 peaks}{F27: Attractive sector/Gallagher 101 peaks}]{\texorpdfstring{\protect\(F_{27}\protect\): Attractive sector/Gallagher 101 peaks}{}}
+\label{index:f27}\label{index:attractive-sector-gallagher-101-peaks}
+Combination of the attractive sector function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=30}{\(f_6\) in the \bbob suite}) and the Gallagher function with 101 peaks (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=105}{\(f_{21}\) in the \bbob suite}).
+
+Both objective functions are non-separable but only the first
+is unimodal. The first objective function is furthermore asymmetric.
+The second objective function has 101 optima with position and height
+being unrelated and randomly chosen (different for each instantiation
+of the function). The conditioning around the global optimum of the second
+objective function is about 30.
+
+Contained in the \emph{moderate - weakly-structured} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{27}{05}{01}{27}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{28}\protect\): Rosenbrock original/Rosenbrock original}{F28: Rosenbrock original/Rosenbrock original}]{\texorpdfstring{\protect\(F_{28}\protect\): Rosenbrock original/Rosenbrock original}{}}
+\label{index:rosenbrock-original-rosenbrock-original}\label{index:f28}
+Combination of two Rosenbrock functions (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=40}{\(f_8\) in the \bbob suite}).
+
+Both objectives are partially separable (tri-band structure) and have
+a local optimum with an attraction volume of about 25\%.
+
+Contained in the \emph{moderate - moderate} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{28}{05}{01}{28}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{29}\protect\): Rosenbrock original/Sharp ridge}{F29: Rosenbrock original/Sharp ridge}]{\texorpdfstring{\protect\(F_{29}\protect\): Rosenbrock original/Sharp ridge}{}}
+\label{index:rosenbrock-original-sharp-ridge}\label{index:f29}
+Combination of the Rosenbrock function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=40}{\(f_8\) in the \bbob suite}) and the
+sharp ridge function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=65}{\(f_{13}\) in the \bbob suite}).
+
+The first objective function is partially separable (tri-band structure)
+and has a local optimum with an attraction volume of about 25\%.
+The second objective is unimodal and non-separable and, for
+optimizing it, a sharp, i.e., non-differentiable ridge has to be followed.
+
+Contained in the \emph{moderate - ill-conditioned} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{29}{05}{01}{29}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{30}\protect\): Rosenbrock original/Sum of Different Powers}{F30: Rosenbrock original/Sum of Different Powers}]{\texorpdfstring{\protect\(F_{30}\protect\): Rosenbrock original/Sum of Different Powers}{}}
+\label{index:f30}\label{index:rosenbrock-original-sum-of-different-powers}
+Combination of the Rosenbrock function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=40}{\(f_8\) in the \bbob suite}) and the sum of different powers function
+(\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=70}{\(f_{14}\) in the \bbob suite}).
+
+The first objective function is partially separable (tri-band structure)
+and has a local optimum with an attraction volume of about 25\%.
+The second objective function is unimodal and non-separable. When
+approaching the second objective's optimum, the sensitivities of the
+variables in the rotated search space become more and more different.
+
+Contained in the \emph{moderate - ill-conditioned} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{30}{05}{01}{30}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{31}\protect\): Rosenbrock original/Rastrigin}{F31: Rosenbrock original/Rastrigin}]{\texorpdfstring{\protect\(F_{31}\protect\): Rosenbrock original/Rastrigin}{}}
+\label{index:f31}\label{index:rosenbrock-original-rastrigin}
+Combination of the Rosenbrock function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=40}{\(f_8\) in the \bbob suite}) and the Rastrigin function
+(\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=75}{\(f_{15}\) in the \bbob suite}).
+
+The first objective function is partially separable (tri-band structure)
+and has a local optimum with an attraction volume of about 25\%.
+The second objective function is non-separable and
+highly multimodal (roughly \(10^n\) local
+optima).
+
+Contained in the \emph{moderate - multimodal} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{31}{05}{01}{31}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{32}\protect\): Rosenbrock original/Schaffer F7, condition 10}{F32: Rosenbrock original/Schaffer F7, condition 10}]{\texorpdfstring{\protect\(F_{32}\protect\): Rosenbrock original/Schaffer F7, condition 10}{}}
+\label{index:f32}\label{index:rosenbrock-original-schaffer-f7-condition-10}
+Combination of the Rosenbrock function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=40}{\(f_8\) in the \bbob suite}) and the
+Schaffer F7 function with condition number 10
+(\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=85}{\(f_{17}\) in the \bbob suite}).
+
+The first objective function is partially separable (tri-band structure)
+and has a local optimum with an attraction volume of about 25\%.
+The second objective function is non-separable, asymmetric, and
+highly multimodal with a low conditioning where
+frequency and amplitude of the modulation vary.
+
+Contained in the \emph{moderate - multimodal} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{32}{05}{01}{32}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{33}\protect\): Rosenbrock original/Schwefel x*sin(x)}{F33: Rosenbrock original/Schwefel x*sin(x)}]{\texorpdfstring{\protect\(F_{33}\protect\): Rosenbrock original/Schwefel x*sin(x)}{}}
+\label{index:rosenbrock-original-schwefel-x-sin-x}\label{index:f33}
+Combination of the Rosenbrock function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=40}{\(f_8\) in the \bbob suite}) and the
+Schwefel function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=100}{\(f_{20}\) in the \bbob suite}).
+
+Both objective functions are partially separable.
+While the first objective function has a local optimum with an attraction
+volume of about 25\%, the second objective function is highly
+multimodal---having the most prominent \(2^n\) minima located
+comparatively close to the corners of its unpenalized search area.
+
+Contained in the \emph{moderate - weakly-structured} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{33}{05}{01}{33}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{34}\protect\): Rosenbrock original/Gallagher 101 peaks}{F34: Rosenbrock original/Gallagher 101 peaks}]{\texorpdfstring{\protect\(F_{34}\protect\): Rosenbrock original/Gallagher 101 peaks}{}}
+\label{index:f34}\label{index:rosenbrock-original-gallagher-101-peaks}
+Combination of the Rosenbrock function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=40}{\(f_8\) in the \bbob suite}) and
+the Gallagher function with 101 peaks (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=105}{\(f_{21}\) in the \bbob suite}).
+
+The first objective function is partially separable, the second one
+non-separable. While the first objective function has a local optimum
+with an attraction volume of about 25\%, the second objective function
+has 101 optima with position and height being unrelated and randomly
+chosen (different for each instantiation of the function). The
+conditioning around the global optimum of the second objective function
+is about 30.
+
+Contained in the \emph{moderate - weakly-structured} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{34}{05}{01}{34}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{35}\protect\): Sharp ridge/Sharp ridge}{F35: Sharp ridge/Sharp ridge}]{\texorpdfstring{\protect\(F_{35}\protect\): Sharp ridge/Sharp ridge}{}}
+\label{index:sharp-ridge-sharp-ridge}\label{index:f35}
+Combination of two sharp ridge functions (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=65}{\(f_{13}\) in the \bbob suite}).
+
+Both objective functions are unimodal and non-separable and, for
+optimizing them, two sharp, i.e., non-differentiable ridges have to be
+followed.
+
+Contained in the \emph{ill-conditioned - ill-conditioned} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{35}{05}{01}{35}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{36}\protect\): Sharp ridge/Sum of Different Powers}{F36: Sharp ridge/Sum of Different Powers}]{\texorpdfstring{\protect\(F_{36}\protect\): Sharp ridge/Sum of Different Powers}{}}
+\label{index:sharp-ridge-sum-of-different-powers}\label{index:f36}
+Combination of the sharp ridge function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=65}{\(f_{13}\) in the \bbob suite}) and the
+sum of different powers function
+(\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=70}{\(f_{14}\) in the \bbob suite}).
+
+Both functions are uni-modal and non-separable.
+For optimizing the first objective, a sharp, i.e., non-differentiable
+ridge has to be followed.
+When approaching the second objective's optimum, the sensitivities of the
+variables in the rotated search space become more and more different.
+
+Contained in the \emph{ill-conditioned - ill-conditioned} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{36}{05}{01}{36}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{37}\protect\): Sharp ridge/Rastrigin}{F37: Sharp ridge/Rastrigin}]{\texorpdfstring{\protect\(F_{37}\protect\): Sharp ridge/Rastrigin}{}}
+\label{index:sharp-ridge-rastrigin}\label{index:f37}
+Combination of the sharp ridge function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=65}{\(f_{13}\) in the \bbob suite}) and the Rastrigin function
+(\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=75}{\(f_{15}\) in the \bbob suite}).
+
+Both functions are non-separable. While the first one
+is unimodal and non-differentiable at its ridge, the second objective
+function is highly multimodal (roughly \(10^n\) local optima).
+
+Contained in the \emph{ill-conditioned - multimodal} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{37}{05}{01}{37}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{38}\protect\): Sharp ridge/Schaffer F7, condition 10}{F38: Sharp ridge/Schaffer F7, condition 10}]{\texorpdfstring{\protect\(F_{38}\protect\): Sharp ridge/Schaffer F7, condition 10}{}}
+\label{index:f38}\label{index:sharp-ridge-schaffer-f7-condition-10}
+Combination of the sharp ridge function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=65}{\(f_{13}\) in the \bbob suite}) and the
+Schaffer F7 function with condition number 10
+(\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=85}{\(f_{17}\) in the \bbob suite}).
+
+Both functions are non-separable. While the first one
+is unimodal and non-differentiable at its ridge, the second objective
+function is asymmetric and highly multimodal with a low conditioning where
+frequency and amplitude of the modulation vary.
+
+Contained in the \emph{ill-conditioned - multimodal} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{38}{05}{01}{38}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{39}\protect\): Sharp ridge/Schwefel x*sin(x)}{F39: Sharp ridge/Schwefel x*sin(x)}]{\texorpdfstring{\protect\(F_{39}\protect\): Sharp ridge/Schwefel x*sin(x)}{}}
+\label{index:f39}\label{index:sharp-ridge-schwefel-x-sin-x}
+Combination of the sharp ridge function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=65}{\(f_{13}\) in the \bbob suite}) and the
+Schwefel function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=100}{\(f_{20}\) in the \bbob suite}).
+
+While the first objective function is unimodal, non-separable, and
+non-differentiable at its ridge, the second objective function is highly
+multimodal---having the most prominent \(2^n\) minima located
+comparatively close to the corners of its unpenalized search area.
+
+Contained in the \emph{ill-conditioned - weakly-structured} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{39}{05}{01}{39}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{40}\protect\): Sharp ridge/Gallagher 101 peaks}{F40: Sharp ridge/Gallagher 101 peaks}]{\texorpdfstring{\protect\(F_{40}\protect\): Sharp ridge/Gallagher 101 peaks}{}}
+\label{index:f40}\label{index:sharp-ridge-gallagher-101-peaks}
+Combination of the sharp ridge function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=65}{\(f_{13}\) in the \bbob suite}) and the
+Gallagher function with 101 peaks (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=105}{\(f_{21}\) in the \bbob suite}).
+
+Both objective functions are non-separable.
+While the first objective function is unimodal and non-differentiable at
+its ridge, the second objective function
+has 101 optima with position and height being unrelated and randomly
+chosen (different for each instantiation of the function). The
+conditioning around the global optimum of the second objective function
+is about 30.
+
+Contained in the \emph{ill-conditioned - weakly-structured} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{40}{05}{01}{40}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{41}\protect\): Sum of Different Powers/Sum of Different Powers}{F41: Sum of Different Powers/Sum of Different Powers}]{\texorpdfstring{\protect\(F_{41}\protect\): Sum of Different Powers/Sum of Different Powers}{}}
+\label{index:f41}\label{index:sum-of-different-powers-sum-of-different-powers}
+Combination of two sum of different powers functions
+(\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=70}{\(f_{14}\) in the \bbob suite}).
+
+Both functions are uni-modal and non-separable where the sensitivities of
+the variables in the rotated search space become more and more different
+when approaching the objectives' optima.
+
+Contained in the \emph{ill-conditioned - ill-conditioned} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{41}{05}{01}{41}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{42}\protect\): Sum of Different Powers/Rastrigin}{F42: Sum of Different Powers/Rastrigin}]{\texorpdfstring{\protect\(F_{42}\protect\): Sum of Different Powers/Rastrigin}{}}
+\label{index:f42}\label{index:sum-of-different-powers-rastrigin}
+Combination of the sum of different powers functions
+(\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=70}{\(f_{14}\) in the \bbob suite}) and the Rastrigin function
+(\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=75}{\(f_{15}\) in the \bbob suite}).
+
+Both objective functions are non-separable. While the first one
+is unimodal, the second objective
+function is highly multimodal (roughly \(10^n\) local optima).
+
+Contained in the \emph{ill-conditioned - multimodal} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{42}{05}{01}{42}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{43}\protect\): Sum of Different Powers/Schaffer F7, condition 10}{F43: Sum of Different Powers/Schaffer F7, condition 10}]{\texorpdfstring{\protect\(F_{43}\protect\): Sum of Different Powers/Schaffer F7, condition 10}{}}
+\label{index:sum-of-different-powers-schaffer-f7-condition-10}\label{index:f43}
+Combination of the sum of different powers functions
+(\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=70}{\(f_{14}\) in the \bbob suite}) and the Schaffer F7 function with
+condition number 10 (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=85}{\(f_{17}\) in the \bbob suite}).
+
+Both objective functions are non-separable. While the first one
+is unimodal with an increasing conditioning once the optimum is approached,
+the second objective function is asymmetric and highly multimodal with a
+low conditioning where frequency and amplitude of the modulation vary.
+
+Contained in the \emph{ill-conditioned - multimodal} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{43}{05}{01}{43}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{44}\protect\): Sum of Different Powers/Schwefel x*sin(x)}{F44: Sum of Different Powers/Schwefel x*sin(x)}]{\texorpdfstring{\protect\(F_{44}\protect\): Sum of Different Powers/Schwefel x*sin(x)}{}}
+\label{index:f44}\label{index:sum-of-different-powers-schwefel-x-sin-x}
+Combination of the sum of different powers functions
+(\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=70}{\(f_{14}\) in the \bbob suite}) and the Schwefel function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=100}{\(f_{20}\) in the \bbob suite}).
+
+Both objectives are non-separable.
+While the first objective function is unimodal,
+the second objective function is highly multimodal---having the most
+prominent \(2^n\) minima located comparatively close to the corners
+of its unpenalized search area.
+
+Contained in the \emph{ill-conditioned - weakly-structured} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{44}{05}{01}{44}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{45}\protect\): Sum of Different Powers/Gallagher 101 peaks}{F45: Sum of Different Powers/Gallagher 101 peaks}]{\texorpdfstring{\protect\(F_{45}\protect\): Sum of Different Powers/Gallagher 101 peaks}{}}
+\label{index:sum-of-different-powers-gallagher-101-peaks}\label{index:f45}
+Combination of the sum of different powers functions
+(\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=70}{\(f_{14}\) in the \bbob suite}) and the Gallagher function with
+101 peaks (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=105}{\(f_{21}\) in the \bbob suite}).
+
+Both objective functions are non-separable.
+While the first objective function is unimodal, the second objective function
+has 101 optima with position and height being unrelated and randomly
+chosen (different for each instantiation of the function). The
+conditioning around the global optimum of the second objective function
+is about 30.
+
+Contained in the \emph{ill-conditioned - weakly-structured} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{45}{05}{01}{45}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{46}\protect\): Rastrigin/Rastrigin}{F46: Rastrigin/Rastrigin}]{\texorpdfstring{\protect\(F_{46}\protect\): Rastrigin/Rastrigin}{}}
+\label{index:rastrigin-rastrigin}\label{index:f46}
+Combination of two Rastrigin functions
+(\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=75}{\(f_{15}\) in the \bbob suite}).
+
+Both objective functions are non-separable and highly multimodal
+(roughly \(10^n\) local optima).
+
+Contained in the \emph{multimodal - multimodal} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{46}{05}{01}{46}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{47}\protect\): Rastrigin/Schaffer F7, condition 10}{F47: Rastrigin/Schaffer F7, condition 10}]{\texorpdfstring{\protect\(F_{47}\protect\): Rastrigin/Schaffer F7, condition 10}{}}
+\label{index:rastrigin-schaffer-f7-condition-10}\label{index:f47}
+Combination of the Rastrigin function
+(\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=75}{\(f_{15}\) in the \bbob suite}) and the Schaffer F7 function with
+condition number 10 (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=85}{\(f_{17}\) in the \bbob suite}).
+
+Both objective functions are non-separable and highly multimodal.
+
+Contained in the \emph{multimodal - multimodal} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{47}{05}{01}{47}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{48}\protect\): Rastrigin/Schwefel x*sin(x)}{F48: Rastrigin/Schwefel x*sin(x)}]{\texorpdfstring{\protect\(F_{48}\protect\): Rastrigin/Schwefel x*sin(x)}{}}
+\label{index:f48}\label{index:rastrigin-schwefel-x-sin-x}
+Combination of the Rastrigin function
+(\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=75}{\(f_{15}\) in the \bbob suite}) and the Schwefel function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=100}{\(f_{20}\) in the \bbob suite}).
+
+Both objective functions are non-separable and highly multimodal where
+the first has roughly \(10^n\) local optima and the most prominent
+\(2^n\) minima of the second objective function are located
+comparatively close to the corners of its unpenalized search area.
+
+Contained in the \emph{multimodal - weakly-structured} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{48}{05}{01}{48}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{49}\protect\): Rastrigin/Gallagher 101 peaks}{F49: Rastrigin/Gallagher 101 peaks}]{\texorpdfstring{\protect\(F_{49}\protect\): Rastrigin/Gallagher 101 peaks}{}}
+\label{index:f49}\label{index:rastrigin-gallagher-101-peaks}
+Combination of the Rastrigin function
+(\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=75}{\(f_{15}\) in the \bbob suite}) and the Gallagher function with
+101 peaks (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=105}{\(f_{21}\) in the \bbob suite}).
+
+Both objective functions are non-separable and highly multimodal where
+the first has roughly \(10^n\) local optima and the second has
+101 optima with position and height being unrelated and randomly
+chosen (different for each instantiation of the function).
+
+Contained in the \emph{multimodal - weakly-structured} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{49}{05}{01}{49}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{50}\protect\): Schaffer F7, condition 10/Schaffer F7, condition 10}{F50: Schaffer F7, condition 10/Schaffer F7, condition 10}]{\texorpdfstring{\protect\(F_{50}\protect\): Schaffer F7, condition 10/Schaffer F7, condition 10}{}}
+\label{index:schaffer-f7-condition-10-schaffer-f7-condition-10}\label{index:f50}
+Combination of two Schaffer F7 functions with
+condition number 10 (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=85}{\(f_{17}\) in the \bbob suite}).
+
+Both objective functions are non-separable and highly multimodal.
+
+Contained in the \emph{multimodal - multimodal} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{50}{05}{01}{50}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{51}\protect\): Schaffer F7, condition 10/Schwefel x*sin(x)}{F51: Schaffer F7, condition 10/Schwefel x*sin(x)}]{\texorpdfstring{\protect\(F_{51}\protect\): Schaffer F7, condition 10/Schwefel x*sin(x)}{}}
+\label{index:schaffer-f7-condition-10-schwefel-x-sin-x}\label{index:f51}
+Combination of the Schaffer F7 function with
+condition number 10 (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=85}{\(f_{17}\) in the \bbob suite})
+and the Schwefel function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=100}{\(f_{20}\) in the \bbob suite}).
+
+Both objective functions are non-separable and highly multimodal.
+While frequency and amplitude of the modulation vary in an almost
+regular fashion in the first objective function, the second objective
+function possesses less global structure.
+
+Contained in the \emph{multimodal - weakly-structured} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{51}{05}{01}{51}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{52}\protect\): Schaffer F7, condition 10/Gallagher 101 peaks}{F52: Schaffer F7, condition 10/Gallagher 101 peaks}]{\texorpdfstring{\protect\(F_{52}\protect\): Schaffer F7, condition 10/Gallagher 101 peaks}{}}
+\label{index:schaffer-f7-condition-10-gallagher-101-peaks}\label{index:f52}
+Combination of the Schaffer F7 function with
+condition number 10 (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=85}{\(f_{17}\) in the \bbob suite})
+and the Gallagher function with
+101 peaks (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=105}{\(f_{21}\) in the \bbob suite}).
+
+Both objective functions are non-separable and highly multimodal.
+While frequency and amplitude of the modulation vary in an almost
+regular fashion in the first objective function, the second has
+101 optima with position and height being unrelated and randomly
+chosen (different for each instantiation of the function).
+
+Contained in the \emph{multimodal - weakly-structured} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{52}{05}{01}{52}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{53}\protect\): Schwefel x*sin(x)/Schwefel x*sin(x)}{F53: Schwefel x*sin(x)/Schwefel x*sin(x)}]{\texorpdfstring{\protect\(F_{53}\protect\): Schwefel x*sin(x)/Schwefel x*sin(x)}{}}
+\label{index:schwefel-x-sin-x-schwefel-x-sin-x}\label{index:f53}
+Combination of two Schwefel functions (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=100}{\(f_{20}\) in the \bbob suite}).
+
+Both objective functions are non-separable and highly multimodal where
+the most prominent \(2^n\) minima of each objective function are
+located comparatively close to the corners of its unpenalized search area.
+Due to the combinatorial nature of the Schwefel function, it is likely
+in low dimensions that the Pareto set goes through the origin of the
+search space.
+
+Contained in the \emph{weakly-structured - weakly-structured} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{53}{05}{01}{53}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{54}\protect\): Schwefel x*sin(x)/Gallagher 101 peaks}{F54: Schwefel x*sin(x)/Gallagher 101 peaks}]{\texorpdfstring{\protect\(F_{54}\protect\): Schwefel x*sin(x)/Gallagher 101 peaks}{}}
+\label{index:f54}\label{index:schwefel-x-sin-x-gallagher-101-peaks}
+Combination of the Schwefel function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=100}{\(f_{20}\) in the \bbob suite}) and the Gallagher function with
+101 peaks (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=105}{\(f_{21}\) in the \bbob suite}).
+
+Both objective functions are non-separable and highly multimodal.
+For the first objective function, the most prominent \(2^n\) minima
+are located comparatively close to the corners of its unpenalized search
+area. For the second objective, position and height of all
+101 optima are unrelated and randomly
+chosen (different for each instantiation of the function).
+
+Contained in the \emph{weakly-structured - weakly-structured} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{54}{05}{01}{54}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{55}\protect\): Gallagher 101 peaks/Gallagher 101 peaks}{F55: Gallagher 101 peaks/Gallagher 101 peaks}]{\texorpdfstring{\protect\(F_{55}\protect\): Gallagher 101 peaks/Gallagher 101 peaks}{}}
+\label{index:gallagher-101-peaks-gallagher-101-peaks}\label{index:f55}
+Combination of two Gallagher functions with
+101 peaks (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=105}{\(f_{21}\) in the \bbob suite}).
+
+Both objective functions are non-separable and highly multimodal.
+Position and height of all 101 optima in each objective function
+are unrelated and randomly chosen and thus, no global structure
+is present.
+
+Contained in the \emph{weakly-structured - weakly-structured} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{55}{05}{01}{55}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{56}\protect\): Sphere/Rastrigin separable}{F56: Sphere/Rastrigin separable}]{\texorpdfstring{\protect\(F_{56}\protect\): Sphere/Rastrigin separable}{}}
+\label{index:f56}\label{index:sphere-rastrigin-separable}
+Combination of the Sphere function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=5}{\(f_1\) in the \bbob suite}) and the
+separable Rastrigin function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=15}{\(f_3\) in the \bbob suite}).
+
+While the first objective function is unimodal, highly symmetric,
+rotational and scale invariant, the second one is highly multimodal
+with a comparatively regular structure for the placement of the optima.
+Note that the non-linear transformations of the second objective's
+Rastrigin function alleviate the symmetry and regularity of the
+original Rastrigin function.
+
+Contained in the \emph{separable - separable} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{56}{05}{01}{56}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{57}\protect\): Sphere/Rastrigin-B\"{u}che}{F57: Sphere/Rastrigin-B\"{u}che}]{\texorpdfstring{\protect\(F_{57}\protect\): Sphere/Rastrigin-B\"{u}che}{}}
+\label{index:f57}\label{index:sphere-rastrigin-buche}
+Combination of the Sphere function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=5}{\(f_1\) in the \bbob suite}) and the
+separable B\"{u}che-Rastrigin function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=20}{\(f_4\) in the \bbob suite}).
+
+While the first objective function is unimodal, highly symmetric,
+rotational and scale invariant, the second one is highly multimodal
+with a structured but highly asymmetric placement of the optima.
+Constructed as a deceptive function for symmetrically distributed search
+operators, the second objective function has roughly 10D
+local optima, a conditioning of about 10, and a skew factor of about
+10 in x-space and 100 in f-space.
+
+Contained in the \emph{separable - separable} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{57}{05}{01}{57}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{58}\protect\): Sphere/Linear slope}{F58: Sphere/Linear slope}]{\texorpdfstring{\protect\(F_{58}\protect\): Sphere/Linear slope}{}}
+\label{index:sphere-linear-slope}\label{index:f58}
+Combination of the Sphere function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=5}{\(f_1\) in the \bbob suite}) and the
+Linear Slope function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=25}{\(f_5\) in the \bbob suite}).
+
+Both objective functions are separable and amongst the simplest
+continuous functions to optimize. The first objective function is fully
+quadratic and symmetric around the optimum, the second objective function
+is fully linear within the hypercube \([-5,5]^n\) and has a region of
+constant \(f\)-value outside the hypercube by definition to ensure
+that a solution at one corner of \([-5,5]^n\) has optimal function value.
+
+Contained in the \emph{separable - separable} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{58}{05}{01}{58}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{59}\protect\): Separable Ellipsoid/Separable Rastrigin}{F59: Separable Ellipsoid/Separable Rastrigin}]{\texorpdfstring{\protect\(F_{59}\protect\): Separable Ellipsoid/Separable Rastrigin}{}}
+\label{index:separable-ellipsoid-separable-rastrigin}\label{index:f59}
+Combination of the separable Ellipsoid function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=10}{\(f_2\) in the \bbob suite}) and the
+separable Rastrigin function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=15}{\(f_3\) in the \bbob suite}).
+
+Besides being both separable, the two objective functions are quite opposite:
+the first objective function is unimodal, globally quadratic and ill-conditioned
+with a conditioning of about \(10^6\) with smooth local irregularities while
+the second objective function is highly multimodal with roughly \(10n\) local
+optima and only small conditioning of about \(10\). Note that the separable
+Rastrigin function has a comparatively regular structure for the
+placement of the optima but asymmetric and oscillating non-linear transformations
+of this function alleviates the symmetry and regularity of the original Rastrigin function.
+
+Contained in the \emph{separable - separable} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{59}{05}{01}{59}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{60}\protect\): separable Ellipsoid/B\"{u}che-Rastrigin}{F60: separable Ellipsoid/B\"{u}che-Rastrigin}]{\texorpdfstring{\protect\(F_{60}\protect\): separable Ellipsoid/B\"{u}che-Rastrigin}{}}
+\label{index:separable-ellipsoid-buche-rastrigin}\label{index:f60}
+Combination of the separable Ellipsoid function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=10}{\(f_2\) in the \bbob suite}) and the
+separable B\"{u}che-Rastrigin function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=20}{\(f_4\) in the \bbob suite}).
+
+Besides being both separable, the two objective functions are quite opposite:
+the first objective function is unimodal, globally quadratic and ill-conditioned
+with a conditioning of about \(10^6\) with smooth local irregularities while
+the second objective is highly multimodal with a structured but highly asymmetric
+placement of the optima. Constructed as a deceptive function for symmetrically
+distributed search operators.
+
+Contained in the \emph{separable - separable} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{60}{05}{01}{60}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{61}\protect\): Separable Ellipsoid/Linear Slope}{F61: Separable Ellipsoid/Linear Slope}]{\texorpdfstring{\protect\(F_{61}\protect\): Separable Ellipsoid/Linear Slope}{}}
+\label{index:f61}\label{index:separable-ellipsoid-linear-slope}
+Combination of the separable Ellipsoid function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=10}{\(f_2\) in the \bbob suite}) and the
+Linear Slope function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=25}{\(f_5\) in the \bbob suite}).
+
+Both objective functions are separable. The first objective function
+is unimodal with a high condition number of about \(10^6\). The second
+objective function is fully linear within the hypercube \([-5,5]^n\) and
+has a region of constant \(f\)-value outside the hypercube by definition to ensure
+that a solution at one corner of \([-5,5]^n\) has optimal function value.
+
+Contained in the \emph{separable - separable} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{61}{05}{01}{61}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{62}\protect\): separable Rastrigin/B\"{u}che-Rastrigin}{F62: separable Rastrigin/B\"{u}che-Rastrigin}]{\texorpdfstring{\protect\(F_{62}\protect\): separable Rastrigin/B\"{u}che-Rastrigin}{}}
+\label{index:separable-rastrigin-buche-rastrigin}\label{index:f62}
+Combination of the separable Rastrigin function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=15}{\(f_3\) in the \bbob suite}) and the
+separable B\"{u}che-Rastrigin function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=20}{\(f_4\) in the \bbob suite}).
+
+Both objective functions are separable and highly multimodal with an underlying
+structure for the placements of the optima. While for the separable Rastrigin function,
+the placements of the optima is symmetric, the optima for the B\"{u}che-Rastrigin function
+are highly asymmetrically placed.
+
+Contained in the \emph{separable - separable} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{62}{05}{01}{62}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{63}\protect\): Separable Rastrigin/Linear Slope}{F63: Separable Rastrigin/Linear Slope}]{\texorpdfstring{\protect\(F_{63}\protect\): Separable Rastrigin/Linear Slope}{}}
+\label{index:separable-rastrigin-linear-slope}\label{index:f63}
+Combination of the separable Rastrigin function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=15}{\(f_3\) in the \bbob suite}) and the
+Linear Slope function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=25}{\(f_5\) in the \bbob suite}).
+
+Both objective functions are separable, but while the first objective function
+is highly multimodal with an underlying symmetric structure, the second objective
+function is purely linear with plateaus of constant function value outside
+the region \([-5,5]^n\).
+
+Contained in the \emph{separable - separable} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{63}{05}{01}{63}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{64}\protect\): B\"{u}che-Rastrigin/Linear slope}{F64: B\"{u}che-Rastrigin/Linear slope}]{\texorpdfstring{\protect\(F_{64}\protect\): B\"{u}che-Rastrigin/Linear slope}{}}
+\label{index:f64}\label{index:buche-rastrigin-linear-slope}
+Combination of the B\"{u}che-Rastrigin function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=20}{\(f_4\) in the \bbob suite}) and the
+Linear Slope function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=25}{\(f_5\) in the \bbob suite}).
+
+Both objective functions are separable, but while the first objective function
+is highly multimodal with an underlying asymmetric structure, the second objective
+function is purely linear with plateaus of constant function value outside
+the region \([-5,5]^n\).
+
+Contained in the \emph{separable - separable} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{64}{05}{01}{64}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{65}\protect\): Attractive Sector/Step-ellipsoid}{F65: Attractive Sector/Step-ellipsoid}]{\texorpdfstring{\protect\(F_{65}\protect\): Attractive Sector/Step-ellipsoid}{}}
+\label{index:f65}\label{index:attractive-sector-step-ellipsoid}
+Combination of the Attractive Sector function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=30}{\(f_6\) in the \bbob suite}) and the
+Step Ellipsoidal function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=35}{\(f_7\) in the \bbob suite}).
+
+Both objective functions are unimodal and of moderate conditioning.
+The first objective function is highly asymmetric, where only one \emph{hypercone}
+(with angular base area) with a volume of roughly \(1/2^n\) yields low function values.
+The optimum of the first objective is located at the tip of this cone. This function can
+be deceptive for cumulative step size adaptation. The second objective function consists
+of many plateaus of different sizes. Apart from a small area close to the global optimum,
+the gradient is zero almost everywhere.
+
+Contained in the \emph{moderate - moderate} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{65}{05}{01}{65}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{66}\protect\): Attractive Sector/rotated Rosenbrock}{F66: Attractive Sector/rotated Rosenbrock}]{\texorpdfstring{\protect\(F_{66}\protect\): Attractive Sector/rotated Rosenbrock}{}}
+\label{index:f66}\label{index:attractive-sector-rotated-rosenbrock}
+Combination of the Attractive Sector function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=30}{\(f_6\) in the \bbob suite}) and the
+rotated Rosenbrock function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=45}{\(f_9\) in the \bbob suite}).
+
+The first objective function is highly asymmetric, where only one \emph{hypercone}
+(with angular base area) with a volume of roughly \(1/2^n\) yields low function values.
+The optimum of the first objective is located at the tip of this cone.
+The second objective function is the so-called banana function due to its 2-D contour lines
+as a bent ridge (or valley) and partially separable (tri-band structure). In larger dimensions,
+the second objective function has a local optimum with an attraction volume of about 25\%.
+Note that, compared to the original Rosenbrock function, a rotation in the search space
+is applied, such that the second objective function is non-separable.
+
+Contained in the \emph{moderate - moderate} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{66}{05}{01}{66}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{67}\protect\): Step-ellipsoid/separable Rosenbrock}{F67: Step-ellipsoid/separable Rosenbrock}]{\texorpdfstring{\protect\(F_{67}\protect\): Step-ellipsoid/separable Rosenbrock}{}}
+\label{index:f67}\label{index:step-ellipsoid-separable-rosenbrock}
+Combination of the Step Ellipsoidal function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=35}{\(f_7\) in the \bbob suite}) and the
+separable Rosenbrock function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=40}{\(f_8\) in the \bbob suite}).
+
+The first objective function is unimodal, non-separable, and has a
+conditioning of about 100. It actually consists of many plateaus of different sizes.
+Apart from a small area close to the global optimum, the gradient is zero almost everywhere.
+The second objective function is the so-called banana function due to its 2-D contour lines
+as a bent ridge (or valley). It is partially separable (tri-band structure) and
+in larger dimensions, the function has a local optimum with an attraction volume of about 25\%.
+
+Contained in the \emph{moderate - moderate} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{67}{05}{01}{67}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{68}\protect\): Step-ellipsoid/rotated Rosenbrock}{F68: Step-ellipsoid/rotated Rosenbrock}]{\texorpdfstring{\protect\(F_{68}\protect\): Step-ellipsoid/rotated Rosenbrock}{}}
+\label{index:step-ellipsoid-rotated-rosenbrock}\label{index:f68}
+Combination of the Step Ellipsoidal function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=35}{\(f_7\) in the \bbob suite}) and the
+rotated Rosenbrock function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=45}{\(f_9\) in the \bbob suite}).
+
+The first objective function is unimodal, non-separable, and has a
+conditioning of about 100. It actually consists of many plateaus of different sizes.
+Apart from a small area close to the global optimum, the gradient is zero almost everywhere.
+The second objective function is a rotated version of the original
+so-called banana function (due to its 2-D contour lines as a bent ridge or valley) and
+in larger dimensions, has a local optimum with an attraction volume of about 25\%.
+
+This function resembles \(F_{67}\) except for the additional search space
+rotation for the second objective function which makes both objective
+function fully non-separable.
+
+Contained in the \emph{moderate - moderate} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{68}{05}{01}{68}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{69}\protect\): separable Rosenbrock/rotated Rosenbrock}{F69: separable Rosenbrock/rotated Rosenbrock}]{\texorpdfstring{\protect\(F_{69}\protect\): separable Rosenbrock/rotated Rosenbrock}{}}
+\label{index:separable-rosenbrock-rotated-rosenbrock}\label{index:f69}
+Combination of the separable Rosenbrock function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=40}{\(f_8\) in the \bbob suite}) and the
+rotated Rosenbrock function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=45}{\(f_9\) in the \bbob suite}).
+
+Both objective functions are Rosenbrock functions (also known under the name
+banana function due to its 2-D contour lines forming a bent ridge or valley)
+with a local optimum in large dimension that has about 25\% attraction volume.
+The first objective function is partially separable while the second objective
+function is fully non-separable.
+
+Contained in the \emph{moderate - moderate} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{69}{05}{01}{69}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{70}\protect\): Ellipsoid/Discus}{F70: Ellipsoid/Discus}]{\texorpdfstring{\protect\(F_{70}\protect\): Ellipsoid/Discus}{}}
+\label{index:ellipsoid-discus}\label{index:f70}
+Combination of the Ellipsoid function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=50}{\(f_{10}\) in the \bbob suite}) and the
+Discus (or Tablet) function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=55}{\(f_{11}\) in the \bbob suite}).
+
+Both objective functions are globally quadratic (unimodal) ill-conditioned functions with
+condition numbers of \(10^6\) with  smooth local irregularities. A single direction
+in search space is a thousand times more sensitive than all others for the Discus function.
+
+Contained in the \emph{ill-conditioned - ill-conditioned} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{70}{05}{01}{70}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{71}\protect\): Ellipsoid/Bent Cigar}{F71: Ellipsoid/Bent Cigar}]{\texorpdfstring{\protect\(F_{71}\protect\): Ellipsoid/Bent Cigar}{}}
+\label{index:ellipsoid-bent-cigar}\label{index:f71}
+Combination of the Ellipsoid function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=50}{\(f_{10}\) in the \bbob suite}) and the
+Bent Cigar function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=60}{\(f_{12}\) in the \bbob suite}).
+
+Both objective functions are unimodal, non-separable, and have a conditioning
+of about \(10^6\). The Ellipsoid function is globally quadratic with
+smooth local irregularities while the Bent Cigar function deviates remarkably
+from being quadratic due to an asymmetric transformation. To optimize the
+Bent Cigar function, a smooth, but very narrow ridge has to be followed.
+
+Contained in the \emph{ill-conditioned - ill-conditioned} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{71}{05}{01}{71}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{72}\protect\): Ellipsoid/Sharp Ridge}{F72: Ellipsoid/Sharp Ridge}]{\texorpdfstring{\protect\(F_{72}\protect\): Ellipsoid/Sharp Ridge}{}}
+\label{index:ellipsoid-sharp-ridge}\label{index:f72}
+Combination of the Ellipsoid function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=50}{\(f_{10}\) in the \bbob suite}) and the
+Sharp Ridge function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=65}{\(f_{13}\) in the \bbob suite}).
+
+Both objective functions are unimodal, non-separable, and have a conditioning
+of about \(10^6\). Compared to the previous function, the ridge of the
+here is sharp (non-differentiable) and the gradient remains constant, when the
+ridge is approached from a given point. Approaching the ridge is
+initially effective, but search behavior becomes difficult to diagnose
+close to the ridge because the gradient towards the ridge does not flatten out.
+
+Contained in the \emph{ill-conditioned - ill-conditioned} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{72}{05}{01}{72}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{73}\protect\): Ellipsoid/Sum of Different Powers}{F73: Ellipsoid/Sum of Different Powers}]{\texorpdfstring{\protect\(F_{73}\protect\): Ellipsoid/Sum of Different Powers}{}}
+\label{index:ellipsoid-sum-of-different-powers}\label{index:f73}
+Combination of the Ellipsoid function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=50}{\(f_{10}\) in the \bbob suite}) and the
+Sum of Different Powers function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=70}{\(f_{14}\) in the \bbob suite}).
+
+Both objective functions are unimodal and non-separable. While the
+Ellipsoid function has a constant conditioning of \(10^6\) everywhere,
+the sensitivities of the \(z_i\)-variables (in the rotated search space)
+for the Different Powers function become more and more different when
+approaching the optimum. The latter function has furthermore a small
+solution volume.
+
+Contained in the \emph{ill-conditioned - ill-conditioned} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{73}{05}{01}{73}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{74}\protect\): Discus/Bent Cigar}{F74: Discus/Bent Cigar}]{\texorpdfstring{\protect\(F_{74}\protect\): Discus/Bent Cigar}{}}
+\label{index:f74}\label{index:discus-bent-cigar}
+Combination of the Discus function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=55}{\(f_{11}\) in the \bbob suite}) and the
+Bent cigar function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=60}{\(f_{12}\) in the \bbob suite}).
+
+Both objective functions are unimodal, non-separable, and have a conditioning
+of about \(10^6\).
+The Discus function is globally quadratic with smooth local irregularities
+and has a single direction in search space that is a thousand times more
+sensitive than all others. The Bent Cigar function deviates remarkably
+from being quadratic due to an asymmetric transformation and a smooth,
+but very narrow ridge has to be followed to optimize it.
+
+Contained in the \emph{ill-conditioned - ill-conditioned} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{74}{05}{01}{74}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{75}\protect\): Discus/Sharp Ridge}{F75: Discus/Sharp Ridge}]{\texorpdfstring{\protect\(F_{75}\protect\): Discus/Sharp Ridge}{}}
+\label{index:discus-sharp-ridge}\label{index:f75}
+Combination of the Discus function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=55}{\(f_{11}\) in the \bbob suite}) and the
+Sharp Ridge function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=65}{\(f_{13}\) in the \bbob suite}).
+
+Both objective functions are unimodal, non-separable, and have a conditioning
+of about \(10^6\).
+The Discus function is globally quadratic with smooth local irregularities
+and has a single direction in search space that is a thousand times more
+sensitive than all others.
+To optimize the Sharp Ridge function, a sharp (i.e. non-differentiable) ridge
+has to be followed around which the gradient remains constant, when the
+ridge is approached from a given point. Approaching the ridge is
+initially effective, but search behavior becomes difficult to diagnose
+close to the ridge because the gradient towards the ridge does not flatten out.
+
+Contained in the \emph{ill-conditioned - ill-conditioned} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{75}{05}{01}{75}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{76}\protect\): Discus/Sum of Different Powers}{F76: Discus/Sum of Different Powers}]{\texorpdfstring{\protect\(F_{76}\protect\): Discus/Sum of Different Powers}{}}
+\label{index:f76}\label{index:discus-sum-of-different-powers}
+Combination of the Discus function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=55}{\(f_{11}\) in the \bbob suite}) and the
+Sum of Different Powers function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=70}{\(f_{14}\) in the \bbob suite}).
+
+Both objective functions are unimodal and non-separable. While the
+globally quadratic Discus function has a constant conditioning
+of about \(10^6\) everywhere
+with a single direction in search space that is a thousand times more
+sensitive than all others, the sensitivities of the
+\(z_i\)-variables (in the rotated search space)
+for the Different Powers function become more and more different when
+approaching the optimum. The latter function has furthermore a small
+solution volume.
+
+Contained in the \emph{ill-conditioned - ill-conditioned} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{76}{05}{01}{76}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{77}\protect\): Bent Cigar/Sharp Ridge}{F77: Bent Cigar/Sharp Ridge}]{\texorpdfstring{\protect\(F_{77}\protect\): Bent Cigar/Sharp Ridge}{}}
+\label{index:bent-cigar-sharp-ridge}\label{index:f77}
+Combination of the Bent Cigar function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=60}{\(f_{12}\) in the \bbob suite}) and the
+Sharp Ridge function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=65}{\(f_{13}\) in the \bbob suite}).
+
+Both objective functions are unimodal, non-separable, and have a conditioning
+of about \(10^6\).
+The Bent Cigar function deviates remarkably
+from being quadratic due to an asymmetric transformation and a smooth,
+but very narrow ridge has to be followed to optimize it.
+To optimize the Sharp Ridge function, in turn, the ridge to be followed
+is even sharper (i.e. non-differentiable), around which the gradient remains
+constant, when the ridge is approached from a given point. Approaching the ridge is
+initially effective, but search behavior becomes difficult to diagnose
+close to the ridge because the gradient towards the ridge does not flatten out.
+
+Contained in the \emph{ill-conditioned - ill-conditioned} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{77}{05}{01}{77}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{78}\protect\): Bent Cigar/Sum of Different Powers}{F78: Bent Cigar/Sum of Different Powers}]{\texorpdfstring{\protect\(F_{78}\protect\): Bent Cigar/Sum of Different Powers}{}}
+\label{index:f78}\label{index:bent-cigar-sum-of-different-powers}
+Combination of the Bent Cigar function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=60}{\(f_{12}\) in the \bbob suite}) and the
+Sum of Different Powers function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=70}{\(f_{14}\) in the \bbob suite}).
+
+Both objective functions are unimodal, non-separable, and have a conditioning
+of about \(10^6\).
+
+Both objective functions are unimodal and non-separable but differ in the
+difficulties provided to an optimization algorithm.
+The Bent Cigar function, on the one hand, deviates remarkably
+from being quadratic due to an asymmetric transformation and a smooth,
+but very narrow ridge has to be followed to optimize it.
+The sensitivities of the
+\(z_i\)-variables (in the rotated search space)
+for the Different Powers function, on the other hand,
+become more and more different when
+approaching the optimum.
+
+Contained in the \emph{ill-conditioned - ill-conditioned} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{78}{05}{01}{78}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{79}\protect\): Rastrigin/Schaffer F7 with conditioning of 1000}{F79: Rastrigin/Schaffer F7 with conditioning of 1000}]{\texorpdfstring{\protect\(F_{79}\protect\): Rastrigin/Schaffer F7 with conditioning of 1000}{}}
+\label{index:rastrigin-schaffer-f7-with-conditioning-of-1000}\label{index:f79}
+Combination of the Rastrigin function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=75}{\(f_{15}\) in the \bbob suite}) and the
+Schaffer F7 function with conditioning 1000 (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=90}{\(f_{18}\) in the \bbob suite}).
+
+Both objective functions are non-separable and highly multimodal.
+The problem's Rastrigin function alleviates the symmetry and regularity of
+the originally proposed Rastrigin function via asymmetric and oscillating
+transformations of the search space. It has roughly \(10^n\) local optima,
+a low conditioning, and the global amplitude of function values is large
+compared to the local amplitudes.
+On the contrary, frequency  and  amplitude  of  the  function value modulation
+vary for the Schaffer F7 function. It is furthermore asymmetric as well
+but, compared to the other objective function is moderately ill-conditioned
+with a conditioning of 1000.
+
+Contained in the \emph{multimodal - multimodal} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{79}{05}{01}{79}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{80}\protect\): Rastrigin/Griewank-Rosenbrock}{F80: Rastrigin/Griewank-Rosenbrock}]{\texorpdfstring{\protect\(F_{80}\protect\): Rastrigin/Griewank-Rosenbrock}{}}
+\label{index:rastrigin-griewank-rosenbrock}\label{index:f80}
+Combination of the Rastrigin function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=75}{\(f_{15}\) in the \bbob suite}) and the
+Griewank-Rosenbrock function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=95}{\(f_{19}\) in the \bbob suite}).
+
+Both objective functions are non-separable and highly multimodal.
+Both objective functions furthermore are variants of the original Rosenbrock
+function:
+The problem's Rastrigin function alleviates the symmetry and regularity of
+the originally proposed Rastrigin function via asymmetric and oscillating
+transformations of the search space. The Griewank-Rosenbrock function
+resembles the original Rosenbrock function in a highly multimodal way.
+
+Contained in the \emph{multimodal multimodal} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{80}{05}{01}{80}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{81}\protect\): Schaffer F7/Schaffer F7 with conditioning 1000}{F81: Schaffer F7/Schaffer F7 with conditioning 1000}]{\texorpdfstring{\protect\(F_{81}\protect\): Schaffer F7/Schaffer F7 with conditioning 1000}{}}
+\label{index:schaffer-f7-schaffer-f7-with-conditioning-1000}\label{index:f81}
+Combination of the Schaffer F7 function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=85}{\(f_{17}\) in the \bbob suite}) and the
+Schaffer F7 with conditioning 1000 function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=90}{\(f_{18}\) in the \bbob suite}).
+
+Both objective functions are of the same type (asymmetric, non-separable,
+highly multimodal where frequency and amplitude of the modulation vary).
+The main difference is in the conditioning, which is about 10 in one case
+and 1000 in the other.
+
+Contained in the \emph{multimodal - multimodal} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{81}{05}{01}{81}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{82}\protect\): Schaffer F7/Griewank-Rosenbrock}{F82: Schaffer F7/Griewank-Rosenbrock}]{\texorpdfstring{\protect\(F_{82}\protect\): Schaffer F7/Griewank-Rosenbrock}{}}
+\label{index:schaffer-f7-griewank-rosenbrock}\label{index:f82}
+Combination of the Schaffer F7 function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=85}{\(f_{17}\) in the \bbob suite}) and the
+Griewank-Rosenbrock function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=95}{\(f_{19}\) in the \bbob suite}).
+
+Both objective functions are non-separable and highly multimodal.
+For the asymmetric Schaffer F7 function, frequency and amplitude of
+the function value modulation vary and it has a low conditioning of
+about 10. The Griewank-Rosenbrock function
+resembles the original Rosenbrock function in a highly multimodal way.
+
+Contained in the \emph{multimodal - multimodal} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{82}{05}{01}{82}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{83}\protect\): Schaffer F7 with conditioning 1000/Griewank-Rosenbrock}{F83: Schaffer F7 with conditioning 1000/Griewank-Rosenbrock}]{\texorpdfstring{\protect\(F_{83}\protect\): Schaffer F7 with conditioning 1000/Griewank-Rosenbrock}{}}
+\label{index:schaffer-f7-with-conditioning-1000-griewank-rosenbrock}\label{index:f83}
+Combination of the Schaffer F7 function with conditioning 1000 (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=90}{\(f_{18}\) in the \bbob suite}) and the
+Griewank-Rosenbrock function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=95}{\(f_{19}\) in the \bbob suite}).
+
+Compared to \(F_{82}\), the only difference is the higher condition number of
+about 1000 (compared to 10) in the Schaffer F7 function.
+
+Contained in the \emph{multimodal - multimodal} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{83}{05}{01}{83}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{84}\protect\): Schwefel/Gallagher 21}{F84: Schwefel/Gallagher 21}]{\texorpdfstring{\protect\(F_{84}\protect\): Schwefel/Gallagher 21}{}}
+\label{index:f84}\label{index:schwefel-gallagher-21}
+Combination of the Schwefel function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=100}{\(f_{20}\) in the \bbob suite}) and the
+Gallagher 21 function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=110}{\(f_{22}\) in the \bbob suite}).
+
+Both objective functions are multimodal with only a weak global structure.
+The most prominent \(2^n\) minima of the Schwefel function
+are located comparatively close to the corners of
+the unpenalized search area. The penalization is essential, as otherwise more
+and better minima occur further away from the search space origin. The function
+is furthermore partially separable, a kind of combinatorial problem, and has two
+search regimes. The Gallagher function consists of 21 optima with position and
+height being unrelated and randomly chosen (different for each instantiation
+of the function). The conditioning of the Gallagher function around the global
+optimum is about 1000.
+
+Contained in the \emph{weakly-structured - weakly-structured} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{84}{05}{01}{84}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{85}\protect\): Schwefel/Katsuuras}{F85: Schwefel/Katsuuras}]{\texorpdfstring{\protect\(F_{85}\protect\): Schwefel/Katsuuras}{}}
+\label{index:f85}\label{index:schwefel-katsuuras}
+Combination of the Schwefel function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=100}{\(f_{20}\) in the \bbob suite}) and the
+Katsuuras function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=115}{\(f_{23}\) in the \bbob suite}).
+
+Both objective functions are highly multimodal with an exponential number
+(in the dimension) of (global) optima and only a weak global structure.
+The most prominent \(2^n\) minima of the Schwefel function
+are located comparatively close to the corners of
+the unpenalized search area.
+The Katsuuras function, in turn, is highly repetitive with more than \(10^n\)
+global optima.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{85}{05}{01}{85}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{86}\protect\): Schwefel/Lunacek bi-Rastrigin}{F86: Schwefel/Lunacek bi-Rastrigin}]{\texorpdfstring{\protect\(F_{86}\protect\): Schwefel/Lunacek bi-Rastrigin}{}}
+\label{index:f86}\label{index:schwefel-lunacek-bi-rastrigin}
+Combination of the Schwefel function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=100}{\(f_{20}\) in the \bbob suite}) and the
+Lunacek bi-Rastrigin function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=120}{\(f_{24}\) in the \bbob suite}).
+
+Both objective functions are highly multimodal with only a weak global structure.
+While the most prominent \(2^n\) minima of the Schwefel function
+are located comparatively close to the corners of the unpenalized search area,
+the Lunacek bi-Rastrigin function has two superimposed funnels. Presumably,
+different approaches need to be used for ``selecting the funnel''
+and for searching the highly multimodal function ``within'' the funnel.
+The single-objective Lunacek bi-Rastrigin function was constructed
+to be deceptive for some evolutionary algorithms with large population size.
+
+Contained in the \emph{weakly-structure - weakly-structured} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{86}{05}{01}{86}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{87}\protect\): Gallagher 101/Gallagher 21}{F87: Gallagher 101/Gallagher 21}]{\texorpdfstring{\protect\(F_{87}\protect\): Gallagher 101/Gallagher 21}{}}
+\label{index:f87}\label{index:gallagher-101-gallagher-21}
+Combination of Gallagher’s Gaussian 101-me Peaks function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=105}{\(f_{21}\) in the \bbob suite}) and the
+Gallagher’s Gaussian 21-hi Peaks function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=110}{\(f_{22}\) in the \bbob suite}).
+
+Both objective functions are multimodal and non-separable. Both consist of a set of
+optima with position and height being unrelated and randomly chosen. The number of
+optima is 101 and 21 respectively and the condition number around the (unique) global
+optima are about 30 and about 1000 respectively.
+
+Contained in the \emph{weakly-structured - weakly-structured} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{87}{05}{01}{87}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{88}\protect\): Gallagher 101/Katsuuras}{F88: Gallagher 101/Katsuuras}]{\texorpdfstring{\protect\(F_{88}\protect\): Gallagher 101/Katsuuras}{}}
+\label{index:f88}\label{index:gallagher-101-katsuuras}
+Combination of Gallagher’s Gaussian 101-me Peaks function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=105}{\(f_{21}\) in the \bbob suite}) and the
+Katsuuras function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=115}{\(f_{23}\) in the \bbob suite}).
+
+Both objective functions are non-separable and highly multimodal with
+only a weak global structure. Gallagher's Gaussian 101-me Peaks
+function consists of a set of 101 optima with position and height being
+unrelated and randomly chosen. The conditioning is about 30.
+The Katsuuras function, in turn, is highly repetitive with more than \(10^n\)
+global optima.
+
+Contained in the \emph{weakly-structured - weakly-structured} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{88}{05}{01}{88}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{89}\protect\): Gallagher 101/Lunacek bi-Rastrigin}{F89: Gallagher 101/Lunacek bi-Rastrigin}]{\texorpdfstring{\protect\(F_{89}\protect\): Gallagher 101/Lunacek bi-Rastrigin}{}}
+\label{index:gallagher-101-lunacek-bi-rastrigin}\label{index:f89}
+Combination of Gallagher’s Gaussian 101-me Peaks function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=105}{\(f_{21}\) in the \bbob suite}) and the
+Lunacek bi-Rastrigin function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=120}{\(f_{24}\) in the \bbob suite}).
+
+Both objective functions are non-separable and highly multimodal with
+only a weak global structure. Gallagher's Gaussian 101-me Peaks
+function consists of a set of 101 optima with position and height being
+unrelated and randomly chosen. The conditioning is about 30.
+The Lunacek bi-Rastrigin function has two superimposed funnels. Presumably,
+different approaches need to be used for ``selecting the funnel''
+and for searching the highly multimodal function ``within'' the funnel.
+The single-objective Lunacek bi-Rastrigin function was constructed
+to be deceptive for some evolutionary algorithms with large population size.
+
+Contained in the \emph{weakly-structured - weakly-structured} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{89}{05}{01}{89}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{90}\protect\): Gallagher 21/Katsuuras}{F90: Gallagher 21/Katsuuras}]{\texorpdfstring{\protect\(F_{90}\protect\): Gallagher 21/Katsuuras}{}}
+\label{index:gallagher-21-katsuuras}\label{index:f90}
+Combination of Gallagher’s Gaussian 21-hi Peaks function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=110}{\(f_{22}\) in the \bbob suite}) and the
+Katsuuras function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=115}{\(f_{23}\) in the \bbob suite}).
+
+Both objective functions are non-separable and multimodal with
+only a weak global structure. Gallagher's Gaussian 21-hi Peaks
+function consists of a set of 21 optima with position and height being
+unrelated and randomly chosen. The conditioning is about 1000.
+The Katsuuras function, in turn, is highly repetitive with more than \(10^n\)
+global optima.
+
+Contained in the \emph{weakly-structured - weakly-structured} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{90}{05}{01}{90}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{91}\protect\): Gallagher 21/Lunacek bi-Rastrigin}{F91: Gallagher 21/Lunacek bi-Rastrigin}]{\texorpdfstring{\protect\(F_{91}\protect\): Gallagher 21/Lunacek bi-Rastrigin}{}}
+\label{index:f91}\label{index:gallagher-21-lunacek-bi-rastrigin}
+Combination of Gallagher’s Gaussian 21-hi Peaks function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=110}{\(f_{22}\) in the \bbob suite}) and the
+Lunacek bi-Rastrigin function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=120}{\(f_{24}\) in the \bbob suite}).
+
+Both objective functions are non-separable and multimodal with
+only a weak global structure. Gallagher's Gaussian 21-hi Peaks
+function consists of a set of 21 optima with position and height being
+unrelated and randomly chosen. The conditioning is about 1000.
+The Lunacek bi-Rastrigin function has two superimposed funnels. Presumably,
+different approaches need to be used for ``selecting the funnel''
+and for searching the highly multimodal function ``within'' the funnel.
+The single-objective Lunacek bi-Rastrigin function was constructed
+to be deceptive for some evolutionary algorithms with large population size.
+
+Contained in the \emph{weakly-structured - weakly-structured} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{91}{05}{01}{91}{5}
+
+
+\subsection[\texorpdfstring{\protect\(F_{92}\protect\): Katsuuras/Lunacek bi-Rastrigin}{F92: Katsuuras/Lunacek bi-Rastrigin}]{\texorpdfstring{\protect\(F_{92}\protect\): Katsuuras/Lunacek bi-Rastrigin}{}}
+\label{index:f92}\label{index:katsuuras-lunacek-bi-rastrigin}
+Combination of the Katsuuras function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=115}{\(f_{23}\) in the \bbob suite}) and the
+Lunacek bi-Rastrigin function (\href{https://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf\#page=120}{\(f_{24}\) in the \bbob suite}).
+
+Both objective functions are non-separable and highly multimodal with
+only a weak global structure.
+The Katsuuras function is highly repetitive with more than \(10^n\)
+global optima.
+The Lunacek bi-Rastrigin function has two superimposed funnels. Presumably,
+different approaches need to be used for ``selecting the funnel''
+and for searching the highly multimodal function ``within'' the funnel.
+The single-objective Lunacek bi-Rastrigin function was constructed
+to be deceptive for some evolutionary algorithms with large population size.
+
+Contained in the \emph{weakly-structured - weakly-structured} function group.
+
+% #1: function string (2 digits)
+% #2: dimension string (2 digits)
+% #3: instance string (2 digits)
+% #4: function number
+% #5: dimension
+\bbobfigs{92}{05}{01}{92}{5}
+
