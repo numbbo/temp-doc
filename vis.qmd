@@ -14,7 +14,7 @@ Show plots in
 <button id="colNext" onclick="getNext(this)" class="button">+</button> 
 columns (click on <b>Dimension</b>/<b>Function</b>/<b>Instance</b>/<b>Visualization type</b> below to show all plots for the chosen category)
 
-<table BORDER="0">
+<table BORDER="0" width=100%>
 <tr>
 <td align="center" onclick="selectNode(this)" id="dimAll" class="off"><b>Dimension</b></td>
 <td align="center" onclick="selectNode(this)" id="funAll" class="off"><b>Function</b></td>
@@ -39,23 +39,23 @@ columns (click on <b>Dimension</b>/<b>Function</b>/<b>Instance</b>/<b>Visualizat
 </td>
 <td class="select" align="center">
 <button id="typPrev" onclick="getPrev(this)" class="button"><i class="arrow left"></i></button>
-<select id="typ" onchange="changePlot()" style="width:220px;">   
+<select id="typ" onchange="changePlot()" style="width:220px;height:30px;">
 </select>
 <button id="typNext" onclick="getNext(this)" class="button"><i class="arrow right"></i></button>
 </td>
 </tr>
 </table>
 
-<textarea id="result"></textarea>
+<!-- <textarea id="result"></textarea> -->
 
-<div id="images"></div>
+<div id="images" width=100%></div>
 
 ### Plot explanation
 
 <div id="text-directions-searchspace" style="padding-top: 10px;">
 #### Pareto set approximation
 
-This plot shows the projection of the Pareto set approximation (in black) and some 1-dimensional cuts (in various colors, see below) onto an axes-parallel cut of the search space defined by two variables ($x_1$ and $x_4$). 
+This plot shows the projection of the Pareto set approximation (in black) and some 1-dimensional cuts (in various colors, see below) onto an axes-parallel cut of the search space defined by two variables ($x_1$ and $x_n$, where $n$ is the number of variables).
 </div>
 
 <div id="text-directions-searchspace-projection" style="padding-top: 10px;">
@@ -77,12 +77,13 @@ This plot depicts the Pareto front approximation and the results of some 1-dimen
 </div>
 
 <div id="text-additional-info" style="padding-top: 10px;">
-In addition to the best known Pareto set/front approximation, the plots present **1-dimensional cuts** ("lines") through the search space:
-- along a random direction through each single-objective optimum (in blue),
-- along each coordinate axis through each single-objective optimum (blue dotted lines),
-- along the line connecting both single-objective optima (in red),
-- two fully random lines (in yellow), and
-- a random line in the random projection plane going through both optima (in green).
+In addition to the best known Pareto set/front approximation, the plots present **1-dimensional cuts** ("lines") through the search space:<ul>
+<li>along a random direction through each single-objective optimum (in blue),</li>
+<li>along each coordinate axis through each single-objective optimum (blue dotted lines),</li>
+<li>along the line connecting both single-objective optima (in red),</li>
+<li>two fully random lines (in yellow), and</li>
+<li>a random line in the random projection plane going through both optima (in green).</li>
+</ul>
 
 All straight lines are of the same length (10) with the support vector in its exact middle. Ticks along the lines indicate line segments of the same length in search space. Thicker points on the lines depict solutions that are non-dominated with respect to all points on the same line.
 
@@ -90,30 +91,30 @@ Furthermore, the Pareto set approximation plots highlight the projected region $
 </div>
 
 <div id="text-dominance-ratio" style="padding-top: 10px;">
-#### Dominance ratio
+#### Dominance rank ratio
 
-Based on a $501\times501$ grid in the search space, the dominance ratio of each grid point is the ratio of all grid points that dominate it (Fonseca, 1995, p. 71ff.). The plot uses a logarithmic color scale with the overall non-dominated points shown in yellow.
+Based on a 2-D grid in the search space, the dominance rank ratio of each grid point is the ratio of all grid points that dominate it (Fonseca, 1995, p. 71ff.). The plot uses a logarithmic color scale with the overall non-dominated points shown in yellow.
 </div>
 
 <div id="text-level-sets" style="padding-top: 10px;">
 #### Level sets
 
-This plot shows the level sets for each objective (first objective in blue, second objective in red) together with the non-dominated points of the $501\times501$ grid.
+This plot shows the level sets for each objective (first objective in blue, second objective in red) together with the non-dominated points of the 2-D grid.
 </div>
 
 <div id="text-local-dominance" style="padding-top: 10px;">
 #### Local dominance
 
-This plot by Fieldsend et al. (2019) uses, for each point of the $501\times501$ grid, one of three different colors. In dark green, it shows all grid points $P$ for which *all* 8 neighboring grid points (in the Moore neighborhood) are mutually non-dominated to $P$. In landscape analysis terms, we can call the green regions in the plots "dominance-neutral local optima regions" in the sense that a dominance-based hill-climber will be able to explore a green region by single non-dominated moves. The pink areas are comprised of grid points for which *at least one* neighboring grid point dominates it. Each pink area is considered a "basin of attraction" of a green area in the sense that a local dominance-based hill climber can only move towards the included green area. Last, a grid point is assigned a white color if at least two of its dominating neighbors belong to two different basins of attraction&mdash;white areas in the plots therefore show the boundaries between the basins.
+This plot by Fieldsend et al. (2019) uses, for each point of the 2-D grid, one of three different colors. In dark green, it shows all grid points $P$ for which *all* 8 neighboring grid points (in the Moore neighborhood) are mutually non-dominated to $P$. In landscape analysis terms, we can call the green regions in the plots "dominance-neutral local optima regions" in the sense that a dominance-based hill-climber will be able to explore a green region by single non-dominated moves. The pink areas are comprised of grid points for which *at least one* neighboring grid point dominates it. Each pink area is considered a "basin of attraction" of a green area in the sense that a local dominance-based hill climber can only move towards the included green area. Last, a grid point is assigned a white color if at least two of its dominating neighbors belong to two different basins of attraction&mdash;white areas in the plots therefore show the boundaries between the basins.
 </div>
 
 <div id="text-gradient-length" style="padding-top: 10px;">
 #### Gradient length
 
-This plot shows the length of the normalized multiobjective gradient at each of $501\times501$ grid points, computed as 
+This plot shows the length of the normalized multiobjective gradient at each grid point, computed as
 
-$\frac{\nabla f_1(x)}{|\nabla f_1(x)|} + \frac{\nabla f_2(x)}{|\nabla f_2(x)|}
-  = \sqrt{1 + \cos\left(\theta \right)}\times\sqrt{2}$
+$$\frac{\nabla f_1(x)}{|\nabla f_1(x)|} + \frac{\nabla f_2(x)}{|\nabla f_2(x)|}
+  = \sqrt{1 + \cos\left(\theta \right)}\times\sqrt{2},$$
 
 where $\nabla f_1(x)$ and $\nabla f_2(x)$ are the gradients of the objectives $f_1$ and $f_2$ in a search point $x$ and $\theta$ is the angle between these gradients. The normalized multiobjective gradient is exactly zero for Pareto-optimal solutions as well as locally non-dominated solutions. 
 </div>
@@ -121,7 +122,7 @@ where $\nabla f_1(x)$ and $\nabla f_2(x)$ are the gradients of the objectives $f
 <div id="text-path-length" style="padding-top: 10px;">
 #### Path length
 
-This plot shows the length of the path from each of $501\times501$ grid points towards the next local optimum. Inspired by the cumulated gradient field landscapes (Kerschke and Grimme, 2017), the length is defined as Euclidean distance to the Moore neighbor to which the biobjective gradient points plus the path length of this neighbor. Cumulated gradient field landscapes sum gradient lengths instead of Euclidean distances. We use the latter because they better quantify the actual distance to the local optimum, however both approaches lead to qualitatively very similar figures. 
+This plot shows the length of the path from each grid point towards the next local optimum. Inspired by the cumulated gradient field landscapes (Kerschke and Grimme, 2017), the length is defined as Euclidean distance to the Moore neighbor to which the biobjective gradient points plus the path length of this neighbor. Cumulated gradient field landscapes sum gradient lengths instead of Euclidean distances. We use the latter because they better quantify the actual distance to the local optimum, however both approaches lead to qualitatively very similar figures.
 </div>
 
 ### Problem definition

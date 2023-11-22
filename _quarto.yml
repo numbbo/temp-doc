@@ -54,6 +54,7 @@ format:
     code-overflow: wrap
     link-external-icon: true
     link-external-newwindow: true
+    link-external-filter: ".*numbbo\/bbob-biobj-plots.*"
     grid:
       sidebar-width: 250px
       body-width: 1500px

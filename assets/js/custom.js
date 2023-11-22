@@ -2,7 +2,7 @@
 plotPath = "https://raw.githubusercontent.com/numbbo/bbob-biobj-plots/gh-pages/plots_currData_Sep2020/"
 
 /* Define some global variables */
-var typs = ["Pareto set approximation", "Pareto set approximation (optima direction)", "Pareto front approximation (original space)", "Pareto front approximation (normalized space)", "Dominance ratio", "Level sets", "Local dominance", "Gradient length", "Path length"];
+var typs = ["Pareto set approximation", "Pareto set approximation (optima direction)", "Pareto front approximation (original space)", "Pareto front approximation (normalized space)", "Dominance rank ratio", "Level sets", "Local dominance", "Gradient length", "Path length"];
 var valuesTyp = ["directions-searchspace", "directions-searchspace-projection", "directions-objspace", "directions-logobjspace", "dominance-ratio", "level-sets", "local-dominance", "gradient-length", "path-length"];
 var allNodes = ["dimAll", "funAll", "insAll", "typAll"];
 var selectedNode = "typAll";
@@ -79,13 +79,12 @@ function addPlot(plotName) {
 	var elemImg = document.createElement("img");
 	elemDiv.setAttribute("style", "display:inline-block; width:" + plotWidth + "%;");
 	elemA.setAttribute("href", plotPath + plotName);
-	elemA.setAttribute("class", "nostyle");
 	elemImg.setAttribute("src", plotPath + plotName);
 	elemImg.setAttribute("alt", "");
+	elemImg.setAttribute("style", "width:100%;");
 	elemA.appendChild(elemImg);
 	elemDiv.appendChild(elemA);
 	document.getElementById("images").appendChild(elemDiv);
-	document.getElementById("result").value = elemDiv.getAttribute("style") + "\n";
 }
 
 /* Show the plots wrt the chosen dimension, function, instance and plot type.
@@ -124,10 +123,7 @@ function changePlot() {
 	/* Make sure only the correct plot descriptions are shown */
 	for (let iTyp = 0; iTyp < valuesTyp.length; iTyp++) {
 		textName = "text-" + valuesTyp[iTyp];
-		if (selectedNode === "typAll") {
-			document.getElementById(textName).setAttribute("style", "display:block;");
-		}
-		else if (valuesTyp[iTyp] === chosenTyp[0]) {
+		if ((selectedNode === "typAll") || (valuesTyp[iTyp] === chosenTyp[0])) {
 			document.getElementById(textName).setAttribute("style", "display:block;");
 		}
 		else {
@@ -145,15 +141,9 @@ function changePlot() {
 	}
 
 	/* Make sure only the correct function description is shown */
-	if (selectedNode === "funAll") {
-		document.getElementById("text-function").setAttribute("style", "display:none;");
-	}
-	else {
-		document.getElementById("text-function").setAttribute("style", "display:block;");
-	}
 	for (let iFun = 0; iFun < valuesFun.length; iFun++) {
 		textName = "text-f" + valuesFun[iFun];
-		if (valuesFun[iFun] == chosenFun[0]) {
+		if ((selectedNode === "funAll") || (valuesFun[iFun] == chosenFun[0])) {
 			document.getElementById(textName).setAttribute("style", "display:block;");
 		}
 		else {
