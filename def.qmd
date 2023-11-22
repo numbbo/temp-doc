@@ -1,5 +1,7 @@
 ---
 title: Function definitions
+format: 
+  html 
 ---
 
 <img src="/assets/img/bbob-biobj-ext.png" alt="Functions in the bbob-biobj-ext suite" width="100%">
@@ -23,10 +25,12 @@ jump.appendChild(elemA);
 }
 </script>
 
-[//]: # (In order to make changes to the text about the functions:)
-[//]: # (1. Change the text in the file appendixB.tex)
-[//]: # (2. Rerun appendixB.py)
-[//]: # (3. Copy appendixB.md to def.qmd and appendixB_div.md to vis.qmd)
+<!--
+In order to make changes to the text about the functions:
+  1. Change the text in the file appendixB.tex
+  2. Rerun appendixB.py
+  3. Copy appendixB.md to def.qmd and appendixB_div.md to vis.qmd
+-->
 
 
 
