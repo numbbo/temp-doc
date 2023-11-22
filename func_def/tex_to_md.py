@@ -5,7 +5,7 @@ PATH_BBOB_PDF_OLD = 'https://coco.gforge.inria.fr/downloads/download16.00/bbobdo
 PATH_BBOB_PDF_NEW = 'https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf'
 
 
-def reformat(line, use_div=True):
+def reformat(line, use_div=True, heading_level=4):
     skip = [
         '\\label',
         '%',
@@ -15,6 +15,8 @@ def reformat(line, use_div=True):
         if line.startswith(s):
             return ''
     result = line
+    if 'B\\"{u}che' in result:
+        result = result.replace('B\\"{u}che', 'Büche')
     if result.startswith('\\noindent'):
         result = line[10:]
     if result.startswith('\\subsection'):
@@ -25,11 +27,11 @@ def reformat(line, use_div=True):
             # Surround with div
             result = re.sub(r'(?P<num>\d+)', r'### <a name="F\1"></a>F<sub>\1</sub>',
                             result, count=1)
-            result = re.sub(r'\n', ' \n', result)
+            result = re.sub(r'\n', f'</h{heading_level}>\n', result)
             result = result.replace(r'### <a',
-                                    f'</div>\n\n<div id="text-f{f}" markdown="1">\n <a')
+                                    f'</div>\n\n<div id="text-f{f}">\n<h{heading_level}><a')
         else:
-            result = re.sub(r'(?P<num>\d+)', r'### <a name="F\1"></a>F<sub>\1</sub>',
+            result = re.sub(r'(?P<num>\d+)', r'### F<sub>\1</sub>',
                             result, count=1)
     if 'href' in result:
         result = re.sub(r'\\href{(\S+)}{\\\(f_({?)(\d+)(}?)\\\) in the (\\)bbob suite\}',
@@ -50,11 +52,11 @@ def reformat(line, use_div=True):
     return result
 
 
-def latex_to_markdown(file_in, file_out, use_div=True):
+def latex_to_markdown(file_in, file_out, use_div=True, heading_level=4):
     with open(file_in, 'r') as f_in:
-        with open(file_out, 'w') as f_out:
+        with open(file_out, 'w', encoding='utf-8') as f_out:
             for line in f_in:
-                new_line = reformat(line, use_div=use_div)
+                new_line = reformat(line, use_div=use_div, heading_level=heading_level)
                 if new_line != '':
                     f_out.write(new_line)
     if use_div:
@@ -78,7 +80,6 @@ def latex_to_markdown(file_in, file_out, use_div=True):
 
 
 if __name__ == '__main__':
-    # reformat('\\subsection[\\texorpdfstring{\\protect\\(F_{90}\\protect\\): Gallagher 21/Katsuuras}{F90: Gallagher 21/Katsuuras}]{\\texorpdfstring{\\protect\\(F_{90}\\protect\\): Gallagher 21/Katsuuras}{}}')
-    latex_to_markdown('appendixB.tex', 'appendixB.md', use_div=False)
-    latex_to_markdown('appendixB.tex', 'appendixB_div.md', use_div=True)
+    latex_to_markdown('functions.tex', 'functions_div_h4.md', use_div=True, heading_level=4)
+    latex_to_markdown('functions.tex', 'functions.md', use_div=False)
     print('Done!')

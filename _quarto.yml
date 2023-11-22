@@ -54,6 +54,11 @@ format:
     code-overflow: wrap
     link-external-icon: true
     link-external-newwindow: true
+    grid:
+      sidebar-width: 250px
+      body-width: 1500px
+      margin-width: 250px
+      gutter-width: 1.5rem
     include-in-header:
       - text: |
           <script type="text/javascript" src="assets/js/custom.js"></script>

@@ -1,61 +1,67 @@
 /* Url to the plots */
 plotPath = "https://raw.githubusercontent.com/numbbo/bbob-biobj-plots/gh-pages/plots_currData_Sep2020/"
 
-/* Fill the columns dropdown with values */
-var selectCol = document.getElementById("col");
-var valuesCol = [];
-var contentsCol;
-for (let i = 1; i <= 10; i++) {
-	valuesCol.push(i);
-	contentsCol += "<option>" + i + "</option>";
-}
-selectCol.innerHTML = contentsCol;
-selectCol.options[4].selected = true;
-
-/* Fill the dimensions dropdown with values */
-var selectDim = document.getElementById("dim");
-var valuesDim = ["2", "3", "5"]; //, "10", "20", "40"];
-var contentsDim;
-for (let i = 0; i < valuesDim.length; i++) {
-	contentsDim += "<option>" + valuesDim[i] + "</option>";
-}
-selectDim.innerHTML = contentsDim;
-
-/* Fill the functions dropdown with values */
-var selectFun = document.getElementById("fun");
-var valuesFun = [];
-var contentsFun;
-for (let i = 1; i <= 92; i++) {
-	valuesFun.push(i);
-	contentsFun += "<option>" + i + "</option>";
-}
-selectFun.innerHTML = contentsFun;
-
-/* Fill the instances dropdown with values */
-var selectIns = document.getElementById("ins");
-var valuesIns = [];
-var contentsIns;
-for (let i = 1; i <= 15; i++) {
-	valuesIns.push(i);
-	contentsIns += "<option>" + i + "</option>";
-}
-selectIns.innerHTML = contentsIns;
-
-/* Fill the plot types dropdown with values */
-var selectTyp = document.getElementById("typ");
+/* Define some global variables */
 var typs = ["Pareto set approximation", "Pareto set approximation (optima direction)", "Pareto front approximation (original space)", "Pareto front approximation (normalized space)", "Dominance ratio", "Level sets", "Local dominance", "Gradient length", "Path length"];
 var valuesTyp = ["directions-searchspace", "directions-searchspace-projection", "directions-objspace", "directions-logobjspace", "dominance-ratio", "level-sets", "local-dominance", "gradient-length", "path-length"];
-/* Make sure typs and valuesTyp have the same length! */
-var contentsTyp;
-for (let i = 0; i < typs.length; i++) {
-	contentsTyp += "<option value=\"" + valuesTyp[i] + "\">" + typs[i] + "</option>";
-}
-selectTyp.innerHTML = contentsTyp;
-
-/* By default, plot types are chosen */
 var allNodes = ["dimAll", "funAll", "insAll", "typAll"];
 var selectedNode = "typAll";
-selectNode(document.getElementById(selectedNode));
+var valuesDim = ["2", "3", "5"];
+var valuesFun = [];
+for (let i = 1; i <= 92; i++) {valuesFun.push(i);}
+var valuesIns = [];
+for (let i = 1; i <= 15; i++) {valuesIns.push(i);}
+var valuesCol = [];
+for (let i = 1; i <= 10; i++) {valuesCol.push(i);}
+
+/* Fill the table with values */
+window.onload=function() {
+
+    /* Fill the columns dropdown with values */
+    var selectCol = document.getElementById("col");
+    var contentsCol;
+    for (let i = 0; i < valuesCol.length; i++) {
+        contentsCol += "<option>" + valuesCol[i] + "</option>";
+    }
+    selectCol.innerHTML = contentsCol;
+    selectCol.selectedIndex = 4;
+
+    /* Fill the dimensions dropdown with values */
+    var selectDim = document.getElementById("dim");
+    var contentsDim;
+    for (let i = 0; i < valuesDim.length; i++) {
+        contentsDim += "<option>" + valuesDim[i] + "</option>";
+    }
+    selectDim.innerHTML = contentsDim;
+
+    /* Fill the functions dropdown with values */
+    var selectFun = document.getElementById("fun");
+    var contentsFun;
+    for (let i = 0; i < valuesFun.length; i++) {
+        contentsFun += "<option>" + valuesFun[i] + "</option>";
+    }
+    selectFun.innerHTML = contentsFun;
+
+    /* Fill the instances dropdown with values */
+    var selectIns = document.getElementById("ins");
+    var contentsIns;
+    for (let i = 0; i < valuesIns.length; i++) {
+        contentsIns += "<option>" + valuesIns[i] + "</option>";
+    }
+    selectIns.innerHTML = contentsIns;
+
+    /* Fill the plot types dropdown with values */
+    var selectTyp = document.getElementById("typ");
+    /* Make sure typs and valuesTyp have the same length! */
+    var contentsTyp;
+    for (let i = 0; i < typs.length; i++) {
+        contentsTyp += "<option value=\"" + valuesTyp[i] + "\">" + typs[i] + "</option>";
+    }
+    selectTyp.innerHTML = contentsTyp;
+
+    /* By default, plot types are chosen */
+    selectNode(document.getElementById(selectedNode));
+}
 
 /* Display number with leading zero */
 function pad(num) {
@@ -79,6 +85,7 @@ function addPlot(plotName) {
 	elemA.appendChild(elemImg);
 	elemDiv.appendChild(elemA);
 	document.getElementById("images").appendChild(elemDiv);
+	document.getElementById("result").value = elemDiv.getAttribute("style") + "\n";
 }
 
 /* Show the plots wrt the chosen dimension, function, instance and plot type.
