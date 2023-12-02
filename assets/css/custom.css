@@ -69,6 +69,6 @@ select::-ms-expand {
 }
 
 #result {
-  min-width: 550px;
-  min-height: 560px; 
+  min-width: 600px;
+  min-height: 200px;
 }

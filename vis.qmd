@@ -46,7 +46,7 @@ columns (click on <b>Dimension</b>/<b>Function</b>/<b>Instance</b>/<b>Visualizat
 </tr>
 </table>
 
-<!-- <textarea id="result"></textarea> -->
+<!-- <textarea id="result" num=7></textarea> -->
 
 <div id="images" width=100%></div>
 
