@@ -6,8 +6,11 @@ format:
       margin-width: 450px
 ---
 
+The bi-objective problems are created by combining two `bbob` functions [@bbob2019].
+
 ### Overview
 
 <img src="/assets/img/bbob-biobj-ext.png" alt="Functions in the bbob-biobj-ext suite" style="width:100%; max-width:900px;">
 
 {{< include func_def/functions.md >}}
+ 

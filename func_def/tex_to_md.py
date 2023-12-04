@@ -49,6 +49,8 @@ def reformat(line, use_div=True, heading_level=4):
         result = result.replace(PATH_BBOB_PDF_OLD, PATH_BBOB_PDF_NEW)
     if '$$' in result:
         result = result.replace('$$', '$')
+    if ' bbob ' in result:
+        result = result.replace(' bbob ', ' `bbob` ')
     return result
 
 
