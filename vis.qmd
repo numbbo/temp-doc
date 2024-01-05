@@ -3,7 +3,7 @@ title: Visualizations of problem landscapes
 format:
   html:
     include-after-body: 
-      - text: <script type="text/javascript" defer src="assets/js/custom.js"></script>
+      - text: <script type="text/javascript" defer src="assets/js/biobj.js"></script>
 ---
 
 ### Plots

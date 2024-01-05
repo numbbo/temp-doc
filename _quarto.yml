@@ -62,7 +62,4 @@ format:
       body-width: 1500px
       margin-width: 250px
       gutter-width: 1.5rem
-    include-in-header:
-      - text: |
-          <script type="text/javascript" src="assets/js/custom.js"></script>
 
