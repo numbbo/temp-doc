@@ -32,6 +32,8 @@ website:
   sidebar:
     style: "docked"
     contents:
+      - text: "Home"
+        href: index.qmd
       - text: "Function definitions"
         file: def.qmd
       - text: "Visualizations"
