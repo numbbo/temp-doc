@@ -2,8 +2,8 @@
 plotPath = "https://raw.githubusercontent.com/numbbo/bbob-biobj-plots/gh-pages/plots_currData_Sep2020/"
 
 /* Define some global variables */
-var labelsTyp = ["Pareto set approximation", "Pareto set approximation (optima direction)", "Pareto front approximation (original space)", "Pareto front approximation (normalized space)", "Dominance rank ratio", "Level sets", "Local dominance", "Gradient length", "Path length"];
-var valuesTyp = ["directions-searchspace", "directions-searchspace-projection", "directions-objspace", "directions-logobjspace", "dominance-ratio", "level-sets", "local-dominance", "gradient-length", "path-length"];
+var labelsTyp = ["Pareto set approximation", "Pareto set approximation (optima direction)", "Pareto front approximation (original space)", "Pareto front approximation (normalized space)", "Dominance rank ratio", "Level sets", "Local dominance", "Gradient length", "Path length", "Pearson correlation coefficient"];
+var valuesTyp = ["directions-searchspace", "directions-searchspace-projection", "directions-objspace", "directions-logobjspace", "dominance-ratio", "level-sets", "local-dominance", "gradient-length", "path-length", "correlation"];
 var allNodes = ["dimAll", "funAll", "insAll", "typAll"];
 var selectedNode = "typAll";
 var valuesDim = ["2", "3", "5"];

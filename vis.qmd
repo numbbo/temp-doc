@@ -105,7 +105,9 @@ This plot shows the level sets for each objective (first objective in blue, seco
 <div id="text-local-dominance" style="padding-top: 10px;">
 #### Local dominance
 
-This plot by Fieldsend et al. [-@Fieldsend2019feature] uses, for each point of the 2-D grid, one of three different colors. In dark green, it shows all grid points $P$ for which *all* 8 neighboring grid points (in the Moore neighborhood) are mutually non-dominated to $P$. In landscape analysis terms, we can call the green regions in the plots "dominance-neutral local optima regions" in the sense that a dominance-based hill-climber will be able to explore a green region by single non-dominated moves. The pink areas are comprised of grid points for which *at least one* neighboring grid point dominates it. Each pink area is considered a "basin of attraction" of a green area in the sense that a local dominance-based hill climber can only move towards the included green area. Last, a grid point is assigned a white color if at least two of its dominating neighbors belong to two different basins of attraction&mdash;white areas in the plots therefore show the boundaries between the basins.
+This visualization method by Fieldsend et al. [-@Fieldsend2019feature] categorizes each point of the 2-D grid into one of three distinct groups. The first group (shown with saturated colors) contains all grid points $P$ for which *all* 8 neighboring grid points (in the Moore neighborhood) are mutually non-dominated to $P$. In landscape analysis terms, we can call these regions in the plots "dominance-neutral local optima regions" in the sense that a dominance-based hill-climber will be able to explore such a region by single non-dominated moves. The second group consists of areas (depicted with non-saturated colors) containing grid points for which *at least one* neighboring grid point dominates it. Each such area is considered a "basin of attraction" of the corresponding region in the sense that a local dominance-based hill climber can only move towards the corresponding region. The same color hue is used to denote each basin of attraction (low saturation) and its corresponding dominance-neutral local optima region (high saturation). Finally, a grid point in categorized into the last group (shown in white), if at least two of its dominating neighbors belong to two different basins of attraction&mdash;white areas in the plots therefore show the boundaries between the basins.
+
+In addition, black dots are used to highlight all non-dominated grid points.
 </div>
 
 <div id="text-gradient-length" style="padding-top: 10px;">
@@ -123,6 +125,12 @@ where $\nabla f_1(x)$ and $\nabla f_2(x)$ are the gradients of the objectives $f
 #### Path length
 
 This plot shows the length of the path from each grid point towards the next local optimum. Inspired by the cumulated gradient field landscapes [@Kerschke2017expedition], the length is defined as Euclidean distance to the Moore neighbor to which the biobjective gradient points plus the path length of this neighbor. Cumulated gradient field landscapes sum gradient lengths instead of Euclidean distances. We use the latter because they better quantify the actual distance to the local optimum, however both approaches lead to qualitatively very similar figures.
+</div> 
+
+<div id="text-correlation" style="padding-top: 10px;">
+#### Pearson correlation coefficient
+
+This plot shows the correlation between the two objectives estimated by computing the Pearson correlation coefficient at each grid point using a small sample in the grid point vicinity. The Pearson correlation coefficient measures the linear correlation between two samples' objectives and takes a value between $-1$ (perfect linear anti-correlation shown in red) and $1$ (perfect linear correlation shown in blue). A $0$ value (shown in white) implies that there is no linear dependency between the objectives. The Pearson correlation coefficient values are themselves positively correlated with the length of the normalized bi-objective gradient (see the gradient length plots). 
 </div> 
 
 ### Problem definition
