@@ -1,0 +1,1323 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.550">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Supplementary material for the bbob-biobj and bbob-biobj-ext test suites - Function definitions</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./images/favicon.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="assets/css/custom.css">
+<meta property="og:title" content="Supplementary material for the bbob-biobj and bbob-biobj-ext test suites - Function definitions">
+<meta property="og:description" content="">
+<meta property="og:site_name" content="Supplementary material for the bbob-biobj and bbob-biobj-ext test suites">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./images/favicon.png" alt="" class="navbar-logo">
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="./index.html" aria-current="page"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./def.html">Function definitions</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./def.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Function definitions</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./vis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Visualizations</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ecdfs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Gradient angle plots</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ppdata.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Postprocessed data</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#f1-spheresphere" id="toc-f1-spheresphere" class="nav-link" data-scroll-target="#f1-spheresphere">F<sub>1</sub>: Sphere/Sphere</a></li>
+  <li><a href="#f2-sphereellipsoid-separable" id="toc-f2-sphereellipsoid-separable" class="nav-link" data-scroll-target="#f2-sphereellipsoid-separable">F<sub>2</sub>: Sphere/Ellipsoid separable</a></li>
+  <li><a href="#f3-sphereattractive-sector" id="toc-f3-sphereattractive-sector" class="nav-link" data-scroll-target="#f3-sphereattractive-sector">F<sub>3</sub>: Sphere/Attractive sector</a></li>
+  <li><a href="#f4-sphererosenbrock-original" id="toc-f4-sphererosenbrock-original" class="nav-link" data-scroll-target="#f4-sphererosenbrock-original">F<sub>4</sub>: Sphere/Rosenbrock original</a></li>
+  <li><a href="#f5-spheresharp-ridge" id="toc-f5-spheresharp-ridge" class="nav-link" data-scroll-target="#f5-spheresharp-ridge">F<sub>5</sub>: Sphere/Sharp ridge</a></li>
+  <li><a href="#f6-spheresum-of-different-powers" id="toc-f6-spheresum-of-different-powers" class="nav-link" data-scroll-target="#f6-spheresum-of-different-powers">F<sub>6</sub>: Sphere/Sum of Different Powers</a></li>
+  <li><a href="#f7-sphererastrigin" id="toc-f7-sphererastrigin" class="nav-link" data-scroll-target="#f7-sphererastrigin">F<sub>7</sub>: Sphere/Rastrigin</a></li>
+  <li><a href="#f8-sphereschaffer-f7-condition-10" id="toc-f8-sphereschaffer-f7-condition-10" class="nav-link" data-scroll-target="#f8-sphereschaffer-f7-condition-10">F<sub>8</sub>: Sphere/Schaffer F7, condition 10</a></li>
+  <li><a href="#f9-sphereschwefel-xsinx" id="toc-f9-sphereschwefel-xsinx" class="nav-link" data-scroll-target="#f9-sphereschwefel-xsinx">F<sub>9</sub>: Sphere/Schwefel x*sin(x)</a></li>
+  <li><a href="#f10-spheregallagher-101-peaks" id="toc-f10-spheregallagher-101-peaks" class="nav-link" data-scroll-target="#f10-spheregallagher-101-peaks">F<sub>10</sub>: Sphere/Gallagher 101 peaks</a></li>
+  <li><a href="#f11-ellipsoid-separableellipsoid-separable" id="toc-f11-ellipsoid-separableellipsoid-separable" class="nav-link" data-scroll-target="#f11-ellipsoid-separableellipsoid-separable">F<sub>11</sub>: Ellipsoid separable/Ellipsoid separable</a></li>
+  <li><a href="#f12-ellipsoid-separableattractive-sector" id="toc-f12-ellipsoid-separableattractive-sector" class="nav-link" data-scroll-target="#f12-ellipsoid-separableattractive-sector">F<sub>12</sub>: Ellipsoid separable/Attractive sector</a></li>
+  <li><a href="#f13-ellipsoid-separablerosenbrock-original" id="toc-f13-ellipsoid-separablerosenbrock-original" class="nav-link" data-scroll-target="#f13-ellipsoid-separablerosenbrock-original">F<sub>13</sub>: Ellipsoid separable/Rosenbrock original</a></li>
+  <li><a href="#f14-ellipsoid-separablesharp-ridge" id="toc-f14-ellipsoid-separablesharp-ridge" class="nav-link" data-scroll-target="#f14-ellipsoid-separablesharp-ridge">F<sub>14</sub>: Ellipsoid separable/Sharp ridge</a></li>
+  <li><a href="#f15-ellipsoid-separablesum-of-different-powers" id="toc-f15-ellipsoid-separablesum-of-different-powers" class="nav-link" data-scroll-target="#f15-ellipsoid-separablesum-of-different-powers">F<sub>15</sub>: Ellipsoid separable/Sum of Different Powers</a></li>
+  <li><a href="#f16-ellipsoid-separablerastrigin" id="toc-f16-ellipsoid-separablerastrigin" class="nav-link" data-scroll-target="#f16-ellipsoid-separablerastrigin">F<sub>16</sub>: Ellipsoid separable/Rastrigin</a></li>
+  <li><a href="#f17-ellipsoid-separableschaffer-f7-condition-10" id="toc-f17-ellipsoid-separableschaffer-f7-condition-10" class="nav-link" data-scroll-target="#f17-ellipsoid-separableschaffer-f7-condition-10">F<sub>17</sub>: Ellipsoid separable/Schaffer F7, condition 10</a></li>
+  <li><a href="#f18-ellipsoid-separableschwefel-xsinx" id="toc-f18-ellipsoid-separableschwefel-xsinx" class="nav-link" data-scroll-target="#f18-ellipsoid-separableschwefel-xsinx">F<sub>18</sub>: Ellipsoid separable/Schwefel x*sin(x)</a></li>
+  <li><a href="#f19-ellipsoid-separablegallagher-101-peaks" id="toc-f19-ellipsoid-separablegallagher-101-peaks" class="nav-link" data-scroll-target="#f19-ellipsoid-separablegallagher-101-peaks">F<sub>19</sub>: Ellipsoid separable/Gallagher 101 peaks</a></li>
+  <li><a href="#f20-attractive-sectorattractive-sector" id="toc-f20-attractive-sectorattractive-sector" class="nav-link" data-scroll-target="#f20-attractive-sectorattractive-sector">F<sub>20</sub>: Attractive sector/Attractive sector</a></li>
+  <li><a href="#f21-attractive-sectorrosenbrock-original" id="toc-f21-attractive-sectorrosenbrock-original" class="nav-link" data-scroll-target="#f21-attractive-sectorrosenbrock-original">F<sub>21</sub>: Attractive sector/Rosenbrock original</a></li>
+  <li><a href="#f22-attractive-sectorsharp-ridge" id="toc-f22-attractive-sectorsharp-ridge" class="nav-link" data-scroll-target="#f22-attractive-sectorsharp-ridge">F<sub>22</sub>: Attractive sector/Sharp ridge</a></li>
+  <li><a href="#f23-attractive-sectorsum-of-different-powers" id="toc-f23-attractive-sectorsum-of-different-powers" class="nav-link" data-scroll-target="#f23-attractive-sectorsum-of-different-powers">F<sub>23</sub>: Attractive sector/Sum of Different Powers</a></li>
+  <li><a href="#f24-attractive-sectorrastrigin" id="toc-f24-attractive-sectorrastrigin" class="nav-link" data-scroll-target="#f24-attractive-sectorrastrigin">F<sub>24</sub>: Attractive sector/Rastrigin</a></li>
+  <li><a href="#f25-attractive-sectorschaffer-f7-condition-10" id="toc-f25-attractive-sectorschaffer-f7-condition-10" class="nav-link" data-scroll-target="#f25-attractive-sectorschaffer-f7-condition-10">F<sub>25</sub>: Attractive sector/Schaffer F7, condition 10</a></li>
+  <li><a href="#f26-attractive-sectorschwefel-xsinx" id="toc-f26-attractive-sectorschwefel-xsinx" class="nav-link" data-scroll-target="#f26-attractive-sectorschwefel-xsinx">F<sub>26</sub>: Attractive sector/Schwefel x*sin(x)</a></li>
+  <li><a href="#f27-attractive-sectorgallagher-101-peaks" id="toc-f27-attractive-sectorgallagher-101-peaks" class="nav-link" data-scroll-target="#f27-attractive-sectorgallagher-101-peaks">F<sub>27</sub>: Attractive sector/Gallagher 101 peaks</a></li>
+  <li><a href="#f28-rosenbrock-originalrosenbrock-original" id="toc-f28-rosenbrock-originalrosenbrock-original" class="nav-link" data-scroll-target="#f28-rosenbrock-originalrosenbrock-original">F<sub>28</sub>: Rosenbrock original/Rosenbrock original</a></li>
+  <li><a href="#f29-rosenbrock-originalsharp-ridge" id="toc-f29-rosenbrock-originalsharp-ridge" class="nav-link" data-scroll-target="#f29-rosenbrock-originalsharp-ridge">F<sub>29</sub>: Rosenbrock original/Sharp ridge</a></li>
+  <li><a href="#f30-rosenbrock-originalsum-of-different-powers" id="toc-f30-rosenbrock-originalsum-of-different-powers" class="nav-link" data-scroll-target="#f30-rosenbrock-originalsum-of-different-powers">F<sub>30</sub>: Rosenbrock original/Sum of Different Powers</a></li>
+  <li><a href="#f31-rosenbrock-originalrastrigin" id="toc-f31-rosenbrock-originalrastrigin" class="nav-link" data-scroll-target="#f31-rosenbrock-originalrastrigin">F<sub>31</sub>: Rosenbrock original/Rastrigin</a></li>
+  <li><a href="#f32-rosenbrock-originalschaffer-f7-condition-10" id="toc-f32-rosenbrock-originalschaffer-f7-condition-10" class="nav-link" data-scroll-target="#f32-rosenbrock-originalschaffer-f7-condition-10">F<sub>32</sub>: Rosenbrock original/Schaffer F7, condition 10</a></li>
+  <li><a href="#f33-rosenbrock-originalschwefel-xsinx" id="toc-f33-rosenbrock-originalschwefel-xsinx" class="nav-link" data-scroll-target="#f33-rosenbrock-originalschwefel-xsinx">F<sub>33</sub>: Rosenbrock original/Schwefel x*sin(x)</a></li>
+  <li><a href="#f34-rosenbrock-originalgallagher-101-peaks" id="toc-f34-rosenbrock-originalgallagher-101-peaks" class="nav-link" data-scroll-target="#f34-rosenbrock-originalgallagher-101-peaks">F<sub>34</sub>: Rosenbrock original/Gallagher 101 peaks</a></li>
+  <li><a href="#f35-sharp-ridgesharp-ridge" id="toc-f35-sharp-ridgesharp-ridge" class="nav-link" data-scroll-target="#f35-sharp-ridgesharp-ridge">F<sub>35</sub>: Sharp ridge/Sharp ridge</a></li>
+  <li><a href="#f36-sharp-ridgesum-of-different-powers" id="toc-f36-sharp-ridgesum-of-different-powers" class="nav-link" data-scroll-target="#f36-sharp-ridgesum-of-different-powers">F<sub>36</sub>: Sharp ridge/Sum of Different Powers</a></li>
+  <li><a href="#f37-sharp-ridgerastrigin" id="toc-f37-sharp-ridgerastrigin" class="nav-link" data-scroll-target="#f37-sharp-ridgerastrigin">F<sub>37</sub>: Sharp ridge/Rastrigin</a></li>
+  <li><a href="#f38-sharp-ridgeschaffer-f7-condition-10" id="toc-f38-sharp-ridgeschaffer-f7-condition-10" class="nav-link" data-scroll-target="#f38-sharp-ridgeschaffer-f7-condition-10">F<sub>38</sub>: Sharp ridge/Schaffer F7, condition 10</a></li>
+  <li><a href="#f39-sharp-ridgeschwefel-xsinx" id="toc-f39-sharp-ridgeschwefel-xsinx" class="nav-link" data-scroll-target="#f39-sharp-ridgeschwefel-xsinx">F<sub>39</sub>: Sharp ridge/Schwefel x*sin(x)</a></li>
+  <li><a href="#f40-sharp-ridgegallagher-101-peaks" id="toc-f40-sharp-ridgegallagher-101-peaks" class="nav-link" data-scroll-target="#f40-sharp-ridgegallagher-101-peaks">F<sub>40</sub>: Sharp ridge/Gallagher 101 peaks</a></li>
+  <li><a href="#f41-sum-of-different-powerssum-of-different-powers" id="toc-f41-sum-of-different-powerssum-of-different-powers" class="nav-link" data-scroll-target="#f41-sum-of-different-powerssum-of-different-powers">F<sub>41</sub>: Sum of Different Powers/Sum of Different Powers</a></li>
+  <li><a href="#f42-sum-of-different-powersrastrigin" id="toc-f42-sum-of-different-powersrastrigin" class="nav-link" data-scroll-target="#f42-sum-of-different-powersrastrigin">F<sub>42</sub>: Sum of Different Powers/Rastrigin</a></li>
+  <li><a href="#f43-sum-of-different-powersschaffer-f7-condition-10" id="toc-f43-sum-of-different-powersschaffer-f7-condition-10" class="nav-link" data-scroll-target="#f43-sum-of-different-powersschaffer-f7-condition-10">F<sub>43</sub>: Sum of Different Powers/Schaffer F7, condition 10</a></li>
+  <li><a href="#f44-sum-of-different-powersschwefel-xsinx" id="toc-f44-sum-of-different-powersschwefel-xsinx" class="nav-link" data-scroll-target="#f44-sum-of-different-powersschwefel-xsinx">F<sub>44</sub>: Sum of Different Powers/Schwefel x*sin(x)</a></li>
+  <li><a href="#f45-sum-of-different-powersgallagher-101-peaks" id="toc-f45-sum-of-different-powersgallagher-101-peaks" class="nav-link" data-scroll-target="#f45-sum-of-different-powersgallagher-101-peaks">F<sub>45</sub>: Sum of Different Powers/Gallagher 101 peaks</a></li>
+  <li><a href="#f46-rastriginrastrigin" id="toc-f46-rastriginrastrigin" class="nav-link" data-scroll-target="#f46-rastriginrastrigin">F<sub>46</sub>: Rastrigin/Rastrigin</a></li>
+  <li><a href="#f47-rastriginschaffer-f7-condition-10" id="toc-f47-rastriginschaffer-f7-condition-10" class="nav-link" data-scroll-target="#f47-rastriginschaffer-f7-condition-10">F<sub>47</sub>: Rastrigin/Schaffer F7, condition 10</a></li>
+  <li><a href="#f48-rastriginschwefel-xsinx" id="toc-f48-rastriginschwefel-xsinx" class="nav-link" data-scroll-target="#f48-rastriginschwefel-xsinx">F<sub>48</sub>: Rastrigin/Schwefel x*sin(x)</a></li>
+  <li><a href="#f49-rastrigingallagher-101-peaks" id="toc-f49-rastrigingallagher-101-peaks" class="nav-link" data-scroll-target="#f49-rastrigingallagher-101-peaks">F<sub>49</sub>: Rastrigin/Gallagher 101 peaks</a></li>
+  <li><a href="#f50-schaffer-f7-condition-10schaffer-f7-condition-10" id="toc-f50-schaffer-f7-condition-10schaffer-f7-condition-10" class="nav-link" data-scroll-target="#f50-schaffer-f7-condition-10schaffer-f7-condition-10">F<sub>50</sub>: Schaffer F7, condition 10/Schaffer F7, condition 10</a></li>
+  <li><a href="#f51-schaffer-f7-condition-10schwefel-xsinx" id="toc-f51-schaffer-f7-condition-10schwefel-xsinx" class="nav-link" data-scroll-target="#f51-schaffer-f7-condition-10schwefel-xsinx">F<sub>51</sub>: Schaffer F7, condition 10/Schwefel x*sin(x)</a></li>
+  <li><a href="#f52-schaffer-f7-condition-10gallagher-101-peaks" id="toc-f52-schaffer-f7-condition-10gallagher-101-peaks" class="nav-link" data-scroll-target="#f52-schaffer-f7-condition-10gallagher-101-peaks">F<sub>52</sub>: Schaffer F7, condition 10/Gallagher 101 peaks</a></li>
+  <li><a href="#f53-schwefel-xsinxschwefel-xsinx" id="toc-f53-schwefel-xsinxschwefel-xsinx" class="nav-link" data-scroll-target="#f53-schwefel-xsinxschwefel-xsinx">F<sub>53</sub>: Schwefel x<em>sin(x)/Schwefel x</em>sin(x)</a></li>
+  <li><a href="#f54-schwefel-xsinxgallagher-101-peaks" id="toc-f54-schwefel-xsinxgallagher-101-peaks" class="nav-link" data-scroll-target="#f54-schwefel-xsinxgallagher-101-peaks">F<sub>54</sub>: Schwefel x*sin(x)/Gallagher 101 peaks</a></li>
+  <li><a href="#f55-gallagher-101-peaksgallagher-101-peaks" id="toc-f55-gallagher-101-peaksgallagher-101-peaks" class="nav-link" data-scroll-target="#f55-gallagher-101-peaksgallagher-101-peaks">F<sub>55</sub>: Gallagher 101 peaks/Gallagher 101 peaks</a></li>
+  <li><a href="#f56-sphererastrigin-separable" id="toc-f56-sphererastrigin-separable" class="nav-link" data-scroll-target="#f56-sphererastrigin-separable">F<sub>56</sub>: Sphere/Rastrigin separable</a></li>
+  <li><a href="#f57-sphererastrigin-büche" id="toc-f57-sphererastrigin-büche" class="nav-link" data-scroll-target="#f57-sphererastrigin-büche">F<sub>57</sub>: Sphere/Rastrigin-Büche</a></li>
+  <li><a href="#f58-spherelinear-slope" id="toc-f58-spherelinear-slope" class="nav-link" data-scroll-target="#f58-spherelinear-slope">F<sub>58</sub>: Sphere/Linear slope</a></li>
+  <li><a href="#f59-separable-ellipsoidseparable-rastrigin" id="toc-f59-separable-ellipsoidseparable-rastrigin" class="nav-link" data-scroll-target="#f59-separable-ellipsoidseparable-rastrigin">F<sub>59</sub>: Separable Ellipsoid/Separable Rastrigin</a></li>
+  <li><a href="#f60-separable-ellipsoidbüche-rastrigin" id="toc-f60-separable-ellipsoidbüche-rastrigin" class="nav-link" data-scroll-target="#f60-separable-ellipsoidbüche-rastrigin">F<sub>60</sub>: separable Ellipsoid/Büche-Rastrigin</a></li>
+  <li><a href="#f61-separable-ellipsoidlinear-slope" id="toc-f61-separable-ellipsoidlinear-slope" class="nav-link" data-scroll-target="#f61-separable-ellipsoidlinear-slope">F<sub>61</sub>: Separable Ellipsoid/Linear Slope</a></li>
+  <li><a href="#f62-separable-rastriginbüche-rastrigin" id="toc-f62-separable-rastriginbüche-rastrigin" class="nav-link" data-scroll-target="#f62-separable-rastriginbüche-rastrigin">F<sub>62</sub>: separable Rastrigin/Büche-Rastrigin</a></li>
+  <li><a href="#f63-separable-rastriginlinear-slope" id="toc-f63-separable-rastriginlinear-slope" class="nav-link" data-scroll-target="#f63-separable-rastriginlinear-slope">F<sub>63</sub>: Separable Rastrigin/Linear Slope</a></li>
+  <li><a href="#f64-büche-rastriginlinear-slope" id="toc-f64-büche-rastriginlinear-slope" class="nav-link" data-scroll-target="#f64-büche-rastriginlinear-slope">F<sub>64</sub>: Büche-Rastrigin/Linear slope</a></li>
+  <li><a href="#f65-attractive-sectorstep-ellipsoid" id="toc-f65-attractive-sectorstep-ellipsoid" class="nav-link" data-scroll-target="#f65-attractive-sectorstep-ellipsoid">F<sub>65</sub>: Attractive Sector/Step-ellipsoid</a></li>
+  <li><a href="#f66-attractive-sectorrotated-rosenbrock" id="toc-f66-attractive-sectorrotated-rosenbrock" class="nav-link" data-scroll-target="#f66-attractive-sectorrotated-rosenbrock">F<sub>66</sub>: Attractive Sector/rotated Rosenbrock</a></li>
+  <li><a href="#f67-step-ellipsoidseparable-rosenbrock" id="toc-f67-step-ellipsoidseparable-rosenbrock" class="nav-link" data-scroll-target="#f67-step-ellipsoidseparable-rosenbrock">F<sub>67</sub>: Step-ellipsoid/separable Rosenbrock</a></li>
+  <li><a href="#f68-step-ellipsoidrotated-rosenbrock" id="toc-f68-step-ellipsoidrotated-rosenbrock" class="nav-link" data-scroll-target="#f68-step-ellipsoidrotated-rosenbrock">F<sub>68</sub>: Step-ellipsoid/rotated Rosenbrock</a></li>
+  <li><a href="#f69-separable-rosenbrockrotated-rosenbrock" id="toc-f69-separable-rosenbrockrotated-rosenbrock" class="nav-link" data-scroll-target="#f69-separable-rosenbrockrotated-rosenbrock">F<sub>69</sub>: separable Rosenbrock/rotated Rosenbrock</a></li>
+  <li><a href="#f70-ellipsoiddiscus" id="toc-f70-ellipsoiddiscus" class="nav-link" data-scroll-target="#f70-ellipsoiddiscus">F<sub>70</sub>: Ellipsoid/Discus</a></li>
+  <li><a href="#f71-ellipsoidbent-cigar" id="toc-f71-ellipsoidbent-cigar" class="nav-link" data-scroll-target="#f71-ellipsoidbent-cigar">F<sub>71</sub>: Ellipsoid/Bent Cigar</a></li>
+  <li><a href="#f72-ellipsoidsharp-ridge" id="toc-f72-ellipsoidsharp-ridge" class="nav-link" data-scroll-target="#f72-ellipsoidsharp-ridge">F<sub>72</sub>: Ellipsoid/Sharp Ridge</a></li>
+  <li><a href="#f73-ellipsoidsum-of-different-powers" id="toc-f73-ellipsoidsum-of-different-powers" class="nav-link" data-scroll-target="#f73-ellipsoidsum-of-different-powers">F<sub>73</sub>: Ellipsoid/Sum of Different Powers</a></li>
+  <li><a href="#f74-discusbent-cigar" id="toc-f74-discusbent-cigar" class="nav-link" data-scroll-target="#f74-discusbent-cigar">F<sub>74</sub>: Discus/Bent Cigar</a></li>
+  <li><a href="#f75-discussharp-ridge" id="toc-f75-discussharp-ridge" class="nav-link" data-scroll-target="#f75-discussharp-ridge">F<sub>75</sub>: Discus/Sharp Ridge</a></li>
+  <li><a href="#f76-discussum-of-different-powers" id="toc-f76-discussum-of-different-powers" class="nav-link" data-scroll-target="#f76-discussum-of-different-powers">F<sub>76</sub>: Discus/Sum of Different Powers</a></li>
+  <li><a href="#f77-bent-cigarsharp-ridge" id="toc-f77-bent-cigarsharp-ridge" class="nav-link" data-scroll-target="#f77-bent-cigarsharp-ridge">F<sub>77</sub>: Bent Cigar/Sharp Ridge</a></li>
+  <li><a href="#f78-bent-cigarsum-of-different-powers" id="toc-f78-bent-cigarsum-of-different-powers" class="nav-link" data-scroll-target="#f78-bent-cigarsum-of-different-powers">F<sub>78</sub>: Bent Cigar/Sum of Different Powers</a></li>
+  <li><a href="#f79-rastriginschaffer-f7-with-conditioning-of-1000" id="toc-f79-rastriginschaffer-f7-with-conditioning-of-1000" class="nav-link" data-scroll-target="#f79-rastriginschaffer-f7-with-conditioning-of-1000">F<sub>79</sub>: Rastrigin/Schaffer F7 with conditioning of 1000</a></li>
+  <li><a href="#f80-rastrigingriewank-rosenbrock" id="toc-f80-rastrigingriewank-rosenbrock" class="nav-link" data-scroll-target="#f80-rastrigingriewank-rosenbrock">F<sub>80</sub>: Rastrigin/Griewank-Rosenbrock</a></li>
+  <li><a href="#f81-schaffer-f7schaffer-f7-with-conditioning-1000" id="toc-f81-schaffer-f7schaffer-f7-with-conditioning-1000" class="nav-link" data-scroll-target="#f81-schaffer-f7schaffer-f7-with-conditioning-1000">F<sub>81</sub>: Schaffer F7/Schaffer F7 with conditioning 1000</a></li>
+  <li><a href="#f82-schaffer-f7griewank-rosenbrock" id="toc-f82-schaffer-f7griewank-rosenbrock" class="nav-link" data-scroll-target="#f82-schaffer-f7griewank-rosenbrock">F<sub>82</sub>: Schaffer F7/Griewank-Rosenbrock</a></li>
+  <li><a href="#f83-schaffer-f7-with-conditioning-1000griewank-rosenbrock" id="toc-f83-schaffer-f7-with-conditioning-1000griewank-rosenbrock" class="nav-link" data-scroll-target="#f83-schaffer-f7-with-conditioning-1000griewank-rosenbrock">F<sub>83</sub>: Schaffer F7 with conditioning 1000/Griewank-Rosenbrock</a></li>
+  <li><a href="#f84-schwefelgallagher-21" id="toc-f84-schwefelgallagher-21" class="nav-link" data-scroll-target="#f84-schwefelgallagher-21">F<sub>84</sub>: Schwefel/Gallagher 21</a></li>
+  <li><a href="#f85-schwefelkatsuuras" id="toc-f85-schwefelkatsuuras" class="nav-link" data-scroll-target="#f85-schwefelkatsuuras">F<sub>85</sub>: Schwefel/Katsuuras</a></li>
+  <li><a href="#f86-schwefellunacek-bi-rastrigin" id="toc-f86-schwefellunacek-bi-rastrigin" class="nav-link" data-scroll-target="#f86-schwefellunacek-bi-rastrigin">F<sub>86</sub>: Schwefel/Lunacek bi-Rastrigin</a></li>
+  <li><a href="#f87-gallagher-101gallagher-21" id="toc-f87-gallagher-101gallagher-21" class="nav-link" data-scroll-target="#f87-gallagher-101gallagher-21">F<sub>87</sub>: Gallagher 101/Gallagher 21</a></li>
+  <li><a href="#f88-gallagher-101katsuuras" id="toc-f88-gallagher-101katsuuras" class="nav-link" data-scroll-target="#f88-gallagher-101katsuuras">F<sub>88</sub>: Gallagher 101/Katsuuras</a></li>
+  <li><a href="#f89-gallagher-101lunacek-bi-rastrigin" id="toc-f89-gallagher-101lunacek-bi-rastrigin" class="nav-link" data-scroll-target="#f89-gallagher-101lunacek-bi-rastrigin">F<sub>89</sub>: Gallagher 101/Lunacek bi-Rastrigin</a></li>
+  <li><a href="#f90-gallagher-21katsuuras" id="toc-f90-gallagher-21katsuuras" class="nav-link" data-scroll-target="#f90-gallagher-21katsuuras">F<sub>90</sub>: Gallagher 21/Katsuuras</a></li>
+  <li><a href="#f91-gallagher-21lunacek-bi-rastrigin" id="toc-f91-gallagher-21lunacek-bi-rastrigin" class="nav-link" data-scroll-target="#f91-gallagher-21lunacek-bi-rastrigin">F<sub>91</sub>: Gallagher 21/Lunacek bi-Rastrigin</a></li>
+  <li><a href="#f92-katsuuraslunacek-bi-rastrigin" id="toc-f92-katsuuraslunacek-bi-rastrigin" class="nav-link" data-scroll-target="#f92-katsuuraslunacek-bi-rastrigin">F<sub>92</sub>: Katsuuras/Lunacek bi-Rastrigin</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Function definitions</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>The bi-objective problems are created by combining two <code>bbob</code> functions <span class="citation" data-cites="bbob2019">(<a href="#ref-bbob2019" role="doc-biblioref">Finck et al. 2009</a>)</span>.</p>
+<section id="overview" class="level3">
+<h3 class="anchored" data-anchor-id="overview">Overview</h3>
+<p><img src="./assets/img/bbob-biobj-ext.png" alt="Functions in the bbob-biobj-ext suite" style="width:100%; max-width:900px;"></p>
+</section>
+<section id="f1-spheresphere" class="level3">
+<h3 class="anchored" data-anchor-id="f1-spheresphere">F<sub>1</sub>: Sphere/Sphere</h3>
+<p>Combination of two sphere functions (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=5">f<sub>1</sub></a> in the <code>bbob</code> suite).</p>
+<p>Both objectives are unimodal, highly symmetric, rotational and scale invariant. The Pareto set is known to be a straight line and the Pareto front is convex. Furthermore, the normalized hypervolume value of the entire Pareto front with respect to the nadir point as reference point can be computed analytically as the integral <span class="math inline">1-\int_{0}^{1} (1-\sqrt{x})^2dx = -\frac{1}{2}+\frac{4}{3}=0.833333\ldots</span>.</p>
+<p>Considered as the simplest bi-objective problem in continuous domain. Contained in the <em>separable - separable</em> function group.</p>
+</section>
+<section id="f2-sphereellipsoid-separable" class="level3">
+<h3 class="anchored" data-anchor-id="f2-sphereellipsoid-separable">F<sub>2</sub>: Sphere/Ellipsoid separable</h3>
+<p>Combination of the sphere function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=5">f<sub>1</sub></a> in the <code>bbob</code> suite) and the separable ellipsoid function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=10">f<sub>2</sub></a> in the <code>bbob</code> suite).</p>
+<p>Both objectives are unimodal and separable. While the first objective is truly convex-quadratic with a condition number of 1, the second objective is only globally quadratic with smooth local irregularities and highly ill-conditioned with a condition number of about <span class="math inline">10^6</span>.</p>
+<p>Contained in the <em>separable - separable</em> function group.</p>
+</section>
+<section id="f3-sphereattractive-sector" class="level3">
+<h3 class="anchored" data-anchor-id="f3-sphereattractive-sector">F<sub>3</sub>: Sphere/Attractive sector</h3>
+<p>Combination of the sphere function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=5">f<sub>1</sub></a> in the <code>bbob</code> suite) and the attractive sector function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=30">f<sub>6</sub></a> in the <code>bbob</code> suite).</p>
+<p>Both objective functions are unimodal, but only the first objective is separable and truly convex quadratic. The attractive sector function is highly asymmetric, where only one <em>hypercone</em> (with angular base area) with a volume of roughly <span class="math inline">(1/2)^n</span> yields low function values. The optimum of it is located at the tip of this cone.</p>
+<p>Contained in the <em>separable - moderate</em> function group.</p>
+</section>
+<section id="f4-sphererosenbrock-original" class="level3">
+<h3 class="anchored" data-anchor-id="f4-sphererosenbrock-original">F<sub>4</sub>: Sphere/Rosenbrock original</h3>
+<p>Combination of the sphere function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=5">f<sub>1</sub></a> in the <code>bbob</code> suite) and the original, i.e., unrotated Rosenbrock function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=40">f<sub>8</sub></a> in the <code>bbob</code> suite).</p>
+<p>The first objective is separable and truly convex, the second objective is partially separable (tri-band structure). The first objective is unimodal while the second objective has a local optimum with an attraction volume of about 25%.</p>
+<p>Contained in the <em>separable - moderate</em> function group.</p>
+</section>
+<section id="f5-spheresharp-ridge" class="level3">
+<h3 class="anchored" data-anchor-id="f5-spheresharp-ridge">F<sub>5</sub>: Sphere/Sharp ridge</h3>
+<p>Combination of the sphere function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=5">f<sub>1</sub></a> in the <code>bbob</code> suite) and the sharp ridge function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=65">f<sub>13</sub></a> in the <code>bbob</code> suite).</p>
+<p>Both objective functions are unimodal. In addition to the simple, separable, and differentiable first objective, a sharp, i.e., non-differentiable ridge has to be followed for optimizing the (non-separable) second objective. The gradient towards the ridge remains constant, when the ridge is approached from a given point. Approaching the ridge is initially effective, but becomes ineffective close to the ridge when the ridge needs to be followed in direction to its optimum. The necessary change in <em>search behavior</em> close to the ridge is difficult to diagnose, because the gradient towards the ridge does not flatten out.</p>
+<p>Contained in the <em>separable - ill-conditioned</em> function group.</p>
+</section>
+<section id="f6-spheresum-of-different-powers" class="level3">
+<h3 class="anchored" data-anchor-id="f6-spheresum-of-different-powers">F<sub>6</sub>: Sphere/Sum of Different Powers</h3>
+<p>Combination of the sphere function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=5">f<sub>1</sub></a> in the <code>bbob</code> suite) and the sum of different powers function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=70">f<sub>14</sub></a> in the <code>bbob</code> suite).</p>
+<p>Both objective functions are unimodal. The first objective is separable, the second non-separable. When approaching the second objective’s optimum, the difference in sensitivity between different directions in search space increases unboundedly.</p>
+<p>Contained in the <em>separable - ill-conditioned</em> function group.</p>
+</section>
+<section id="f7-sphererastrigin" class="level3">
+<h3 class="anchored" data-anchor-id="f7-sphererastrigin">F<sub>7</sub>: Sphere/Rastrigin</h3>
+<p>Combination of the sphere function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=5">f<sub>1</sub></a> in the <code>bbob</code> suite) and the Rastrigin function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=75">f<sub>15</sub></a> in the <code>bbob</code> suite).</p>
+<p>In addition to the simple sphere function, the prototypical highly multimodal Rastrigin function needs to be solved which has originally a very regular and symmetric structure for the placement of the optima. Here, however, transformations are performed to alleviate the original symmetry and regularity in the second objective.</p>
+<p>The properties of the second objective contain non-separability, multimodality (roughly <span class="math inline">10^n</span> local optima), a conditioning of about 10, and a large global amplitude compared to the local amplitudes.</p>
+<p>Contained in the <em>separable - multimodal</em> function group.</p>
+</section>
+<section id="f8-sphereschaffer-f7-condition-10" class="level3">
+<h3 class="anchored" data-anchor-id="f8-sphereschaffer-f7-condition-10">F<sub>8</sub>: Sphere/Schaffer F7, condition 10</h3>
+<p>Combination of the sphere function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=5">f<sub>1</sub></a> in the <code>bbob</code> suite) and the Schaffer F7 function with condition number 10 (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=85">f<sub>17</sub></a> in the <code>bbob</code> suite).</p>
+<p>In addition to the simple sphere function, an asymmetric, non-separable, and highly multimodal function needs to be solved to approach the Pareto front/Pareto set where the frequency and amplitude of the modulation in the second objective vary. The conditioning of the second objective and thus the entire bi-objective function is low.</p>
+<p>Contained in the <em>separable - multimodal</em> function group.</p>
+</section>
+<section id="f9-sphereschwefel-xsinx" class="level3">
+<h3 class="anchored" data-anchor-id="f9-sphereschwefel-xsinx">F<sub>9</sub>: Sphere/Schwefel x*sin(x)</h3>
+<p>Combination of the sphere function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=5">f<sub>1</sub></a> in the <code>bbob</code> suite) and the Schwefel function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=100">f<sub>20</sub></a> in the <code>bbob</code> suite).</p>
+<p>While the first objective function is separable and unimodal, the second objective function is partially separable and highly multimodal—having the most prominent <span class="math inline">2^n</span> minima located comparatively close to the corners of the unpenalized search area.</p>
+<p>Contained in the <em>separable - weakly-structured</em> function group.</p>
+</section>
+<section id="f10-spheregallagher-101-peaks" class="level3">
+<h3 class="anchored" data-anchor-id="f10-spheregallagher-101-peaks">F<sub>10</sub>: Sphere/Gallagher 101 peaks</h3>
+<p>Combination of the sphere function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=5">f<sub>1</sub></a> in the <code>bbob</code> suite) and the Gallagher function with 101 peaks (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=105">f<sub>21</sub></a> in the <code>bbob</code> suite).</p>
+<p>While the first objective function is separable and unimodal, the second objective function is non-separable and consists of 101 optima with position and height being unrelated and randomly chosen (different for each instantiation of the function). The conditioning around the global optimum of the second objective function is about 30.</p>
+<p>Contained in the <em>separable - weakly-structured</em> function group.</p>
+</section>
+<section id="f11-ellipsoid-separableellipsoid-separable" class="level3">
+<h3 class="anchored" data-anchor-id="f11-ellipsoid-separableellipsoid-separable">F<sub>11</sub>: Ellipsoid separable/Ellipsoid separable</h3>
+<p>Combination of two separable ellipsoid functions (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=10">f<sub>2</sub></a> in the <code>bbob</code> suite).</p>
+<p>Both objectives are unimodal, separable, only globally quadratic with smooth local irregularities, and highly ill-conditioned with a condition number of about <span class="math inline">10^6</span>.</p>
+<p>Contained in the <em>separable - separable</em> function group.</p>
+</section>
+<section id="f12-ellipsoid-separableattractive-sector" class="level3">
+<h3 class="anchored" data-anchor-id="f12-ellipsoid-separableattractive-sector">F<sub>12</sub>: Ellipsoid separable/Attractive sector</h3>
+<p>Combination of the separable ellipsoid function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=10">f<sub>2</sub></a> in the <code>bbob</code> suite) and the attractive sector function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=30">f<sub>6</sub></a> in the <code>bbob</code> suite).</p>
+<p>Both objective functions are unimodal but only the first one is separable. The first objective function, in addition, is globally quadratic with smooth local irregularities, and highly ill-conditioned with a condition number of about <span class="math inline">10^6</span>. The second objective function is highly asymmetric, where only one <em>hypercone</em> (with angular base area) with a volume of roughly <span class="math inline">(1/2)^n</span> yields low function values. The optimum of it is located at the tip of this cone.</p>
+<p>Contained in the <em>separable - moderate</em> function group.</p>
+</section>
+<section id="f13-ellipsoid-separablerosenbrock-original" class="level3">
+<h3 class="anchored" data-anchor-id="f13-ellipsoid-separablerosenbrock-original">F<sub>13</sub>: Ellipsoid separable/Rosenbrock original</h3>
+<p>Combination of the separable ellipsoid function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=10">f<sub>2</sub></a> in the <code>bbob</code> suite) and the original, i.e., unrotated Rosenbrock function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=40">f<sub>8</sub></a> in the <code>bbob</code> suite).</p>
+<p>Only the first objective is separable and unimodal. The second objective is partially separable (tri-band structure) and has a local optimum with an attraction volume of about 25%. In addition, the first objective function shows smooth local irregularities from a globally convex quadratic function and is highly ill-conditioned with a condition number of about <span class="math inline">10^6</span>.</p>
+<p>Contained in the <em>separable - moderate</em> function group.</p>
+</section>
+<section id="f14-ellipsoid-separablesharp-ridge" class="level3">
+<h3 class="anchored" data-anchor-id="f14-ellipsoid-separablesharp-ridge">F<sub>14</sub>: Ellipsoid separable/Sharp ridge</h3>
+<p>Combination of the separable ellipsoid function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=10">f<sub>2</sub></a> in the <code>bbob</code> suite) and the sharp ridge function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=65">f<sub>13</sub></a> in the <code>bbob</code> suite).</p>
+<p>Both objective functions are unimodal but only the first one is separable.</p>
+<p>The first objective is globally quadratic but with smooth local irregularities and highly ill-conditioned with a condition number of about <span class="math inline">10^6</span>. For optimizing the second objective, a sharp, i.e., non-differentiable ridge has to be followed.</p>
+<p>Contained in the <em>separable - ill-conditioned</em> function group.</p>
+</section>
+<section id="f15-ellipsoid-separablesum-of-different-powers" class="level3">
+<h3 class="anchored" data-anchor-id="f15-ellipsoid-separablesum-of-different-powers">F<sub>15</sub>: Ellipsoid separable/Sum of Different Powers</h3>
+<p>Combination of the separable ellipsoid function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=10">f<sub>2</sub></a> in the <code>bbob</code> suite) and the sum of different powers function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=70">f<sub>14</sub></a> in the <code>bbob</code> suite).</p>
+<p>Both objective functions are unimodal but only the first one is separable.</p>
+<p>The first objective is globally quadratic but with smooth local irregularities and highly ill-conditioned with a condition number of about <span class="math inline">10^6</span>. When approaching the second objective’s optimum, the sensitivities of the variables in the rotated search space become more and more different.</p>
+<p>Contained in the <em>separable - ill-conditioned</em> function group.</p>
+</section>
+<section id="f16-ellipsoid-separablerastrigin" class="level3">
+<h3 class="anchored" data-anchor-id="f16-ellipsoid-separablerastrigin">F<sub>16</sub>: Ellipsoid separable/Rastrigin</h3>
+<p>Combination of the separable ellipsoid function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=10">f<sub>2</sub></a> in the <code>bbob</code> suite) and the Rastrigin function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=75">f<sub>15</sub></a> in the <code>bbob</code> suite).</p>
+<p>The objective functions show rather opposite properties. The first one is separable, the second not. The first one is unimodal, the second highly multimodal (roughly <span class="math inline">10^n</span> local optima). The first one is highly ill-conditioning (condition number of <span class="math inline">10^6</span>), the second one has a conditioning of about 10. Local non-linear transformations are performed in both objective functions to alleviate the original symmetry and regularity of the two baseline functions.</p>
+<p>Contained in the <em>separable - multimodal</em> function group.</p>
+</section>
+<section id="f17-ellipsoid-separableschaffer-f7-condition-10" class="level3">
+<h3 class="anchored" data-anchor-id="f17-ellipsoid-separableschaffer-f7-condition-10">F<sub>17</sub>: Ellipsoid separable/Schaffer F7, condition 10</h3>
+<p>Combination of the separable ellipsoid function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=10">f<sub>2</sub></a> in the <code>bbob</code> suite) and the Schaffer F7 function with condition number 10 (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=85">f<sub>17</sub></a> in the <code>bbob</code> suite).</p>
+<p>Also here, both single objectives possess opposing properties. The first objective is unimodal, besides small local non-linearities symmetric, separable and highly ill-conditioned while the second objective is highly multimodal, asymmetric, and non-separable, with only a low conditioning.</p>
+<p>Contained in the <em>separable - multimodal</em> function group.</p>
+</section>
+<section id="f18-ellipsoid-separableschwefel-xsinx" class="level3">
+<h3 class="anchored" data-anchor-id="f18-ellipsoid-separableschwefel-xsinx">F<sub>18</sub>: Ellipsoid separable/Schwefel x*sin(x)</h3>
+<p>Combination of the separable ellipsoid function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=10">f<sub>2</sub></a> in the <code>bbob</code> suite) and the Schwefel function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=100">f<sub>20</sub></a> in the <code>bbob</code> suite).</p>
+<p>The first objective is unimodal, separable and highly ill-conditioned. The second objective is partially separable and highly multimodal—having the most prominent <span class="math inline">2^n</span> minima located comparatively close to the corners of the unpenalized search area.</p>
+<p>Contained in the <em>separable - weakly-structured</em> function group.</p>
+</section>
+<section id="f19-ellipsoid-separablegallagher-101-peaks" class="level3">
+<h3 class="anchored" data-anchor-id="f19-ellipsoid-separablegallagher-101-peaks">F<sub>19</sub>: Ellipsoid separable/Gallagher 101 peaks</h3>
+<p>Combination of the separable ellipsoid function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=10">f<sub>2</sub></a> in the <code>bbob</code> suite) and the Gallagher function with 101 peaks (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=105">f<sub>21</sub></a> in the <code>bbob</code> suite).</p>
+<p>While the first objective function is separable, unimodal, and highly ill-conditioned (condition number of about <span class="math inline">10^6</span>), the second objective function is non-separable and consists of 101 optima with position and height being unrelated and randomly chosen (different for each instantiation of the function). The conditioning around the global optimum of the second objective function is about 30.</p>
+<p>Contained in the <em>separable - weakly-structured</em> function group.</p>
+</section>
+<section id="f20-attractive-sectorattractive-sector" class="level3">
+<h3 class="anchored" data-anchor-id="f20-attractive-sectorattractive-sector">F<sub>20</sub>: Attractive sector/Attractive sector</h3>
+<p>Combination of two attractive sector functions (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=30">f<sub>6</sub></a> in the <code>bbob</code> suite). Both functions are unimodal and highly asymmetric, where only one <em>hypercone</em> (with angular base area) per objective with a volume of roughly <span class="math inline">(1/2)^n</span> yields low function values. The objective functions’ optima are located at the tips of those two cones.</p>
+<p>Contained in the <em>moderate - moderate</em> function group.</p>
+</section>
+<section id="f21-attractive-sectorrosenbrock-original" class="level3">
+<h3 class="anchored" data-anchor-id="f21-attractive-sectorrosenbrock-original">F<sub>21</sub>: Attractive sector/Rosenbrock original</h3>
+<p>Combination of the attractive sector function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=30">f<sub>6</sub></a> in the <code>bbob</code> suite) and the Rosenbrock function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=40">f<sub>8</sub></a> in the <code>bbob</code> suite).</p>
+<p>The first function is unimodal but highly asymmetric, where only one <em>hypercone</em> (with angular base area) with a volume of roughly <span class="math inline">(1/2)^n</span> yields low function values (with the optimum at the tip of the cone). The second objective is partially separable (tri-band structure) and has a local optimum with an attraction volume of about 25%.</p>
+<p>Contained in the <em>moderate - moderate</em> function group.</p>
+</section>
+<section id="f22-attractive-sectorsharp-ridge" class="level3">
+<h3 class="anchored" data-anchor-id="f22-attractive-sectorsharp-ridge">F<sub>22</sub>: Attractive sector/Sharp ridge</h3>
+<p>Combination of the attractive sector function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=30">f<sub>6</sub></a> in the <code>bbob</code> suite) and the sharp ridge function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=65">f<sub>13</sub></a> in the <code>bbob</code> suite).</p>
+<p>Both objective functions are unimodal and non-separable. The first objective is highly asymmetric in the sense that only one <em>hypercone</em> (with angular base area) with a volume of roughly <span class="math inline">(1/2)^n</span> yields low function values (with the optimum at the tip of the cone). For optimizing the second objective, a sharp, i.e., non-differentiable ridge has to be followed.</p>
+<p>Contained in the <em>moderate - ill-conditioned</em> function group.</p>
+</section>
+<section id="f23-attractive-sectorsum-of-different-powers" class="level3">
+<h3 class="anchored" data-anchor-id="f23-attractive-sectorsum-of-different-powers">F<sub>23</sub>: Attractive sector/Sum of Different Powers</h3>
+<p>Combination of the attractive sector function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=30">f<sub>6</sub></a> in the <code>bbob</code> suite) and the sum of different powers function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=70">f<sub>14</sub></a> in the <code>bbob</code> suite).</p>
+<p>Both objective functions are unimodal and non-separable. The first objective is highly asymmetric in the sense that only one <em>hypercone</em> (with angular base area) with a volume of roughly <span class="math inline">(1/2)^n</span> yields low function values (with the optimum at the tip of the cone). When approaching the second objective’s optimum, the sensitivities of the variables in the rotated search space become more and more different.</p>
+<p>Contained in the <em>moderate - ill-conditioned</em> function group.</p>
+</section>
+<section id="f24-attractive-sectorrastrigin" class="level3">
+<h3 class="anchored" data-anchor-id="f24-attractive-sectorrastrigin">F<sub>24</sub>: Attractive sector/Rastrigin</h3>
+<p>Combination of the attractive sector function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=30">f<sub>6</sub></a> in the <code>bbob</code> suite) and the Rastrigin function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=75">f<sub>15</sub></a> in the <code>bbob</code> suite).</p>
+<p>Both objectives are non-separable, and the second one is highly multimodal (roughly <span class="math inline">10^n</span> local optima) while the first one is unimodal. Further properties are that the first objective is highly asymmetric and the second has a conditioning of about 10.</p>
+<p>Contained in the <em>moderate - multimodal</em> function group.</p>
+</section>
+<section id="f25-attractive-sectorschaffer-f7-condition-10" class="level3">
+<h3 class="anchored" data-anchor-id="f25-attractive-sectorschaffer-f7-condition-10">F<sub>25</sub>: Attractive sector/Schaffer F7, condition 10</h3>
+<p>Combination of the attractive sector function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=30">f<sub>6</sub></a> in the <code>bbob</code> suite) and the Schaffer F7 function with condition number 10 (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=85">f<sub>17</sub></a> in the <code>bbob</code> suite).</p>
+<p>Both objectives are non-separable and asymmetric. While the first objective is unimodal, the second one is a highly multimodal function with a low conditioning where frequency and amplitude of the modulation vary.</p>
+<p>Contained in the <em>moderate - multimodal</em> function group.</p>
+</section>
+<section id="f26-attractive-sectorschwefel-xsinx" class="level3">
+<h3 class="anchored" data-anchor-id="f26-attractive-sectorschwefel-xsinx">F<sub>26</sub>: Attractive sector/Schwefel x*sin(x)</h3>
+<p>Combination of the attractive sector function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=30">f<sub>6</sub></a> in the <code>bbob</code> suite) and the Schwefel function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=100">f<sub>20</sub></a> in the <code>bbob</code> suite).</p>
+<p>The first objective is non-separable, unimodal, and asymmetric. The second objective is partially separable and highly multimodal—having the most prominent <span class="math inline">2^n</span> minima located comparatively close to the corners of the unpenalized search area.</p>
+<p>Contained in the <em>moderate - weakly-structured</em> function group.</p>
+</section>
+<section id="f27-attractive-sectorgallagher-101-peaks" class="level3">
+<h3 class="anchored" data-anchor-id="f27-attractive-sectorgallagher-101-peaks">F<sub>27</sub>: Attractive sector/Gallagher 101 peaks</h3>
+<p>Combination of the attractive sector function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=30">f<sub>6</sub></a> in the <code>bbob</code> suite) and the Gallagher function with 101 peaks (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=105">f<sub>21</sub></a> in the <code>bbob</code> suite).</p>
+<p>Both objective functions are non-separable but only the first is unimodal. The first objective function is furthermore asymmetric. The second objective function has 101 optima with position and height being unrelated and randomly chosen (different for each instantiation of the function). The conditioning around the global optimum of the second objective function is about 30.</p>
+<p>Contained in the <em>moderate - weakly-structured</em> function group.</p>
+</section>
+<section id="f28-rosenbrock-originalrosenbrock-original" class="level3">
+<h3 class="anchored" data-anchor-id="f28-rosenbrock-originalrosenbrock-original">F<sub>28</sub>: Rosenbrock original/Rosenbrock original</h3>
+<p>Combination of two Rosenbrock functions (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=40">f<sub>8</sub></a> in the <code>bbob</code> suite).</p>
+<p>Both objectives are partially separable (tri-band structure) and have a local optimum with an attraction volume of about 25%.</p>
+<p>Contained in the <em>moderate - moderate</em> function group.</p>
+</section>
+<section id="f29-rosenbrock-originalsharp-ridge" class="level3">
+<h3 class="anchored" data-anchor-id="f29-rosenbrock-originalsharp-ridge">F<sub>29</sub>: Rosenbrock original/Sharp ridge</h3>
+<p>Combination of the Rosenbrock function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=40">f<sub>8</sub></a> in the <code>bbob</code> suite) and the sharp ridge function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=65">f<sub>13</sub></a> in the <code>bbob</code> suite).</p>
+<p>The first objective function is partially separable (tri-band structure) and has a local optimum with an attraction volume of about 25%. The second objective is unimodal and non-separable and, for optimizing it, a sharp, i.e., non-differentiable ridge has to be followed.</p>
+<p>Contained in the <em>moderate - ill-conditioned</em> function group.</p>
+</section>
+<section id="f30-rosenbrock-originalsum-of-different-powers" class="level3">
+<h3 class="anchored" data-anchor-id="f30-rosenbrock-originalsum-of-different-powers">F<sub>30</sub>: Rosenbrock original/Sum of Different Powers</h3>
+<p>Combination of the Rosenbrock function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=40">f<sub>8</sub></a> in the <code>bbob</code> suite) and the sum of different powers function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=70">f<sub>14</sub></a> in the <code>bbob</code> suite).</p>
+<p>The first objective function is partially separable (tri-band structure) and has a local optimum with an attraction volume of about 25%. The second objective function is unimodal and non-separable. When approaching the second objective’s optimum, the sensitivities of the variables in the rotated search space become more and more different.</p>
+<p>Contained in the <em>moderate - ill-conditioned</em> function group.</p>
+</section>
+<section id="f31-rosenbrock-originalrastrigin" class="level3">
+<h3 class="anchored" data-anchor-id="f31-rosenbrock-originalrastrigin">F<sub>31</sub>: Rosenbrock original/Rastrigin</h3>
+<p>Combination of the Rosenbrock function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=40">f<sub>8</sub></a> in the <code>bbob</code> suite) and the Rastrigin function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=75">f<sub>15</sub></a> in the <code>bbob</code> suite).</p>
+<p>The first objective function is partially separable (tri-band structure) and has a local optimum with an attraction volume of about 25%. The second objective function is non-separable and highly multimodal (roughly <span class="math inline">10^n</span> local optima).</p>
+<p>Contained in the <em>moderate - multimodal</em> function group.</p>
+</section>
+<section id="f32-rosenbrock-originalschaffer-f7-condition-10" class="level3">
+<h3 class="anchored" data-anchor-id="f32-rosenbrock-originalschaffer-f7-condition-10">F<sub>32</sub>: Rosenbrock original/Schaffer F7, condition 10</h3>
+<p>Combination of the Rosenbrock function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=40">f<sub>8</sub></a> in the <code>bbob</code> suite) and the Schaffer F7 function with condition number 10 (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=85">f<sub>17</sub></a> in the <code>bbob</code> suite).</p>
+<p>The first objective function is partially separable (tri-band structure) and has a local optimum with an attraction volume of about 25%. The second objective function is non-separable, asymmetric, and highly multimodal with a low conditioning where frequency and amplitude of the modulation vary.</p>
+<p>Contained in the <em>moderate - multimodal</em> function group.</p>
+</section>
+<section id="f33-rosenbrock-originalschwefel-xsinx" class="level3">
+<h3 class="anchored" data-anchor-id="f33-rosenbrock-originalschwefel-xsinx">F<sub>33</sub>: Rosenbrock original/Schwefel x*sin(x)</h3>
+<p>Combination of the Rosenbrock function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=40">f<sub>8</sub></a> in the <code>bbob</code> suite) and the Schwefel function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=100">f<sub>20</sub></a> in the <code>bbob</code> suite).</p>
+<p>Both objective functions are partially separable. While the first objective function has a local optimum with an attraction volume of about 25%, the second objective function is highly multimodal—having the most prominent <span class="math inline">2^n</span> minima located comparatively close to the corners of its unpenalized search area.</p>
+<p>Contained in the <em>moderate - weakly-structured</em> function group.</p>
+</section>
+<section id="f34-rosenbrock-originalgallagher-101-peaks" class="level3">
+<h3 class="anchored" data-anchor-id="f34-rosenbrock-originalgallagher-101-peaks">F<sub>34</sub>: Rosenbrock original/Gallagher 101 peaks</h3>
+<p>Combination of the Rosenbrock function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=40">f<sub>8</sub></a> in the <code>bbob</code> suite) and the Gallagher function with 101 peaks (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=105">f<sub>21</sub></a> in the <code>bbob</code> suite).</p>
+<p>The first objective function is partially separable, the second one non-separable. While the first objective function has a local optimum with an attraction volume of about 25%, the second objective function has 101 optima with position and height being unrelated and randomly chosen (different for each instantiation of the function). The conditioning around the global optimum of the second objective function is about 30.</p>
+<p>Contained in the <em>moderate - weakly-structured</em> function group.</p>
+</section>
+<section id="f35-sharp-ridgesharp-ridge" class="level3">
+<h3 class="anchored" data-anchor-id="f35-sharp-ridgesharp-ridge">F<sub>35</sub>: Sharp ridge/Sharp ridge</h3>
+<p>Combination of two sharp ridge functions (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=65">f<sub>13</sub></a> in the <code>bbob</code> suite).</p>
+<p>Both objective functions are unimodal and non-separable and, for optimizing them, two sharp, i.e., non-differentiable ridges have to be followed.</p>
+<p>Contained in the <em>ill-conditioned - ill-conditioned</em> function group.</p>
+</section>
+<section id="f36-sharp-ridgesum-of-different-powers" class="level3">
+<h3 class="anchored" data-anchor-id="f36-sharp-ridgesum-of-different-powers">F<sub>36</sub>: Sharp ridge/Sum of Different Powers</h3>
+<p>Combination of the sharp ridge function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=65">f<sub>13</sub></a> in the <code>bbob</code> suite) and the sum of different powers function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=70">f<sub>14</sub></a> in the <code>bbob</code> suite).</p>
+<p>Both functions are uni-modal and non-separable. For optimizing the first objective, a sharp, i.e., non-differentiable ridge has to be followed. When approaching the second objective’s optimum, the sensitivities of the variables in the rotated search space become more and more different.</p>
+<p>Contained in the <em>ill-conditioned - ill-conditioned</em> function group.</p>
+</section>
+<section id="f37-sharp-ridgerastrigin" class="level3">
+<h3 class="anchored" data-anchor-id="f37-sharp-ridgerastrigin">F<sub>37</sub>: Sharp ridge/Rastrigin</h3>
+<p>Combination of the sharp ridge function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=65">f<sub>13</sub></a> in the <code>bbob</code> suite) and the Rastrigin function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=75">f<sub>15</sub></a> in the <code>bbob</code> suite).</p>
+<p>Both functions are non-separable. While the first one is unimodal and non-differentiable at its ridge, the second objective function is highly multimodal (roughly <span class="math inline">10^n</span> local optima).</p>
+<p>Contained in the <em>ill-conditioned - multimodal</em> function group.</p>
+</section>
+<section id="f38-sharp-ridgeschaffer-f7-condition-10" class="level3">
+<h3 class="anchored" data-anchor-id="f38-sharp-ridgeschaffer-f7-condition-10">F<sub>38</sub>: Sharp ridge/Schaffer F7, condition 10</h3>
+<p>Combination of the sharp ridge function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=65">f<sub>13</sub></a> in the <code>bbob</code> suite) and the Schaffer F7 function with condition number 10 (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=85">f<sub>17</sub></a> in the <code>bbob</code> suite).</p>
+<p>Both functions are non-separable. While the first one is unimodal and non-differentiable at its ridge, the second objective function is asymmetric and highly multimodal with a low conditioning where frequency and amplitude of the modulation vary.</p>
+<p>Contained in the <em>ill-conditioned - multimodal</em> function group.</p>
+</section>
+<section id="f39-sharp-ridgeschwefel-xsinx" class="level3">
+<h3 class="anchored" data-anchor-id="f39-sharp-ridgeschwefel-xsinx">F<sub>39</sub>: Sharp ridge/Schwefel x*sin(x)</h3>
+<p>Combination of the sharp ridge function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=65">f<sub>13</sub></a> in the <code>bbob</code> suite) and the Schwefel function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=100">f<sub>20</sub></a> in the <code>bbob</code> suite).</p>
+<p>While the first objective function is unimodal, non-separable, and non-differentiable at its ridge, the second objective function is highly multimodal—having the most prominent <span class="math inline">2^n</span> minima located comparatively close to the corners of its unpenalized search area.</p>
+<p>Contained in the <em>ill-conditioned - weakly-structured</em> function group.</p>
+</section>
+<section id="f40-sharp-ridgegallagher-101-peaks" class="level3">
+<h3 class="anchored" data-anchor-id="f40-sharp-ridgegallagher-101-peaks">F<sub>40</sub>: Sharp ridge/Gallagher 101 peaks</h3>
+<p>Combination of the sharp ridge function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=65">f<sub>13</sub></a> in the <code>bbob</code> suite) and the Gallagher function with 101 peaks (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=105">f<sub>21</sub></a> in the <code>bbob</code> suite).</p>
+<p>Both objective functions are non-separable. While the first objective function is unimodal and non-differentiable at its ridge, the second objective function has 101 optima with position and height being unrelated and randomly chosen (different for each instantiation of the function). The conditioning around the global optimum of the second objective function is about 30.</p>
+<p>Contained in the <em>ill-conditioned - weakly-structured</em> function group.</p>
+</section>
+<section id="f41-sum-of-different-powerssum-of-different-powers" class="level3">
+<h3 class="anchored" data-anchor-id="f41-sum-of-different-powerssum-of-different-powers">F<sub>41</sub>: Sum of Different Powers/Sum of Different Powers</h3>
+<p>Combination of two sum of different powers functions (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=70">f<sub>14</sub></a> in the <code>bbob</code> suite).</p>
+<p>Both functions are uni-modal and non-separable where the sensitivities of the variables in the rotated search space become more and more different when approaching the objectives’ optima.</p>
+<p>Contained in the <em>ill-conditioned - ill-conditioned</em> function group.</p>
+</section>
+<section id="f42-sum-of-different-powersrastrigin" class="level3">
+<h3 class="anchored" data-anchor-id="f42-sum-of-different-powersrastrigin">F<sub>42</sub>: Sum of Different Powers/Rastrigin</h3>
+<p>Combination of the sum of different powers functions (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=70">f<sub>14</sub></a> in the <code>bbob</code> suite) and the Rastrigin function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=75">f<sub>15</sub></a> in the <code>bbob</code> suite).</p>
+<p>Both objective functions are non-separable. While the first one is unimodal, the second objective function is highly multimodal (roughly <span class="math inline">10^n</span> local optima).</p>
+<p>Contained in the <em>ill-conditioned - multimodal</em> function group.</p>
+</section>
+<section id="f43-sum-of-different-powersschaffer-f7-condition-10" class="level3">
+<h3 class="anchored" data-anchor-id="f43-sum-of-different-powersschaffer-f7-condition-10">F<sub>43</sub>: Sum of Different Powers/Schaffer F7, condition 10</h3>
+<p>Combination of the sum of different powers functions (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=70">f<sub>14</sub></a> in the <code>bbob</code> suite) and the Schaffer F7 function with condition number 10 (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=85">f<sub>17</sub></a> in the <code>bbob</code> suite).</p>
+<p>Both objective functions are non-separable. While the first one is unimodal with an increasing conditioning once the optimum is approached, the second objective function is asymmetric and highly multimodal with a low conditioning where frequency and amplitude of the modulation vary.</p>
+<p>Contained in the <em>ill-conditioned - multimodal</em> function group.</p>
+</section>
+<section id="f44-sum-of-different-powersschwefel-xsinx" class="level3">
+<h3 class="anchored" data-anchor-id="f44-sum-of-different-powersschwefel-xsinx">F<sub>44</sub>: Sum of Different Powers/Schwefel x*sin(x)</h3>
+<p>Combination of the sum of different powers functions (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=70">f<sub>14</sub></a> in the <code>bbob</code> suite) and the Schwefel function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=100">f<sub>20</sub></a> in the <code>bbob</code> suite).</p>
+<p>Both objectives are non-separable. While the first objective function is unimodal, the second objective function is highly multimodal—having the most prominent <span class="math inline">2^n</span> minima located comparatively close to the corners of its unpenalized search area.</p>
+<p>Contained in the <em>ill-conditioned - weakly-structured</em> function group.</p>
+</section>
+<section id="f45-sum-of-different-powersgallagher-101-peaks" class="level3">
+<h3 class="anchored" data-anchor-id="f45-sum-of-different-powersgallagher-101-peaks">F<sub>45</sub>: Sum of Different Powers/Gallagher 101 peaks</h3>
+<p>Combination of the sum of different powers functions (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=70">f<sub>14</sub></a> in the <code>bbob</code> suite) and the Gallagher function with 101 peaks (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=105">f<sub>21</sub></a> in the <code>bbob</code> suite).</p>
+<p>Both objective functions are non-separable. While the first objective function is unimodal, the second objective function has 101 optima with position and height being unrelated and randomly chosen (different for each instantiation of the function). The conditioning around the global optimum of the second objective function is about 30.</p>
+<p>Contained in the <em>ill-conditioned - weakly-structured</em> function group.</p>
+</section>
+<section id="f46-rastriginrastrigin" class="level3">
+<h3 class="anchored" data-anchor-id="f46-rastriginrastrigin">F<sub>46</sub>: Rastrigin/Rastrigin</h3>
+<p>Combination of two Rastrigin functions (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=75">f<sub>15</sub></a> in the <code>bbob</code> suite).</p>
+<p>Both objective functions are non-separable and highly multimodal (roughly <span class="math inline">10^n</span> local optima).</p>
+<p>Contained in the <em>multimodal - multimodal</em> function group.</p>
+</section>
+<section id="f47-rastriginschaffer-f7-condition-10" class="level3">
+<h3 class="anchored" data-anchor-id="f47-rastriginschaffer-f7-condition-10">F<sub>47</sub>: Rastrigin/Schaffer F7, condition 10</h3>
+<p>Combination of the Rastrigin function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=75">f<sub>15</sub></a> in the <code>bbob</code> suite) and the Schaffer F7 function with condition number 10 (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=85">f<sub>17</sub></a> in the <code>bbob</code> suite).</p>
+<p>Both objective functions are non-separable and highly multimodal.</p>
+<p>Contained in the <em>multimodal - multimodal</em> function group.</p>
+</section>
+<section id="f48-rastriginschwefel-xsinx" class="level3">
+<h3 class="anchored" data-anchor-id="f48-rastriginschwefel-xsinx">F<sub>48</sub>: Rastrigin/Schwefel x*sin(x)</h3>
+<p>Combination of the Rastrigin function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=75">f<sub>15</sub></a> in the <code>bbob</code> suite) and the Schwefel function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=100">f<sub>20</sub></a> in the <code>bbob</code> suite).</p>
+<p>Both objective functions are non-separable and highly multimodal where the first has roughly <span class="math inline">10^n</span> local optima and the most prominent <span class="math inline">2^n</span> minima of the second objective function are located comparatively close to the corners of its unpenalized search area.</p>
+<p>Contained in the <em>multimodal - weakly-structured</em> function group.</p>
+</section>
+<section id="f49-rastrigingallagher-101-peaks" class="level3">
+<h3 class="anchored" data-anchor-id="f49-rastrigingallagher-101-peaks">F<sub>49</sub>: Rastrigin/Gallagher 101 peaks</h3>
+<p>Combination of the Rastrigin function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=75">f<sub>15</sub></a> in the <code>bbob</code> suite) and the Gallagher function with 101 peaks (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=105">f<sub>21</sub></a> in the <code>bbob</code> suite).</p>
+<p>Both objective functions are non-separable and highly multimodal where the first has roughly <span class="math inline">10^n</span> local optima and the second has 101 optima with position and height being unrelated and randomly chosen (different for each instantiation of the function).</p>
+<p>Contained in the <em>multimodal - weakly-structured</em> function group.</p>
+</section>
+<section id="f50-schaffer-f7-condition-10schaffer-f7-condition-10" class="level3">
+<h3 class="anchored" data-anchor-id="f50-schaffer-f7-condition-10schaffer-f7-condition-10">F<sub>50</sub>: Schaffer F7, condition 10/Schaffer F7, condition 10</h3>
+<p>Combination of two Schaffer F7 functions with condition number 10 (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=85">f<sub>17</sub></a> in the <code>bbob</code> suite).</p>
+<p>Both objective functions are non-separable and highly multimodal.</p>
+<p>Contained in the <em>multimodal - multimodal</em> function group.</p>
+</section>
+<section id="f51-schaffer-f7-condition-10schwefel-xsinx" class="level3">
+<h3 class="anchored" data-anchor-id="f51-schaffer-f7-condition-10schwefel-xsinx">F<sub>51</sub>: Schaffer F7, condition 10/Schwefel x*sin(x)</h3>
+<p>Combination of the Schaffer F7 function with condition number 10 (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=85">f<sub>17</sub></a> in the <code>bbob</code> suite) and the Schwefel function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=100">f<sub>20</sub></a> in the <code>bbob</code> suite).</p>
+<p>Both objective functions are non-separable and highly multimodal. While frequency and amplitude of the modulation vary in an almost regular fashion in the first objective function, the second objective function possesses less global structure.</p>
+<p>Contained in the <em>multimodal - weakly-structured</em> function group.</p>
+</section>
+<section id="f52-schaffer-f7-condition-10gallagher-101-peaks" class="level3">
+<h3 class="anchored" data-anchor-id="f52-schaffer-f7-condition-10gallagher-101-peaks">F<sub>52</sub>: Schaffer F7, condition 10/Gallagher 101 peaks</h3>
+<p>Combination of the Schaffer F7 function with condition number 10 (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=85">f<sub>17</sub></a> in the <code>bbob</code> suite) and the Gallagher function with 101 peaks (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=105">f<sub>21</sub></a> in the <code>bbob</code> suite).</p>
+<p>Both objective functions are non-separable and highly multimodal. While frequency and amplitude of the modulation vary in an almost regular fashion in the first objective function, the second has 101 optima with position and height being unrelated and randomly chosen (different for each instantiation of the function).</p>
+<p>Contained in the <em>multimodal - weakly-structured</em> function group.</p>
+</section>
+<section id="f53-schwefel-xsinxschwefel-xsinx" class="level3">
+<h3 class="anchored" data-anchor-id="f53-schwefel-xsinxschwefel-xsinx">F<sub>53</sub>: Schwefel x<em>sin(x)/Schwefel x</em>sin(x)</h3>
+<p>Combination of two Schwefel functions (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=100">f<sub>20</sub></a> in the <code>bbob</code> suite).</p>
+<p>Both objective functions are non-separable and highly multimodal where the most prominent <span class="math inline">2^n</span> minima of each objective function are located comparatively close to the corners of its unpenalized search area. Due to the combinatorial nature of the Schwefel function, it is likely in low dimensions that the Pareto set goes through the origin of the search space.</p>
+<p>Contained in the <em>weakly-structured - weakly-structured</em> function group.</p>
+</section>
+<section id="f54-schwefel-xsinxgallagher-101-peaks" class="level3">
+<h3 class="anchored" data-anchor-id="f54-schwefel-xsinxgallagher-101-peaks">F<sub>54</sub>: Schwefel x*sin(x)/Gallagher 101 peaks</h3>
+<p>Combination of the Schwefel function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=100">f<sub>20</sub></a> in the <code>bbob</code> suite) and the Gallagher function with 101 peaks (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=105">f<sub>21</sub></a> in the <code>bbob</code> suite).</p>
+<p>Both objective functions are non-separable and highly multimodal. For the first objective function, the most prominent <span class="math inline">2^n</span> minima are located comparatively close to the corners of its unpenalized search area. For the second objective, position and height of all 101 optima are unrelated and randomly chosen (different for each instantiation of the function).</p>
+<p>Contained in the <em>weakly-structured - weakly-structured</em> function group.</p>
+</section>
+<section id="f55-gallagher-101-peaksgallagher-101-peaks" class="level3">
+<h3 class="anchored" data-anchor-id="f55-gallagher-101-peaksgallagher-101-peaks">F<sub>55</sub>: Gallagher 101 peaks/Gallagher 101 peaks</h3>
+<p>Combination of two Gallagher functions with 101 peaks (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=105">f<sub>21</sub></a> in the <code>bbob</code> suite).</p>
+<p>Both objective functions are non-separable and highly multimodal. Position and height of all 101 optima in each objective function are unrelated and randomly chosen and thus, no global structure is present.</p>
+<p>Contained in the <em>weakly-structured - weakly-structured</em> function group.</p>
+</section>
+<section id="f56-sphererastrigin-separable" class="level3">
+<h3 class="anchored" data-anchor-id="f56-sphererastrigin-separable">F<sub>56</sub>: Sphere/Rastrigin separable</h3>
+<p>Combination of the Sphere function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=5">f<sub>1</sub></a> in the <code>bbob</code> suite) and the separable Rastrigin function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=15">f<sub>3</sub></a> in the <code>bbob</code> suite).</p>
+<p>While the first objective function is unimodal, highly symmetric, rotational and scale invariant, the second one is highly multimodal with a comparatively regular structure for the placement of the optima. Note that the non-linear transformations of the second objective’s Rastrigin function alleviate the symmetry and regularity of the original Rastrigin function.</p>
+<p>Contained in the <em>separable - separable</em> function group.</p>
+</section>
+<section id="f57-sphererastrigin-büche" class="level3">
+<h3 class="anchored" data-anchor-id="f57-sphererastrigin-büche">F<sub>57</sub>: Sphere/Rastrigin-Büche</h3>
+<p>Combination of the Sphere function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=5">f<sub>1</sub></a> in the <code>bbob</code> suite) and the separable Büche-Rastrigin function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=20">f<sub>4</sub></a> in the <code>bbob</code> suite).</p>
+<p>While the first objective function is unimodal, highly symmetric, rotational and scale invariant, the second one is highly multimodal with a structured but highly asymmetric placement of the optima. Constructed as a deceptive function for symmetrically distributed search operators, the second objective function has roughly 10D local optima, a conditioning of about 10, and a skew factor of about 10 in x-space and 100 in f-space.</p>
+<p>Contained in the <em>separable - separable</em> function group.</p>
+</section>
+<section id="f58-spherelinear-slope" class="level3">
+<h3 class="anchored" data-anchor-id="f58-spherelinear-slope">F<sub>58</sub>: Sphere/Linear slope</h3>
+<p>Combination of the Sphere function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=5">f<sub>1</sub></a> in the <code>bbob</code> suite) and the Linear Slope function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=25">f<sub>5</sub></a> in the <code>bbob</code> suite).</p>
+<p>Both objective functions are separable and amongst the simplest continuous functions to optimize. The first objective function is fully quadratic and symmetric around the optimum, the second objective function is fully linear within the hypercube <span class="math inline">[-5,5]^n</span> and has a region of constant <span class="math inline">f</span>-value outside the hypercube by definition to ensure that a solution at one corner of <span class="math inline">[-5,5]^n</span> has optimal function value.</p>
+<p>Contained in the <em>separable - separable</em> function group.</p>
+</section>
+<section id="f59-separable-ellipsoidseparable-rastrigin" class="level3">
+<h3 class="anchored" data-anchor-id="f59-separable-ellipsoidseparable-rastrigin">F<sub>59</sub>: Separable Ellipsoid/Separable Rastrigin</h3>
+<p>Combination of the separable Ellipsoid function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=10">f<sub>2</sub></a> in the <code>bbob</code> suite) and the separable Rastrigin function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=15">f<sub>3</sub></a> in the <code>bbob</code> suite).</p>
+<p>Besides being both separable, the two objective functions are quite opposite: the first objective function is unimodal, globally quadratic and ill-conditioned with a conditioning of about <span class="math inline">10^6</span> with smooth local irregularities while the second objective function is highly multimodal with roughly <span class="math inline">10n</span> local optima and only small conditioning of about <span class="math inline">10</span>. Note that the separable Rastrigin function has a comparatively regular structure for the placement of the optima but asymmetric and oscillating non-linear transformations of this function alleviates the symmetry and regularity of the original Rastrigin function.</p>
+<p>Contained in the <em>separable - separable</em> function group.</p>
+</section>
+<section id="f60-separable-ellipsoidbüche-rastrigin" class="level3">
+<h3 class="anchored" data-anchor-id="f60-separable-ellipsoidbüche-rastrigin">F<sub>60</sub>: separable Ellipsoid/Büche-Rastrigin</h3>
+<p>Combination of the separable Ellipsoid function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=10">f<sub>2</sub></a> in the <code>bbob</code> suite) and the separable Büche-Rastrigin function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=20">f<sub>4</sub></a> in the <code>bbob</code> suite).</p>
+<p>Besides being both separable, the two objective functions are quite opposite: the first objective function is unimodal, globally quadratic and ill-conditioned with a conditioning of about <span class="math inline">10^6</span> with smooth local irregularities while the second objective is highly multimodal with a structured but highly asymmetric placement of the optima. Constructed as a deceptive function for symmetrically distributed search operators.</p>
+<p>Contained in the <em>separable - separable</em> function group.</p>
+</section>
+<section id="f61-separable-ellipsoidlinear-slope" class="level3">
+<h3 class="anchored" data-anchor-id="f61-separable-ellipsoidlinear-slope">F<sub>61</sub>: Separable Ellipsoid/Linear Slope</h3>
+<p>Combination of the separable Ellipsoid function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=10">f<sub>2</sub></a> in the <code>bbob</code> suite) and the Linear Slope function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=25">f<sub>5</sub></a> in the <code>bbob</code> suite).</p>
+<p>Both objective functions are separable. The first objective function is unimodal with a high condition number of about <span class="math inline">10^6</span>. The second objective function is fully linear within the hypercube <span class="math inline">[-5,5]^n</span> and has a region of constant <span class="math inline">f</span>-value outside the hypercube by definition to ensure that a solution at one corner of <span class="math inline">[-5,5]^n</span> has optimal function value.</p>
+<p>Contained in the <em>separable - separable</em> function group.</p>
+</section>
+<section id="f62-separable-rastriginbüche-rastrigin" class="level3">
+<h3 class="anchored" data-anchor-id="f62-separable-rastriginbüche-rastrigin">F<sub>62</sub>: separable Rastrigin/Büche-Rastrigin</h3>
+<p>Combination of the separable Rastrigin function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=15">f<sub>3</sub></a> in the <code>bbob</code> suite) and the separable Büche-Rastrigin function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=20">f<sub>4</sub></a> in the <code>bbob</code> suite).</p>
+<p>Both objective functions are separable and highly multimodal with an underlying structure for the placements of the optima. While for the separable Rastrigin function, the placements of the optima is symmetric, the optima for the Büche-Rastrigin function are highly asymmetrically placed.</p>
+<p>Contained in the <em>separable - separable</em> function group.</p>
+</section>
+<section id="f63-separable-rastriginlinear-slope" class="level3">
+<h3 class="anchored" data-anchor-id="f63-separable-rastriginlinear-slope">F<sub>63</sub>: Separable Rastrigin/Linear Slope</h3>
+<p>Combination of the separable Rastrigin function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=15">f<sub>3</sub></a> in the <code>bbob</code> suite) and the Linear Slope function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=25">f<sub>5</sub></a> in the <code>bbob</code> suite).</p>
+<p>Both objective functions are separable, but while the first objective function is highly multimodal with an underlying symmetric structure, the second objective function is purely linear with plateaus of constant function value outside the region <span class="math inline">[-5,5]^n</span>.</p>
+<p>Contained in the <em>separable - separable</em> function group.</p>
+</section>
+<section id="f64-büche-rastriginlinear-slope" class="level3">
+<h3 class="anchored" data-anchor-id="f64-büche-rastriginlinear-slope">F<sub>64</sub>: Büche-Rastrigin/Linear slope</h3>
+<p>Combination of the Büche-Rastrigin function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=20">f<sub>4</sub></a> in the <code>bbob</code> suite) and the Linear Slope function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=25">f<sub>5</sub></a> in the <code>bbob</code> suite).</p>
+<p>Both objective functions are separable, but while the first objective function is highly multimodal with an underlying asymmetric structure, the second objective function is purely linear with plateaus of constant function value outside the region <span class="math inline">[-5,5]^n</span>.</p>
+<p>Contained in the <em>separable - separable</em> function group.</p>
+</section>
+<section id="f65-attractive-sectorstep-ellipsoid" class="level3">
+<h3 class="anchored" data-anchor-id="f65-attractive-sectorstep-ellipsoid">F<sub>65</sub>: Attractive Sector/Step-ellipsoid</h3>
+<p>Combination of the Attractive Sector function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=30">f<sub>6</sub></a> in the <code>bbob</code> suite) and the Step Ellipsoidal function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=35">f<sub>7</sub></a> in the <code>bbob</code> suite).</p>
+<p>Both objective functions are unimodal and of moderate conditioning. The first objective function is highly asymmetric, where only one <em>hypercone</em> (with angular base area) with a volume of roughly <span class="math inline">1/2^n</span> yields low function values. The optimum of the first objective is located at the tip of this cone. This function can be deceptive for cumulative step size adaptation. The second objective function consists of many plateaus of different sizes. Apart from a small area close to the global optimum, the gradient is zero almost everywhere.</p>
+<p>Contained in the <em>moderate - moderate</em> function group.</p>
+</section>
+<section id="f66-attractive-sectorrotated-rosenbrock" class="level3">
+<h3 class="anchored" data-anchor-id="f66-attractive-sectorrotated-rosenbrock">F<sub>66</sub>: Attractive Sector/rotated Rosenbrock</h3>
+<p>Combination of the Attractive Sector function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=30">f<sub>6</sub></a> in the <code>bbob</code> suite) and the rotated Rosenbrock function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=45">f<sub>9</sub></a> in the <code>bbob</code> suite).</p>
+<p>The first objective function is highly asymmetric, where only one <em>hypercone</em> (with angular base area) with a volume of roughly <span class="math inline">1/2^n</span> yields low function values. The optimum of the first objective is located at the tip of this cone. The second objective function is the so-called banana function due to its 2-D contour lines as a bent ridge (or valley) and partially separable (tri-band structure). In larger dimensions, the second objective function has a local optimum with an attraction volume of about 25%. Note that, compared to the original Rosenbrock function, a rotation in the search space is applied, such that the second objective function is non-separable.</p>
+<p>Contained in the <em>moderate - moderate</em> function group.</p>
+</section>
+<section id="f67-step-ellipsoidseparable-rosenbrock" class="level3">
+<h3 class="anchored" data-anchor-id="f67-step-ellipsoidseparable-rosenbrock">F<sub>67</sub>: Step-ellipsoid/separable Rosenbrock</h3>
+<p>Combination of the Step Ellipsoidal function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=35">f<sub>7</sub></a> in the <code>bbob</code> suite) and the separable Rosenbrock function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=40">f<sub>8</sub></a> in the <code>bbob</code> suite).</p>
+<p>The first objective function is unimodal, non-separable, and has a conditioning of about 100. It actually consists of many plateaus of different sizes. Apart from a small area close to the global optimum, the gradient is zero almost everywhere. The second objective function is the so-called banana function due to its 2-D contour lines as a bent ridge (or valley). It is partially separable (tri-band structure) and in larger dimensions, the function has a local optimum with an attraction volume of about 25%.</p>
+<p>Contained in the <em>moderate - moderate</em> function group.</p>
+</section>
+<section id="f68-step-ellipsoidrotated-rosenbrock" class="level3">
+<h3 class="anchored" data-anchor-id="f68-step-ellipsoidrotated-rosenbrock">F<sub>68</sub>: Step-ellipsoid/rotated Rosenbrock</h3>
+<p>Combination of the Step Ellipsoidal function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=35">f<sub>7</sub></a> in the <code>bbob</code> suite) and the rotated Rosenbrock function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=45">f<sub>9</sub></a> in the <code>bbob</code> suite).</p>
+<p>The first objective function is unimodal, non-separable, and has a conditioning of about 100. It actually consists of many plateaus of different sizes. Apart from a small area close to the global optimum, the gradient is zero almost everywhere. The second objective function is a rotated version of the original so-called banana function (due to its 2-D contour lines as a bent ridge or valley) and in larger dimensions, has a local optimum with an attraction volume of about 25%.</p>
+<p>This function resembles <span class="math inline">F_{67}</span> except for the additional search space rotation for the second objective function which makes both objective function fully non-separable.</p>
+<p>Contained in the <em>moderate - moderate</em> function group.</p>
+</section>
+<section id="f69-separable-rosenbrockrotated-rosenbrock" class="level3">
+<h3 class="anchored" data-anchor-id="f69-separable-rosenbrockrotated-rosenbrock">F<sub>69</sub>: separable Rosenbrock/rotated Rosenbrock</h3>
+<p>Combination of the separable Rosenbrock function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=40">f<sub>8</sub></a> in the <code>bbob</code> suite) and the rotated Rosenbrock function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=45">f<sub>9</sub></a> in the <code>bbob</code> suite).</p>
+<p>Both objective functions are Rosenbrock functions (also known under the name banana function due to its 2-D contour lines forming a bent ridge or valley) with a local optimum in large dimension that has about 25% attraction volume. The first objective function is partially separable while the second objective function is fully non-separable.</p>
+<p>Contained in the <em>moderate - moderate</em> function group.</p>
+</section>
+<section id="f70-ellipsoiddiscus" class="level3">
+<h3 class="anchored" data-anchor-id="f70-ellipsoiddiscus">F<sub>70</sub>: Ellipsoid/Discus</h3>
+<p>Combination of the Ellipsoid function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=50">f<sub>10</sub></a> in the <code>bbob</code> suite) and the Discus (or Tablet) function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=55">f<sub>11</sub></a> in the <code>bbob</code> suite).</p>
+<p>Both objective functions are globally quadratic (unimodal) ill-conditioned functions with condition numbers of <span class="math inline">10^6</span> with smooth local irregularities. A single direction in search space is a thousand times more sensitive than all others for the Discus function.</p>
+<p>Contained in the <em>ill-conditioned - ill-conditioned</em> function group.</p>
+</section>
+<section id="f71-ellipsoidbent-cigar" class="level3">
+<h3 class="anchored" data-anchor-id="f71-ellipsoidbent-cigar">F<sub>71</sub>: Ellipsoid/Bent Cigar</h3>
+<p>Combination of the Ellipsoid function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=50">f<sub>10</sub></a> in the <code>bbob</code> suite) and the Bent Cigar function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=60">f<sub>12</sub></a> in the <code>bbob</code> suite).</p>
+<p>Both objective functions are unimodal, non-separable, and have a conditioning of about <span class="math inline">10^6</span>. The Ellipsoid function is globally quadratic with smooth local irregularities while the Bent Cigar function deviates remarkably from being quadratic due to an asymmetric transformation. To optimize the Bent Cigar function, a smooth, but very narrow ridge has to be followed.</p>
+<p>Contained in the <em>ill-conditioned - ill-conditioned</em> function group.</p>
+</section>
+<section id="f72-ellipsoidsharp-ridge" class="level3">
+<h3 class="anchored" data-anchor-id="f72-ellipsoidsharp-ridge">F<sub>72</sub>: Ellipsoid/Sharp Ridge</h3>
+<p>Combination of the Ellipsoid function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=50">f<sub>10</sub></a> in the <code>bbob</code> suite) and the Sharp Ridge function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=65">f<sub>13</sub></a> in the <code>bbob</code> suite).</p>
+<p>Both objective functions are unimodal, non-separable, and have a conditioning of about <span class="math inline">10^6</span>. Compared to the previous function, the ridge of the here is sharp (non-differentiable) and the gradient remains constant, when the ridge is approached from a given point. Approaching the ridge is initially effective, but search behavior becomes difficult to diagnose close to the ridge because the gradient towards the ridge does not flatten out.</p>
+<p>Contained in the <em>ill-conditioned - ill-conditioned</em> function group.</p>
+</section>
+<section id="f73-ellipsoidsum-of-different-powers" class="level3">
+<h3 class="anchored" data-anchor-id="f73-ellipsoidsum-of-different-powers">F<sub>73</sub>: Ellipsoid/Sum of Different Powers</h3>
+<p>Combination of the Ellipsoid function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=50">f<sub>10</sub></a> in the <code>bbob</code> suite) and the Sum of Different Powers function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=70">f<sub>14</sub></a> in the <code>bbob</code> suite).</p>
+<p>Both objective functions are unimodal and non-separable. While the Ellipsoid function has a constant conditioning of <span class="math inline">10^6</span> everywhere, the sensitivities of the <span class="math inline">z_i</span>-variables (in the rotated search space) for the Different Powers function become more and more different when approaching the optimum. The latter function has furthermore a small solution volume.</p>
+<p>Contained in the <em>ill-conditioned - ill-conditioned</em> function group.</p>
+</section>
+<section id="f74-discusbent-cigar" class="level3">
+<h3 class="anchored" data-anchor-id="f74-discusbent-cigar">F<sub>74</sub>: Discus/Bent Cigar</h3>
+<p>Combination of the Discus function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=55">f<sub>11</sub></a> in the <code>bbob</code> suite) and the Bent cigar function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=60">f<sub>12</sub></a> in the <code>bbob</code> suite).</p>
+<p>Both objective functions are unimodal, non-separable, and have a conditioning of about <span class="math inline">10^6</span>. The Discus function is globally quadratic with smooth local irregularities and has a single direction in search space that is a thousand times more sensitive than all others. The Bent Cigar function deviates remarkably from being quadratic due to an asymmetric transformation and a smooth, but very narrow ridge has to be followed to optimize it.</p>
+<p>Contained in the <em>ill-conditioned - ill-conditioned</em> function group.</p>
+</section>
+<section id="f75-discussharp-ridge" class="level3">
+<h3 class="anchored" data-anchor-id="f75-discussharp-ridge">F<sub>75</sub>: Discus/Sharp Ridge</h3>
+<p>Combination of the Discus function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=55">f<sub>11</sub></a> in the <code>bbob</code> suite) and the Sharp Ridge function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=65">f<sub>13</sub></a> in the <code>bbob</code> suite).</p>
+<p>Both objective functions are unimodal, non-separable, and have a conditioning of about <span class="math inline">10^6</span>. The Discus function is globally quadratic with smooth local irregularities and has a single direction in search space that is a thousand times more sensitive than all others. To optimize the Sharp Ridge function, a sharp (i.e.&nbsp;non-differentiable) ridge has to be followed around which the gradient remains constant, when the ridge is approached from a given point. Approaching the ridge is initially effective, but search behavior becomes difficult to diagnose close to the ridge because the gradient towards the ridge does not flatten out.</p>
+<p>Contained in the <em>ill-conditioned - ill-conditioned</em> function group.</p>
+</section>
+<section id="f76-discussum-of-different-powers" class="level3">
+<h3 class="anchored" data-anchor-id="f76-discussum-of-different-powers">F<sub>76</sub>: Discus/Sum of Different Powers</h3>
+<p>Combination of the Discus function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=55">f<sub>11</sub></a> in the <code>bbob</code> suite) and the Sum of Different Powers function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=70">f<sub>14</sub></a> in the <code>bbob</code> suite).</p>
+<p>Both objective functions are unimodal and non-separable. While the globally quadratic Discus function has a constant conditioning of about <span class="math inline">10^6</span> everywhere with a single direction in search space that is a thousand times more sensitive than all others, the sensitivities of the <span class="math inline">z_i</span>-variables (in the rotated search space) for the Different Powers function become more and more different when approaching the optimum. The latter function has furthermore a small solution volume.</p>
+<p>Contained in the <em>ill-conditioned - ill-conditioned</em> function group.</p>
+</section>
+<section id="f77-bent-cigarsharp-ridge" class="level3">
+<h3 class="anchored" data-anchor-id="f77-bent-cigarsharp-ridge">F<sub>77</sub>: Bent Cigar/Sharp Ridge</h3>
+<p>Combination of the Bent Cigar function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=60">f<sub>12</sub></a> in the <code>bbob</code> suite) and the Sharp Ridge function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=65">f<sub>13</sub></a> in the <code>bbob</code> suite).</p>
+<p>Both objective functions are unimodal, non-separable, and have a conditioning of about <span class="math inline">10^6</span>. The Bent Cigar function deviates remarkably from being quadratic due to an asymmetric transformation and a smooth, but very narrow ridge has to be followed to optimize it. To optimize the Sharp Ridge function, in turn, the ridge to be followed is even sharper (i.e.&nbsp;non-differentiable), around which the gradient remains constant, when the ridge is approached from a given point. Approaching the ridge is initially effective, but search behavior becomes difficult to diagnose close to the ridge because the gradient towards the ridge does not flatten out.</p>
+<p>Contained in the <em>ill-conditioned - ill-conditioned</em> function group.</p>
+</section>
+<section id="f78-bent-cigarsum-of-different-powers" class="level3">
+<h3 class="anchored" data-anchor-id="f78-bent-cigarsum-of-different-powers">F<sub>78</sub>: Bent Cigar/Sum of Different Powers</h3>
+<p>Combination of the Bent Cigar function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=60">f<sub>12</sub></a> in the <code>bbob</code> suite) and the Sum of Different Powers function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=70">f<sub>14</sub></a> in the <code>bbob</code> suite).</p>
+<p>Both objective functions are unimodal, non-separable, and have a conditioning of about <span class="math inline">10^6</span>.</p>
+<p>Both objective functions are unimodal and non-separable but differ in the difficulties provided to an optimization algorithm. The Bent Cigar function, on the one hand, deviates remarkably from being quadratic due to an asymmetric transformation and a smooth, but very narrow ridge has to be followed to optimize it. The sensitivities of the <span class="math inline">z_i</span>-variables (in the rotated search space) for the Different Powers function, on the other hand, become more and more different when approaching the optimum.</p>
+<p>Contained in the <em>ill-conditioned - ill-conditioned</em> function group.</p>
+</section>
+<section id="f79-rastriginschaffer-f7-with-conditioning-of-1000" class="level3">
+<h3 class="anchored" data-anchor-id="f79-rastriginschaffer-f7-with-conditioning-of-1000">F<sub>79</sub>: Rastrigin/Schaffer F7 with conditioning of 1000</h3>
+<p>Combination of the Rastrigin function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=75">f<sub>15</sub></a> in the <code>bbob</code> suite) and the Schaffer F7 function with conditioning 1000 (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=90">f<sub>18</sub></a> in the <code>bbob</code> suite).</p>
+<p>Both objective functions are non-separable and highly multimodal. The problem’s Rastrigin function alleviates the symmetry and regularity of the originally proposed Rastrigin function via asymmetric and oscillating transformations of the search space. It has roughly <span class="math inline">10^n</span> local optima, a low conditioning, and the global amplitude of function values is large compared to the local amplitudes. On the contrary, frequency and amplitude of the function value modulation vary for the Schaffer F7 function. It is furthermore asymmetric as well but, compared to the other objective function is moderately ill-conditioned with a conditioning of 1000.</p>
+<p>Contained in the <em>multimodal - multimodal</em> function group.</p>
+</section>
+<section id="f80-rastrigingriewank-rosenbrock" class="level3">
+<h3 class="anchored" data-anchor-id="f80-rastrigingriewank-rosenbrock">F<sub>80</sub>: Rastrigin/Griewank-Rosenbrock</h3>
+<p>Combination of the Rastrigin function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=75">f<sub>15</sub></a> in the <code>bbob</code> suite) and the Griewank-Rosenbrock function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=95">f<sub>19</sub></a> in the <code>bbob</code> suite).</p>
+<p>Both objective functions are non-separable and highly multimodal. Both objective functions furthermore are variants of the original Rosenbrock function: The problem’s Rastrigin function alleviates the symmetry and regularity of the originally proposed Rastrigin function via asymmetric and oscillating transformations of the search space. The Griewank-Rosenbrock function resembles the original Rosenbrock function in a highly multimodal way.</p>
+<p>Contained in the <em>multimodal multimodal</em> function group.</p>
+</section>
+<section id="f81-schaffer-f7schaffer-f7-with-conditioning-1000" class="level3">
+<h3 class="anchored" data-anchor-id="f81-schaffer-f7schaffer-f7-with-conditioning-1000">F<sub>81</sub>: Schaffer F7/Schaffer F7 with conditioning 1000</h3>
+<p>Combination of the Schaffer F7 function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=85">f<sub>17</sub></a> in the <code>bbob</code> suite) and the Schaffer F7 with conditioning 1000 function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=90">f<sub>18</sub></a> in the <code>bbob</code> suite).</p>
+<p>Both objective functions are of the same type (asymmetric, non-separable, highly multimodal where frequency and amplitude of the modulation vary). The main difference is in the conditioning, which is about 10 in one case and 1000 in the other.</p>
+<p>Contained in the <em>multimodal - multimodal</em> function group.</p>
+</section>
+<section id="f82-schaffer-f7griewank-rosenbrock" class="level3">
+<h3 class="anchored" data-anchor-id="f82-schaffer-f7griewank-rosenbrock">F<sub>82</sub>: Schaffer F7/Griewank-Rosenbrock</h3>
+<p>Combination of the Schaffer F7 function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=85">f<sub>17</sub></a> in the <code>bbob</code> suite) and the Griewank-Rosenbrock function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=95">f<sub>19</sub></a> in the <code>bbob</code> suite).</p>
+<p>Both objective functions are non-separable and highly multimodal. For the asymmetric Schaffer F7 function, frequency and amplitude of the function value modulation vary and it has a low conditioning of about 10. The Griewank-Rosenbrock function resembles the original Rosenbrock function in a highly multimodal way.</p>
+<p>Contained in the <em>multimodal - multimodal</em> function group.</p>
+</section>
+<section id="f83-schaffer-f7-with-conditioning-1000griewank-rosenbrock" class="level3">
+<h3 class="anchored" data-anchor-id="f83-schaffer-f7-with-conditioning-1000griewank-rosenbrock">F<sub>83</sub>: Schaffer F7 with conditioning 1000/Griewank-Rosenbrock</h3>
+<p>Combination of the Schaffer F7 function with conditioning 1000 (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=90">f<sub>18</sub></a> in the <code>bbob</code> suite) and the Griewank-Rosenbrock function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=95">f<sub>19</sub></a> in the <code>bbob</code> suite).</p>
+<p>Compared to <span class="math inline">F_{82}</span>, the only difference is the higher condition number of about 1000 (compared to 10) in the Schaffer F7 function.</p>
+<p>Contained in the <em>multimodal - multimodal</em> function group.</p>
+</section>
+<section id="f84-schwefelgallagher-21" class="level3">
+<h3 class="anchored" data-anchor-id="f84-schwefelgallagher-21">F<sub>84</sub>: Schwefel/Gallagher 21</h3>
+<p>Combination of the Schwefel function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=100">f<sub>20</sub></a> in the <code>bbob</code> suite) and the Gallagher 21 function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=110">f<sub>22</sub></a> in the <code>bbob</code> suite).</p>
+<p>Both objective functions are multimodal with only a weak global structure. The most prominent <span class="math inline">2^n</span> minima of the Schwefel function are located comparatively close to the corners of the unpenalized search area. The penalization is essential, as otherwise more and better minima occur further away from the search space origin. The function is furthermore partially separable, a kind of combinatorial problem, and has two search regimes. The Gallagher function consists of 21 optima with position and height being unrelated and randomly chosen (different for each instantiation of the function). The conditioning of the Gallagher function around the global optimum is about 1000.</p>
+<p>Contained in the <em>weakly-structured - weakly-structured</em> function group.</p>
+</section>
+<section id="f85-schwefelkatsuuras" class="level3">
+<h3 class="anchored" data-anchor-id="f85-schwefelkatsuuras">F<sub>85</sub>: Schwefel/Katsuuras</h3>
+<p>Combination of the Schwefel function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=100">f<sub>20</sub></a> in the <code>bbob</code> suite) and the Katsuuras function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=115">f<sub>23</sub></a> in the <code>bbob</code> suite).</p>
+<p>Both objective functions are highly multimodal with an exponential number (in the dimension) of (global) optima and only a weak global structure. The most prominent <span class="math inline">2^n</span> minima of the Schwefel function are located comparatively close to the corners of the unpenalized search area. The Katsuuras function, in turn, is highly repetitive with more than <span class="math inline">10^n</span> global optima.</p>
+</section>
+<section id="f86-schwefellunacek-bi-rastrigin" class="level3">
+<h3 class="anchored" data-anchor-id="f86-schwefellunacek-bi-rastrigin">F<sub>86</sub>: Schwefel/Lunacek bi-Rastrigin</h3>
+<p>Combination of the Schwefel function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=100">f<sub>20</sub></a> in the <code>bbob</code> suite) and the Lunacek bi-Rastrigin function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=120">f<sub>24</sub></a> in the <code>bbob</code> suite).</p>
+<p>Both objective functions are highly multimodal with only a weak global structure. While the most prominent <span class="math inline">2^n</span> minima of the Schwefel function are located comparatively close to the corners of the unpenalized search area, the Lunacek bi-Rastrigin function has two superimposed funnels. Presumably, different approaches need to be used for ‘selecting the funnel’ and for searching the highly multimodal function ‘within’ the funnel. The single-objective Lunacek bi-Rastrigin function was constructed to be deceptive for some evolutionary algorithms with large population size.</p>
+<p>Contained in the <em>weakly-structure - weakly-structured</em> function group.</p>
+</section>
+<section id="f87-gallagher-101gallagher-21" class="level3">
+<h3 class="anchored" data-anchor-id="f87-gallagher-101gallagher-21">F<sub>87</sub>: Gallagher 101/Gallagher 21</h3>
+<p>Combination of Gallagher’s Gaussian 101-me Peaks function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=105">f<sub>21</sub></a> in the <code>bbob</code> suite) and the Gallagher’s Gaussian 21-hi Peaks function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=110">f<sub>22</sub></a> in the <code>bbob</code> suite).</p>
+<p>Both objective functions are multimodal and non-separable. Both consist of a set of optima with position and height being unrelated and randomly chosen. The number of optima is 101 and 21 respectively and the condition number around the (unique) global optima are about 30 and about 1000 respectively.</p>
+<p>Contained in the <em>weakly-structured - weakly-structured</em> function group.</p>
+</section>
+<section id="f88-gallagher-101katsuuras" class="level3">
+<h3 class="anchored" data-anchor-id="f88-gallagher-101katsuuras">F<sub>88</sub>: Gallagher 101/Katsuuras</h3>
+<p>Combination of Gallagher’s Gaussian 101-me Peaks function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=105">f<sub>21</sub></a> in the <code>bbob</code> suite) and the Katsuuras function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=115">f<sub>23</sub></a> in the <code>bbob</code> suite).</p>
+<p>Both objective functions are non-separable and highly multimodal with only a weak global structure. Gallagher’s Gaussian 101-me Peaks function consists of a set of 101 optima with position and height being unrelated and randomly chosen. The conditioning is about 30. The Katsuuras function, in turn, is highly repetitive with more than <span class="math inline">10^n</span> global optima.</p>
+<p>Contained in the <em>weakly-structured - weakly-structured</em> function group.</p>
+</section>
+<section id="f89-gallagher-101lunacek-bi-rastrigin" class="level3">
+<h3 class="anchored" data-anchor-id="f89-gallagher-101lunacek-bi-rastrigin">F<sub>89</sub>: Gallagher 101/Lunacek bi-Rastrigin</h3>
+<p>Combination of Gallagher’s Gaussian 101-me Peaks function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=105">f<sub>21</sub></a> in the <code>bbob</code> suite) and the Lunacek bi-Rastrigin function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=120">f<sub>24</sub></a> in the <code>bbob</code> suite).</p>
+<p>Both objective functions are non-separable and highly multimodal with only a weak global structure. Gallagher’s Gaussian 101-me Peaks function consists of a set of 101 optima with position and height being unrelated and randomly chosen. The conditioning is about 30. The Lunacek bi-Rastrigin function has two superimposed funnels. Presumably, different approaches need to be used for ‘selecting the funnel’ and for searching the highly multimodal function ‘within’ the funnel. The single-objective Lunacek bi-Rastrigin function was constructed to be deceptive for some evolutionary algorithms with large population size.</p>
+<p>Contained in the <em>weakly-structured - weakly-structured</em> function group.</p>
+</section>
+<section id="f90-gallagher-21katsuuras" class="level3">
+<h3 class="anchored" data-anchor-id="f90-gallagher-21katsuuras">F<sub>90</sub>: Gallagher 21/Katsuuras</h3>
+<p>Combination of Gallagher’s Gaussian 21-hi Peaks function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=110">f<sub>22</sub></a> in the <code>bbob</code> suite) and the Katsuuras function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=115">f<sub>23</sub></a> in the <code>bbob</code> suite).</p>
+<p>Both objective functions are non-separable and multimodal with only a weak global structure. Gallagher’s Gaussian 21-hi Peaks function consists of a set of 21 optima with position and height being unrelated and randomly chosen. The conditioning is about 1000. The Katsuuras function, in turn, is highly repetitive with more than <span class="math inline">10^n</span> global optima.</p>
+<p>Contained in the <em>weakly-structured - weakly-structured</em> function group.</p>
+</section>
+<section id="f91-gallagher-21lunacek-bi-rastrigin" class="level3">
+<h3 class="anchored" data-anchor-id="f91-gallagher-21lunacek-bi-rastrigin">F<sub>91</sub>: Gallagher 21/Lunacek bi-Rastrigin</h3>
+<p>Combination of Gallagher’s Gaussian 21-hi Peaks function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=110">f<sub>22</sub></a> in the <code>bbob</code> suite) and the Lunacek bi-Rastrigin function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=120">f<sub>24</sub></a> in the <code>bbob</code> suite).</p>
+<p>Both objective functions are non-separable and multimodal with only a weak global structure. Gallagher’s Gaussian 21-hi Peaks function consists of a set of 21 optima with position and height being unrelated and randomly chosen. The conditioning is about 1000. The Lunacek bi-Rastrigin function has two superimposed funnels. Presumably, different approaches need to be used for ‘selecting the funnel’ and for searching the highly multimodal function ‘within’ the funnel. The single-objective Lunacek bi-Rastrigin function was constructed to be deceptive for some evolutionary algorithms with large population size.</p>
+<p>Contained in the <em>weakly-structured - weakly-structured</em> function group.</p>
+</section>
+<section id="f92-katsuuraslunacek-bi-rastrigin" class="level3">
+<h3 class="anchored" data-anchor-id="f92-katsuuraslunacek-bi-rastrigin">F<sub>92</sub>: Katsuuras/Lunacek bi-Rastrigin</h3>
+<p>Combination of the Katsuuras function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=115">f<sub>23</sub></a> in the <code>bbob</code> suite) and the Lunacek bi-Rastrigin function (<a href="https://numbbo.github.io/gforge/downloads/download16.00/bbobdocfunctions.pdf#page=120">f<sub>24</sub></a> in the <code>bbob</code> suite).</p>
+<p>Both objective functions are non-separable and highly multimodal with only a weak global structure. The Katsuuras function is highly repetitive with more than <span class="math inline">10^n</span> global optima. The Lunacek bi-Rastrigin function has two superimposed funnels. Presumably, different approaches need to be used for ‘selecting the funnel’ and for searching the highly multimodal function ‘within’ the funnel. The single-objective Lunacek bi-Rastrigin function was constructed to be deceptive for some evolutionary algorithms with large population size.</p>
+<p>Contained in the <em>weakly-structured - weakly-structured</em> function group.</p>
+
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-bbob2019" class="csl-entry" role="listitem">
+Finck, Steffen, Nikolaus Hansen, Raymond Ros, and Anne Auger. 2009. <span>“Real-Parameter Black-Box Optimization Benchmarking 2009: Presentation of the Noiseless Functions.”</span> 2009/20. Research Center PPE. <a href="http://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf">http://coco.gforge.inria.fr/downloads/download16.00/bbobdocfunctions.pdf</a>.
+</div>
+</div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp(".*numbbo/bbob-biobj-plots.*");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+          // default icon
+          link.classList.add("external");
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
