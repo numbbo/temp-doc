@@ -29,6 +29,14 @@ website:
     left:
     - text: "Home"
       href: index.qmd
+    - text: "COCO code"
+      href: https://github.com/numbbo/coco
+    - text: "Data archive"
+      href: https://numbbo.github.io/data-archive/
+    - text: "Postprocessed data"
+      href: https://numbbo.github.io/ppdata-archive/
+    - text: "COCO home"
+      href: http://numbbo.github.io/coco/
   sidebar:
     style: "docked"
     contents:
