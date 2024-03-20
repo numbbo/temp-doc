@@ -90,7 +90,7 @@ All straight lines are of the same length (10) with the support vector in its ex
 Furthermore, the Pareto set approximation plots highlight the projected region $[-5,5]^n$ as a gray-shaded area while the gray-shaded area in the Pareto front approximation plots denotes the region of interest between the ideal ($\times$) and nadir points ($+$). 
 </div>
 
-<div id="text-dominance-ratio" style="padding-top: 10px;">
+<div id="text-dominance-rank" style="padding-top: 10px;">
 #### Dominance rank ratio
 
 Based on a 2-D grid in the search space, the dominance rank ratio of each grid point is the ratio of all grid points that dominate it [@Fonseca1995phd, p. 71ff.]. The plot uses a logarithmic color scale with the overall non-dominated points shown in yellow.
